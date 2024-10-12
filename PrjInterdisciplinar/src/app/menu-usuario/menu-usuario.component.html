@@ -1,0 +1,17 @@
+<main>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="col-12">
+            <div class="col-12 cards-menu" *ngFor="let card of cards">
+              <div class="card">
+                  <h5 class="card-header">{{card.nome}}</h5>
+                  <div class="card-body">
+                    <h5 class="card-title">  <img src="{{card.src}}" alt=" ue" class="icone-menu">{{card.titulo}}</h5>
+                    <p class="card-text">{{card.info}}</p>
+                    
+                  <button class="btn btn-primary">Ver {{card.nome}}</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</main>
