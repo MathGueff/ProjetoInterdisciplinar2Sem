@@ -1,0 +1,43 @@
+.painel{
+  background-color: var(--cor-secundaria);
+  border-radius: 6px;
+  height: auto;
+
+}
+/***** Header-Painel *****/
+  .painel .header-painel{
+    border-bottom: 2px solid black;
+  }
+  h1{
+    font-size: var(--fonte-terciaria);
+  }
+  .img-painel{
+    border: 5px solid white;
+    border-radius: 5px;
+  }
+ /***** Header-Painel *****/
+
+ /***** Body-Painel *****/
+ .body-painel{
+  border-bottom: 2px solid black;
+ }
+ .body-painel .container-fluid{
+  padding: 0;
+  text-align: justify;
+ }
+
+ .body-painel .container-fluid p{
+  text-indent: 10px;
+ }
+  /***** End Body-Painel *****/
+
+ /***** Footer-Painel *****/
+.footer-painel .container-fluid a{
+  text-decoration: none;
+}
+/***** End Footer-Painel *****/
+
+
+
+
+
