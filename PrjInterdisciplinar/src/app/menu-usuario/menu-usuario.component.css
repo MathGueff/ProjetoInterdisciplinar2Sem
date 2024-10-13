@@ -1,3 +1,20 @@
-.cards-menu{
+.cards-menu {
     padding: 20px;
+}
+.icone-menu {
+    width: 40px; /* Ajuste o tamanho da imagem se necessário */
+}
+
+.card-header{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.card-body{
+    background-color: #e0e0e0;
+}
+
+.btn-primary{
+    background-color: var(--cor-quaternaria);
+    border-color: var(--cor-quaternaria);;
 }

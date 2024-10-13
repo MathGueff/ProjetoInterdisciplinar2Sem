@@ -1,11 +1,42 @@
-<nav id="navbar-header">
-  <button aria-label="Abrir menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
-      <span id="hamburguer"></span>
+<nav id="navbar-header" class="d-flex align-items-center justify-content-center">
+  <button class="btn btn-outline-light d-lg-none btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
+    <img src="assets/icones/menu_white_navbar.svg" alt="">
   </button>
-  <ul id="navbar-links" role="menu">
-    <div *ngFor="let link of links">
-      <li><a class="navbar-header-link" href=""><img src="{{link.img}}" alt="{{link.alt}}"><span>{{link.nome}}</span></a></li>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Acesse:</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <li id="login-navbar"><a href=""><img src="assets/icones/icon_white_login.svg" alt="Ir para a página de login" id="icon_login"><span>Login</span></a></li>
+    <div class="offcanvas-body">
+      <div class="container d-flex justify-content-center align-items-center flex-wrap" *ngFor="let link of links">
+        <div class="row">
+          <div class="col-12 pb-4">
+            <a class="navbar-header-link d-flex justify-content-center align-items-center text-center" href="">
+              <img src="{{link.img}}" alt="{{link.alt}}">
+              <span>{{link.nome}}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul id="navbar-links" class="d-none d-lg-flex justify-content-evenly align-items-center">
+    <div *ngFor="let link of links">
+      <li>
+        <a class="navbar-header-link d-flex justify-content-center align-items-center text-center" href="">
+          <img src="{{link.img}}" alt="{{link.alt}}">
+          <span>{{link.nome}}</span>
+        </a>
+      </li>
+    </div>
   </ul>
+
+  <div id="login-navbar">
+    <a href="">
+      <img src="assets/icones/icon_white_login.svg" id="icon_login">
+      <span>Login</span>
+    </a>
+  </div>
 </nav>

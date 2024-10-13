@@ -5,6 +5,7 @@
 #header{
     background-color: var(--cor-primaria);
     height: var(--header-altura);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Suavizando a sombra */
 }
 
 /* Imagem */
@@ -20,20 +21,13 @@
     opacity: 0.7;
 }
 
-@media (max-width: 400px){
-    #logo-header img{
-        width: 150px;
-        height: 120px;
-        transition: 0.6s opacity;
+@media(max-width:500px){
+    #logo-header{
+        width: 200px;
+        height: 100px;
     }
-}
-
-@media (max-width: 280px){
-    #logo-header img{
-       display: none;
-    }
-
     #header{
-        justify-content: center;
+        flex-direction: column;
+        height: auto;
     }
 }
