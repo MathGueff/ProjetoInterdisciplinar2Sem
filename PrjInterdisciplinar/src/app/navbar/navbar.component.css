@@ -1,66 +1,66 @@
 /* Navbar */
-
-#btn-mobile{
-  display: none;
-}
-
-#navbar-header{
-  display: flex;
-  align-items: center;
-}
-
-#navbar-header .navbar-header-link{
-  text-decoration: none;
-  color: #eeeeee;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 20px;
-  gap: 5px;
-}
-
-#navbar-header .navbar-header-link:hover{
-  color: #ffffffa4;
-}
-
-#menu-mobile{
-  display: none;
-}
-
-#navbar-links{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: end;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: auto;
-  margin-bottom: 20px;
-  height: 100px;
+#navbar-links {
+  height: 100%;
   font-size: 1.125rem;
   list-style: none;
   gap: 20px;
 }
 
-#navbar-header .navbar-header-link{
+ul {
+  padding: 0px; 
+  margin: 0;
+}
+
+.navbar-header-link {
+  text-decoration: none;
+  color: #eeeeee;
+  font-weight: 600;
+  height: 100%;
+  gap: 10px;
   position: relative;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
+}
+
+/* Animação do Navbar */
+.navbar-header-link:hover {
+  color: #ffffffa4;
+}
+
+.navbar-header-link:not(.active)::after {
+  content: " ";
+  width: 0%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #f5f5f5;
+  transition: 0.8s all ease-in-out;
+}
+
+.navbar-header-link:not(.active):hover::after {
+  width: 100%;
+}
+
+.active {
+  border-bottom: 4px solid white;
+}
+
+.active:hover {
+  border-bottom: 4px solid #f5f5f5;
 }
 
 /* Login */
-
-#login-navbar{
+#login-navbar {
   margin-bottom: 10px;
   margin-left: 40px;
   transition: 0.4s all ease-in-out;
 }
 
-#login-navbar:hover{
+#login-navbar:hover {
   opacity: 0.5;
 }
 
-#login-navbar a{
+#login-navbar a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,143 +70,25 @@
   text-decoration: none;
 }
 
-#icon_login{
+#icon_login {
   width: 80px;
   height: 80px;
 }
 
-/* Animação do Navbar */
+/* offcanvas */
 
-#navbar-header .navbar-header-link:not(.active)::after{
-  content: " ";
-  width: 0%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #f5f5f5;
-  transition: 0.8s all ease-in-out;
+.btn-primary{
+  background-color: #eeeeee;
+  border-color: var(--cor-primaria);
+  color: black;
 }
 
-#navbar-header .navbar-header-link:not(.active):hover::after{
-  width: 100%;
+.offcanvas-header{
+  background-color: var(--cor-quaternaria);
+  color: white;
+  border: none;
 }
 
-#navbar-header .active{
-  border-bottom: 4px solid white;
-}
-
-#navbar-header .active:hover{
-  border-bottom: 4px solid #f5f5f5
-}
-
-
-@media (max-width: 1050px){
-  #navbar-links{
-      display: block;
-      position: absolute;
-      box-sizing: border-box;
-      width: 100%;
-      height: 0px;
-      top: 100px;
-      right: 0;
-      transition: .6s ease-in-out;
-      z-index: 1000;
-      visibility: hidden;
-      overflow-y: hidden;
-  }
-
-  #navbar-links li{
-      display: flex;
-      justify-content: center;
-  }
-
-  #navbar-header.active-menu #navbar-links{
-      height: calc(100vh - var(--header-altura));
-      visibility: visible;
-      overflow-y: auto;
-  }
-
-  #navbar-links .navbar-header-link{
-      padding: 20px;
-  }
-
-  #btn-mobile{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: .5rem 1rem;
-      font-size: 1.5rem;
-      border: none;
-      background: none;
-      cursor: pointer;
-      gap: .5rem;
-      color: white;
-      transition: 0.5s all ease;
-  }
-
-  #btn-mobile:hover{
-      opacity: 0.5;
-  }
-
-  #hamburguer{
-      border-top: 3px solid;
-      width: 25px;
-      display: block;
-      color: white;
-  }
-  #hamburguer::after, #hamburguer::before {
-      content: " ";
-      display: block;
-      width: 25px;
-      height: 3px;
-      background-color: currentColor;
-      margin-top: 5px;
-      transition: .3s ease;
-      position: relative;
-  }
-
-  #navbar-header.active-menu #hamburguer{
-      border-top-color: transparent;
-  }
-
-  #navbar-header.active-menu #hamburguer::after{
-      transform: rotate(-135deg);
-      top: -7.5px;
-  }
-
-  #navbar-header.active-menu #hamburguer::before{
-      transform: rotate(135deg)
-  }
-
-  #login-navbar{
-      margin-bottom: 0px;
-      margin-left: 0px;
-      margin-right: 30px;
-  }
-}
-
-/* Animação */
-
-#navbar-header .navbar-header-link:not(.active)::after{
-  content: " ";
-  width: 0%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: #f5f5f5;
-  transition: 0.8s all ease-in-out;
-}
-
-#navbar-header .navbar-header-link:not(.active):hover::after{
-  width: 100%;
-}
-
-#navbar-header .active{
-  border-bottom: 4px solid white;
-}
-
-#navbar-header .active:hover{
-  border-bottom: 4px solid #f5f5f5
+.offcanvas-body{
+  background-color: var(--cor-primaria);
 }
