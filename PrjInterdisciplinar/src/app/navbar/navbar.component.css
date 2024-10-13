@@ -77,15 +77,10 @@ ul {
 
 /* offcanvas */
 
-.btn-primary{
-  background-color: #eeeeee;
-  border-color: var(--cor-primaria);
-  color: black;
-}
-
 .offcanvas-header{
-  background-color: var(--cor-quaternaria);
-  color: white;
+  background-color: var(--cor-primaria);
+  border-bottom: var(--cor-secundaria) 4px solid !important;
+  color: #eeeeee;
   border: none;
 }
 
