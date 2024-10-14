@@ -5,7 +5,10 @@
 #header{
     background-color: var(--cor-primaria);
     height: var(--header-altura);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Suavizando a sombra */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); 
+    position: sticky;
+    top: 0;
+    z-index: 999; 
 }
 
 /* Imagem */
