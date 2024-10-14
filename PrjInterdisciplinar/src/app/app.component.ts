@@ -4,11 +4,12 @@ import { HeaderComponent } from "./header/header.component";
 import { ReclacacaoPainelComponent } from './reclacacao-painel/reclacacao-painel.component';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { ReclamacaoInicialComponent } from "./reclamacao-inicial/reclamacao-inicial.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, MenuUsuarioComponent, ReclacacaoPainelComponent, MenuAdminComponent],
+  imports: [RouterOutlet, HeaderComponent, MenuUsuarioComponent, ReclacacaoPainelComponent, MenuAdminComponent, ReclamacaoInicialComponent, ReclamacaoInicialComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
