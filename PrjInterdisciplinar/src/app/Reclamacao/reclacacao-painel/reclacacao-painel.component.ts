@@ -1,4 +1,4 @@
-import { Reclamacao } from './../models/reclamacao';
+import { Reclamacao } from '../../models/reclamacao';
 import { Component } from '@angular/core';
 
 @Component({
