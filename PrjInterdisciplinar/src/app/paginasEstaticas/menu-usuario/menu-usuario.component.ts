@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MenuUsuario } from '../models/menu-usuario';
 import { CommonModule } from '@angular/common';
+import { MenuUsuario } from '../../models/menu-usuario';
 
 @Component({
   selector: 'app-menu-usuario',
