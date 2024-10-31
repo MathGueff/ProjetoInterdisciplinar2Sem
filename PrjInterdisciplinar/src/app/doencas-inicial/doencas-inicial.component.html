@@ -2,30 +2,45 @@
   <div class="row">
     <!-- Banner -->
     <div class="col-1"></div>
-    <div class="col-10 segundo-fundo d-flex flex-line justify-content-center align-items-center">
-      <img id="main-img" src="assets/doencas/pessoa_doente.svg" alt="pessoa_doente.svg">
-      <span id="texto-banner-doencas">O saneamento básico é crucial para a saúde pública, prevenindo doenças e promovendo o bem-estar. O acesso a água potável, esgoto tratado e manejo correto de resíduos sólidos reduz a contaminação ambiental e a exposição a agentes patogênicos. Proteja sua saúde e o meio ambiente com os cuidados necessários!</span>
+    <div
+      class="col-10 segundo-fundo d-flex flex-line justify-content-center align-items-center"
+    >
+      <img
+        id="main-img"
+        src="assets/doencas/pessoa_doente.svg"
+        alt="pessoa_doente.svg"
+      />
+      <span id="texto-banner-doencas"
+        >O saneamento básico é crucial para a saúde pública, prevenindo doenças
+        e promovendo o bem-estar. O acesso a água potável, esgoto tratado e
+        manejo correto de resíduos sólidos reduz a contaminação ambiental e a
+        exposição a agentes patogênicos. Proteja sua saúde e o meio ambiente com
+        os cuidados necessários!</span
+      >
     </div>
     <div class="col-1"></div>
     <!-- Banner -->
     <div class="row">
       <!-- Titulo -->
-      <div class="col-12 d-flex flex-line justify-content-center align-items-center">
+      <div
+        class="col-12 d-flex flex-line justify-content-center align-items-center"
+      >
         <h2>Doenças relacionas ao saneamento básico:</h2>
       </div>
       <!-- Titulo -->
       <!-- Filtro -->
       <div class="col-2"></div>
-      <div class="col-8 row segundo-fundo terceiro-fundo d-flex flex-line text-center align-items-center">
+      <div
+        class="col-8 row segundo-fundo terceiro-fundo d-flex flex-line text-center align-items-center"
+      >
         <div class="col-12 row d-flex flex-line justify-content-center">
           <div class="col-6 d-flex flex-column">
             <label class="form-label">Pesquise uma doença</label>
-            <input type="text" name="doencas" class="form-control">
+            <input type="text" name="doencas" class="form-control" />
           </div>
           <div class="col-6 d-flex flex-column">
             <label class="form-label">Pesquise uma doença</label>
-            <select class="form-select" name="doencas">
-            </select>
+            <select class="form-select" name="doencas"></select>
           </div>
         </div>
       </div>
@@ -36,10 +51,15 @@
     <div class="row gap-5" *ngFor="let doenca of doencas">
       <div class="col-1"></div>
       <div class="col-10 row card d-flex flex-line overflow-hidden">
-        <img class="col-2" src={{doenca.image}} alt="amebiase.jpg" id="amebiase-img">
+        <img
+          class="col-2"
+          src="{{ doenca.image }}"
+          alt="amebiase.jpg"
+          id="amebiase-img"
+        />
         <div class="col-10 d-flex flex-column">
-          <h5>{{doenca.title}}</h5>
-          <span>{{doenca.description}}</span>
+          <h5>{{ doenca.title }}</h5>
+          <span>{{ doenca.description }}</span>
         </div>
       </div>
       <div class="col-1"></div>
