@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './menu-usuario.component.css'
 })
 export class MenuUsuarioComponent{
+  //Array com os links do menu
   cards : MenuUsuario[] = [
     {nome : 'Doenças', titulo : 'Doenças relacionadas', src : 'assets/icones/icon_black_doenca.svg', info : 'Veja informações sobre as doenças que estão relacionadas a falta de saneamento básico'},
     {nome : 'Notícias', titulo : 'Notícias sobre saneamento básico', src : 'assets/icones/icon_black_noticia.svg', info : 'Confira algumas das principais notícias sobre saneamento básico e a distribuição de água potável.'},
