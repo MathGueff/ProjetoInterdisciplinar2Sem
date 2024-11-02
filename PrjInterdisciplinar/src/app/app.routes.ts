@@ -1,10 +1,8 @@
-import { PagNoticiaComponent } from './Noticia/pag-noticia/pag-noticia.component';
+import { MenuUsuarioComponent } from './paginasEstaticas/menu-usuario/menu-usuario.component';
 import { Routes } from '@angular/router';
-import { PagReclamacaoComponent } from './Reclamacao/pag-reclamacao/pag-reclamacao.component';
-import { PagDoecaComponent } from './doencas/pag-doeca/pag-doeca.component';
+import { ReclamacaoDescricaoComponent } from './Reclamacao/reclamacao-descricao/reclamacao-descricao.component';
+
 export const routes: Routes = [
-  //{path:"sobre-nos",component:SobrenosComponent},
-  {path:"reclamacoes",component:PagReclamacaoComponent},
-  {path:"doencas",component:PagDoecaComponent},
-  {path:"noticias",component:PagNoticiaComponent}
+  {path:'pagina-inicial', component:MenuUsuarioComponent},
+  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent}
 ];
