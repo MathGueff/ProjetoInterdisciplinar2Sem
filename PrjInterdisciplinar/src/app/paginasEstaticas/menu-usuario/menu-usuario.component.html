@@ -1,8 +1,8 @@
-<div class="menu-background"> <!-- Background do componente -->
-  <div class="container-fluid d-flex justify-content-center"> <!-- Container do conteúdo do componente -->
-    <div class="row mt-4 mb-4 cards-div"> <!-- Row para os cards -->
-      <div class="col-12 p-4 ps-5 pe-5" *ngFor="let card of cards"> <!-- Div do card -->
-        <div class="card h-100"> <!-- Card -->
+<div class="menu-background"> <!-- background -->
+  <div class="container-fluid d-flex justify-content-center"> <!-- Div do container-->
+    <div class="row mt-4 mb-4 cards-div"> <!-- Div da row-->
+      <div class="col-12 p-4 ps-5 pe-5" *ngFor="let card of cards"> <!-- Div da coluna-->
+        <div class="card h-100"> <!-- Div do card-->
           <h5 class="card-header pt-3 pb-3">{{ card.nome }}</h5>
           <div class="card-body">
             <div class="d-flex align-items-center flex-wrap">
@@ -12,7 +12,7 @@
             <p class="card-text">{{ card.info }}</p>
             <button class="btn btn-primary btn-md">Ver {{ card.nome }}</button>
           </div>
-        </div> <!-- Fechamento do Card -->
+        </div>
       </div>
     </div>
   </div>
