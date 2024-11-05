@@ -3,4 +3,5 @@ export class MenuUsuario {
     titulo : string = '';
     info : string = '';
     src : string = '';
+    path: string = '';
 }
