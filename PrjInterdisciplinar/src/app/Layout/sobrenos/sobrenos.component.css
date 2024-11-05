@@ -1,0 +1,36 @@
+h2{
+  font-size: var(--sobrenos-titulo);
+  font-weight: bold;
+}
+p{
+  text-align: justify;
+}
+section{
+  height: auto;
+  padding: 15px 55px;
+}
+/***** Empresa *****/
+
+.empresa{
+  gap: 35px;
+}
+.empresa .col{
+  gap: 20px;
+}
+.empresa .col img{
+  width: 30%
+}
+ /***** End Empresa *****/
+/***** Objetivo *****/
+
+.objetivo{
+  background-color: var(--cor-secundaria);
+  gap: 50px;
+}
+ .objetivo .col img{
+  width: 60%;
+  text-align: center;
+}
+
+/***** End Objetivo *****/
+
