@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  //Array com links de navegação da navbar
   links : NavbarLink[] =[
     {path: '', img: 'assets/icones/icon_white_doenca.svg', alt : 'Ícone do link para página de Doenças', nome : 'Doenças'},
     {path: '', img: 'assets/icones/icon_white_noticia.svg', alt : 'Ícone do link para página de Notícias', nome : 'Notícias'},
