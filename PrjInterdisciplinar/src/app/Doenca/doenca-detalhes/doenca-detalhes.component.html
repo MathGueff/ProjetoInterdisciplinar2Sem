@@ -1,0 +1,42 @@
+<div id="fundo" class="m-5 px-5 py-4 justifica rounded">
+  <h2>Esquistossomose</h2>
+  <div class="info pb-3 mb-3">
+    <p>Transmissão:</p>
+    <span>
+      É uma doença parasitária, diretamente relacionada ao saneamento precário,
+      causada pelo Schistosoma mansoni. A pessoa adquire a infecção quando entra
+      em contato com água doce onde existam caramujos infectados pelos vermes
+      causadores da esquistossomose. No Brasil, a esquistossomose é conhecida
+      popularmente como “xistose”, “barriga d’água” ou “doença dos
+      caramujos”.
+      </span>
+  </div>
+  <div class="info pb-3 mb-3">
+    <p>Tratamento:</p>
+    <span>
+      O diagnóstico da esquistossomose é feito por meio de exames laboratoriais
+      de fezes. É possível detectar, por meio desses exames, os ovos do parasita
+      causador da doença. O médico também pode solicitar teste de anticorpos
+      para verificar sinais de infecção e para formas graves ultrassonografia. O
+      tratamento da esquistossomose, para os casos simples, é em dose única e
+      supervisionado feito por meio do medicamento Praziquantel, receitado pelo
+      médico e distribuído gratuitamente pelo Ministério da Saúde. Os casos
+      graves geralmente requerem internação hospitalar e até mesmo tratamento
+      cirúrgico, conforme cada situação
+      </span>
+  </div>
+  <div class="info">
+    <p>Sintomas:</p>
+    <ul>
+      <div *ngFor="let sintoma of sintomas">
+        <li>
+          <p>{{ sintoma.nome }}</p>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose">https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose</a>
+  <div class="d-flex justify-content-end text-center">
+    <a class="d-flex text-decoration-none" routerLink=""><img id="voltar" class="me-2" src="img/paginas/doencas/voltar.svg" alt=""/>Voltar</a>
+  </div>
+</div>

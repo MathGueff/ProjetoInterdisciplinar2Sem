@@ -1,0 +1,47 @@
+/* Background */
+.menu-background{
+    background-color: #e8e3e3;
+}
+
+/* Ícones dos cards */
+.icone-cards {
+    width: 30px;
+}
+
+/* Cards */
+.card{
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    transition: 0.4s all ease;
+}
+
+.card-header{
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.card-body{
+    background-color: #e0e0e0;
+}
+
+.card:hover{
+    opacity: 0.85;
+    transform: translateX(4px);
+}
+
+/* Botão de acessar componentes */
+.btn-primary{
+    background-color: var(--cor-quaternaria);
+    border-color: var(--cor-quaternaria);
+    transition: 0.4s all ease;
+}
+
+.btn-primary:hover{
+    transform: translateY(2px);
+}
+
+.btn-primary:active{
+    background-color: var(--cor-quaternaria);
+    border-color: var(--cor-quaternaria);
+    opacity: 0.8;
+}
