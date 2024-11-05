@@ -26,7 +26,7 @@ ul {
   opacity: 0.7;
 }
 
-.navbar-header-link:not(.active)::after {
+.navbar-header-link:not(.link-navbar-ativo)::after {
   content: " ";
   width: 0%;
   height: 3px;
@@ -37,7 +37,7 @@ ul {
   transition: 0.8s all ease-in-out;
 }
 
-.navbar-header-link:not(.active):hover::after {
+.navbar-header-link:not(.link-navbar-ativo):hover::after {
   width: 100%;
 }
 
@@ -86,4 +86,8 @@ ul {
 
 .offcanvas-body{
   background-color: var(--cor-primaria);
+}
+
+.link-navbar-ativo{
+  border-bottom: 3px solid white;
 }

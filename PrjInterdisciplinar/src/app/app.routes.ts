@@ -7,5 +7,6 @@ import { DoencasInicialComponent } from './Doenca/doencas-inicial/doencas-inicia
 export const routes: Routes = [
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path:'pagina-inicial', component:MenuUsuarioComponent},
-  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent}
+  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
+  {path: 'doenca-detalhada', component:DoencaDetalhesComponent}
 ];
