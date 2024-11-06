@@ -23,13 +23,15 @@ h2{
 }
 .card{
   background-color: var(--cor-secundaria);
-  height: 140px;
+  height: 200px;
   border: 0px;
   border-radius: 20px;
 }
 .card img{
   padding: 20px 20px;
-  width: 100px;
+  width: 200px;
+  height:200px;
+  border-radius: 12.5%;
 }
 .card div span{
   font-size: var(--doencas-texto);

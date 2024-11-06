@@ -1,18 +1,26 @@
 <div id="fundo" class="m-5 px-5 py-4 justifica rounded">
-  <h2>Esquistossomose</h2>
-  <div class="info pb-3 mb-3">
-    <p>Transmissão:</p>
-    <span>
-      É uma doença parasitária, diretamente relacionada ao saneamento precário,
-      causada pelo Schistosoma mansoni. A pessoa adquire a infecção quando entra
-      em contato com água doce onde existam caramujos infectados pelos vermes
-      causadores da esquistossomose. No Brasil, a esquistossomose é conhecida
-      popularmente como “xistose”, “barriga d’água” ou “doença dos
-      caramujos”.
+  <div class="info pb-3 mb-3 d-flex flex-line">
+    <img
+      id="imgDoenca"
+      class="me-3"
+      src="img/paginas/doencas/ShistossomaMansoni.png"
+      alt="SchistosomaMansoni.png"
+    />
+    <div>
+      <h2 id="titulo">Esquistossomose</h2>
+      <h5>Transmissão:</h5>
+      <span>
+        É uma doença parasitária, diretamente relacionada ao saneamento
+        precário, causada pelo Schistosoma mansoni. A pessoa adquire a infecção
+        quando entra em contato com água doce onde existam caramujos infectados
+        pelos vermes causadores da esquistossomose. No Brasil, a esquistossomose
+        é conhecida popularmente como “xistose”, “barriga d’água” ou “doença dos
+        caramujos”.
       </span>
+    </div>
   </div>
   <div class="info pb-3 mb-3">
-    <p>Tratamento:</p>
+    <h5>Tratamento:</h5>
     <span>
       O diagnóstico da esquistossomose é feito por meio de exames laboratoriais
       de fezes. É possível detectar, por meio desses exames, os ovos do parasita
@@ -23,10 +31,10 @@
       médico e distribuído gratuitamente pelo Ministério da Saúde. Os casos
       graves geralmente requerem internação hospitalar e até mesmo tratamento
       cirúrgico, conforme cada situação
-      </span>
+    </span>
   </div>
-  <div class="info">
-    <p>Sintomas:</p>
+  <div class="info mb-3">
+    <h5>Sintomas:</h5>
     <ul>
       <div *ngFor="let sintoma of sintomas">
         <li>
@@ -35,8 +43,18 @@
       </div>
     </ul>
   </div>
-  <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose">https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose</a>
-  <div class="d-flex justify-content-end text-center">
-    <a class="d-flex text-decoration-none" routerLink=""><img id="voltar" class="me-2" src="img/paginas/doencas/voltar.svg" alt=""/>Voltar</a>
+  <a
+    href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose"
+    >https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose</a
+  >
+  <div class="d-flex justify-content-end">
+    <a class="d-flex text-decoration-none align-items-center" routerLink="">
+      <img
+      id="voltar"
+      class="me-2"
+      src="img/paginas/doencas/voltar.svg"
+      alt="voltar.svg"
+    />Voltar</a
+    >
   </div>
 </div>
