@@ -1,13 +1,15 @@
 h2{
   font-size: var(--sobrenos-titulo);
-  font-weight: bold;
+  font-weight: bolder;
 }
 p{
   text-align: justify;
 }
 section{
+  margin-top: 20px;
   height: auto;
   padding: 15px 55px;
+  flex-wrap: wrap;
 }
 /***** Empresa *****/
 
@@ -28,9 +30,38 @@ section{
   gap: 50px;
 }
  .objetivo .col img{
-  width: 60%;
+  width: 300px;
   text-align: center;
 }
 
 /***** End Objetivo *****/
+
+/***** Desenvolvedores *****/
+
+.desenvolvedores h2{
+  text-align: center;
+}
+.desenvolvedores .group-dev .dev{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+}
+.desenvolvedores .group-dev .dev img{
+
+  height: 150px;
+  border-radius: 50%;
+  transition: .5s;
+}
+.desenvolvedores .group-dev .dev img:hover{
+  transform: scale(1.12);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.308);
+}
+.desenvolvedores .group-dev .dev span{
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+/***** End Desenvolvedores *****/
 
