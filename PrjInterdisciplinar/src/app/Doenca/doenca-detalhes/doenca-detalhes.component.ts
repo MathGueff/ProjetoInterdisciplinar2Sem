@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Sintomas } from './../models/sintomas';
+import { Sintomas } from '../../models/sintomas';
 import { Component } from '@angular/core';
 
 @Component({

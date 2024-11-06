@@ -1,7 +1,9 @@
+/* Sobrescrita do bootstrap */
 .container-fluid{
   padding: 0px;
 }
 
+/* ID do header principal */
 #header{
     background-color: var(--cor-primaria);
     height: var(--header-altura);
@@ -29,6 +31,7 @@
         width: 200px;
         height: 100px;
     }
+
     #header{
         flex-direction: column;
         height: auto;

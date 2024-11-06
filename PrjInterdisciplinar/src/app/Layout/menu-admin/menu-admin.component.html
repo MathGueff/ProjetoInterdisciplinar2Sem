@@ -1,0 +1,10 @@
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="d-flex flex-wrap justify-content-center align-items-center h-100 opcoes-dashboard m-4 p-4 row w-50">
+    <div *ngFor="let link of links" class="col-lg-4 col-md-12 m-2 opcao-dashboard d-flex justify-content-center align-items-center flex-wrap text-center">
+      <div class="d-flex justify-content-center align-items-center flex-column" routerLink="{{link.path}}">
+        <img class="icone-menu-admin" src="{{link.img}}" alt="">
+        <span>{{link.nome}}</span>
+      </div>
+    </div>
+  </div>
+</div>

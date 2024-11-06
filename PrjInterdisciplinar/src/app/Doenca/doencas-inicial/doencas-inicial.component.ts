@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Doencas } from '../models/doencas';
+import { Doencas } from '../../models/doencas';
 
 @Component({
   selector: 'app-doencas-inicial',
