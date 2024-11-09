@@ -39,11 +39,8 @@
 
   </div>
   <div class=" col cards d-flex flex-column align-content-center align-items-center">
-    <div class="cards-item">
-      <app-reclamacao-card></app-reclamacao-card>
-    </div>
-    <div class="cards-item">
-      <app-reclamacao-card></app-reclamacao-card>
+    <div class="cards-item" *ngFor="let reclamacao of reclamacoes" >
+      <app-reclamacao-card [card] = "reclamacao"></app-reclamacao-card>
     </div>
   </div>
 </div><!-- container-fluid -->

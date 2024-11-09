@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Reclamacao } from '../../models/reclamacao';
 
 @Component({
   selector: 'app-reclamacao-card',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './reclamacao-card.component.css'
 })
 export class ReclamacaoCardComponent {
-
+  @Input () card !: Reclamacao
 }
