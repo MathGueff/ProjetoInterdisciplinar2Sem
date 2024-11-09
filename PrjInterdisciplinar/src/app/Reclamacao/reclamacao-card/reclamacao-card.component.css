@@ -1,0 +1,33 @@
+.card-reclamacao{
+  background-color: var(--cor-secundaria);
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+.tags{
+  color: #ebebeb;
+  background-color: var(--cor-primaria);
+  padding: 10px;
+  border-radius: 5px;
+}
+.card-body .imagem{
+  width: 25%;
+  height: auto;
+}
+.card-body .imagem img{
+  border-radius: 10px;
+}
+.card-body h3{
+  font-size: medium;
+  font-weight: 650;
+}
+.link-card{
+  visibility: hidden;
+  transition: 0.4s all ease-in-out;
+  color: #2e2e2e;
+  font-weight: bold;
+  transition: 0.5s all ease;
+}

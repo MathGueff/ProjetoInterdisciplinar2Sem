@@ -12,15 +12,38 @@
         gerações.</p>
     </div>
   </div><!-- banner -->
-  <div class="row tags">
-    <div class="col">
-      <h2>Reclamações criadas por usuários</h2>
-      <div class="pesquisa-tag">
-        <div class="titulo-reclamacao">
-          <label for="titulo">Filtre pela Tag</label>
-          <input type="text" name="tag" id="tag">
+  <div class="row mb-5">
+    <div class="col tags">
+      <h2 class="mb-4">Filtre pela Tag</h2>
+      <form class="pesquisa-tag p-4">
+        <div class="tag-reclamacao">
+          <select class="form-select text-center borda" name="tag" id="">
+            <option value="tag1">Tag1</option>
+            <option value="tag2">Tag2</option>
+            <option value="tag3">Tag3</option>
+            <option value="tag4">Tag4</option>
+          </select>
         </div>
+      </form>
+    </div>
+  </div> <!-- row tag  -->
+  <div class="row mb-5">
+    <div class="col text-center adicionar">
+      <h2 class="mb-4">Adicione sua reclamação</h2>
+      <div class="adicionar-btn py-3">
+        <a class="btn btn-secondary">Adicionar</a>
       </div>
     </div>
+  </div><!-- row adicionar reclamação -->
+  <div class="row">
+
   </div>
-</div>
+  <div class=" col cards d-flex flex-column align-content-center align-items-center">
+    <div class="cards-item">
+      <app-reclamacao-card></app-reclamacao-card>
+    </div>
+    <div class="cards-item">
+      <app-reclamacao-card></app-reclamacao-card>
+    </div>
+  </div>
+</div><!-- container-fluid -->

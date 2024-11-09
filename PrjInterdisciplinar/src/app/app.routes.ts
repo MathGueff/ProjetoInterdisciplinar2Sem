@@ -16,6 +16,5 @@ export const routes: Routes = [
   {path:'pagina-inicial', component:MenuUsuarioComponent},
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
   {path:'reclamacao-inicial', component:ReclamacaoInicialComponent},
-  {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
-
+  {path: 'doenca-detalhada', component:DoencaDetalhesComponent}
 ];
