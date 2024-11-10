@@ -16,10 +16,9 @@
 /* Imagem */
 
 #logo-header img{
-    width: 240px;
-    height: 100px;
+    width: 180px;
+    height: calc(var(--header-altura) - 20px); /* Calculo para alinhar a imagem com o tamanho do header */
     transition: 0.6s opacity;
-    margin-bottom: 20px;
 }
 
 #logo-header img:hover{
@@ -37,3 +36,28 @@
         height: auto;
     }
 }
+
+/* Login */
+#login-navbar {
+    transition: 0.4s all ease-in-out;
+  }
+  
+  #login-navbar:hover {
+    opacity: 0.5;
+  }
+  
+  #login-navbar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: calc(var(--header-texto) + 0.1rem);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  #icon_login {
+    width: calc(var(--header-altura) - 20px);
+    height: calc(var(--header-altura) - 20px);
+  }
+  
