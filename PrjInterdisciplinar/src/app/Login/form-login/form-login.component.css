@@ -1,0 +1,110 @@
+.login-background{
+   background-color: var(--cor-background);
+}
+
+/* Div do formulário */
+.form-login{
+    background-color: var(--cor-form-login);
+    width: 440px;
+    height: 520px;
+    border: 6px solid var(--cor-primaria);
+    border-radius: 10px;
+}
+
+/* Elementos do formulário */
+h2{
+    font-weight: bold;
+}
+
+.form-label{
+    font-size: 1rem;
+}
+
+.form-control{
+    background-color:  #575757;/* #575757 */
+    color: #e7e7e7;
+    border-radius: 10px;
+    width: 270px;
+    height: 40px;
+    font-size: 0.9rem;
+    transition: 0.5s all;
+}
+
+.form-control:hover{
+    opacity: 0.9;
+}
+
+.form-control:focus{
+    background-color: #575757;
+    transform: translate(0.8px);
+}
+
+.form-control::placeholder{
+    color: #e7e7e7;
+    opacity: 0.8;
+}
+
+/* Icones do formulário */
+.icon{
+    width: 30px;
+    height: 30px;
+}
+
+/* Botão de login */
+#login-botao{
+    width: 206px;
+    height: 46px;
+    margin-top: 32px;
+    background-color: var(--cor-quaternaria);
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.6s all ease;
+}
+
+#login-botao:hover{
+    opacity: 0.8;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* Div dos links para redes sociais */
+.entrar-redes{
+    margin-top: 16px;
+    width: 220px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.entrar-redes img{
+    width: 42px;
+    height: 42px;
+    transition: 0.8s all ease;
+}
+
+.entrar-redes img:hover{
+    transform: translateY(-4px);
+}
+
+/* Ir para form de cadastro */
+.direcionar-cadastro{
+    margin-top: 18px;
+    margin-bottom: 15px;
+}
+
+.direcionar-redefinir-senha{
+    margin-top: 18px;
+}
+
+/* Estilos dos links */
+#link-cadastro, #link-redefinir-senha{
+    color: var(--cor-fonte-link);
+    font-size: var(--login-texto)
+}
+
+#link-cadastro:hover, #link-redefinir-senha:hover{
+    opacity: 0.8;
+}
