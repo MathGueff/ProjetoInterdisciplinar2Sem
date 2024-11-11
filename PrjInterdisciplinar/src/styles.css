@@ -30,26 +30,12 @@
     /* Header  */
     --header-altura: 90px;
     --header-texto: 1.01rem;
-    --navbar-espacamento-letras: "1.5px";
 
     /* Footer */
     --footer-altura: 242px;
     --footer-links: 1.25rem;
     --footer-titulos: 2rem;
     --footer-icones: 32px; /* width e height dos ícones*/
-
-    /* Login e Cadastro */
-    --login-titulo: 1.675rem;
-    --login-label: 0.875rem;
-    --login-botao: 1.125rem;
-    --login-texto: 0.875rem; /* Textos menores (p ou span) */
-
-    /* Menu */
-    --menu-icones: 92px; /* width e height dos ícones */
-
-    /* Informações */
-    --info-titulo: 1.875rem;
-    --info-icones: 101px; /* width e height dos ícones */
 
     /* Doenças e Notícias */
     --doencas-texto: 1rem;
