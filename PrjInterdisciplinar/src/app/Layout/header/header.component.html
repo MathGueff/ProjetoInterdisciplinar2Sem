@@ -1,6 +1,13 @@
-<header id="header" class="container-fluid d-flex justify-content-around align-items-center p-3 flex-wrap">
+<header id="header" class="container-fluid d-flex justify-content-evenly align-items-center flex-wrap">
     <div id="logo-header">
         <a routerLink="/pagina-inicial"><img src="assets/logo/logo_sanea.svg" id="logo_header" class="img-fluid"></a>
     </div>
     <app-navbar></app-navbar>
+    <!-- Botão de login -->
+    <div id="login-navbar">
+        <a routerLink="login">
+        <img src="assets/icones/icon_white_login.svg" id="icon_login">
+        <span>Login</span>
+        </a>
+    </div>
 </header>
