@@ -33,7 +33,7 @@ export class ReclamacaoInicialComponent {
       tituloReclamao: "Sei sei lá lá 3",
       descricaoReclamacao: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis nec dui venenatis tempor. Nullam vitae sodales neque, at sodales lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris dictum fringilla efficitur. Aliquam sit amet mi nunc. Nullam vel viverra turpis. Sed nec condimentum urna. Phasellus eu consectetur purus. Suspendisse non fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
       dataReclamacao: "10/10/2014",
-      objImagem :"img/paginas/reclamacoes/user1.jpg",
+      objImagem :"img/paginas/reclamacoes/user3.jpg",
       objTag: "Tag3"
     }
   ];

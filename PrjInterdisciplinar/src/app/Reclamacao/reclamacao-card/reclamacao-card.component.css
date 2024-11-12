@@ -25,9 +25,13 @@
   font-weight: 650;
 }
 .link-card{
-  visibility: hidden;
+  visibility: visible;
   transition: 0.4s all ease-in-out;
   color: #2e2e2e;
   font-weight: bold;
   transition: 0.5s all ease;
+}
+.link-card a {
+  color:  rgb(34, 34, 34);
+  text-decoration: none;
 }

@@ -1,17 +1,15 @@
 <div class="container-fluid card-reclamacao d-flex flex-column align-items-center gap-3">
   <div class="tags w-100 d-flex justify-content-around">
-    <span>#Qualquer coisa</span>
-    <span>#Qualquer coisa</span>
-    <span>#Qualquer coisa</span>
+    <span>{{card.objTag}}</span>
   </div>
   <div class="card-body w-100 d-flex align-items-start gap-3">
     <div class="imagem">
-      <img class="img-fluid" src="img/paginas/reclamacoes/user3.jpg" alt="imagem #Qualquer">
+      <img class="img-fluid" src="{{card.objImagem}}" alt="imagem #Qualquer">
     </div>
-    <h3>Qualquer coisa blblabla</h3>
+    <h3>{{card.tituloReclamao}}</h3>
   </div>
   <div class="link-card">
-    <a>Clique para ver mais sobre</a>
+    <a routerLink="/reclamacao-descricao/{{card.idReclamacao}}" routerLinkActive="router-link-active" >Clique para ver mais sobre</a>
   </div>
 </div>
 
