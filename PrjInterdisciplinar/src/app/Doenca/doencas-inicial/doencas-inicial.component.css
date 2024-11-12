@@ -21,7 +21,8 @@ h2{
 .terceiro-fundo{
   background-color:var(--cor-terciaria);
 }
-.card{
+/* Código antigo do card */
+/* .card{
   background-color: var(--cor-secundaria);
   height: 200px;
   border: 0px;
@@ -40,4 +41,11 @@ h2{
 .card div{
   margin-top: 20px;
   max-height: 100px;
+} */
+
+.icone-cards{
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  border: 2px solid var(--cor-primaria);
 }
