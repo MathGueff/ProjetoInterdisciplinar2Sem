@@ -2,7 +2,7 @@
 .cadastro-background{
     background-color: var(--cor-background);
  }
- 
+
  /* Div do formulário */
  .form-cadastro{
      background-color: var(--cor-form-login);
@@ -11,12 +11,12 @@
      border: 6px solid var(--cor-primaria);
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
  }
- 
+
  /* Elementos do formulário */
  .form-label{
      font-size: 1rem;
  }
- 
+
  .form-control{
      background-color:  #dfdddd;/* #575757 */
      border-radius: 10px;
@@ -26,18 +26,18 @@
      transition: 0.6s transform ease;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
  }
- 
+
  .form-control:focus{
      transform: translate(2px);
      border: 2px solid var(--cor-primaria);
  }
- 
+
  /* Icones do formulário */
  .icon{
      width: 30px;
      height: 30px;
  }
- 
+
  /* Botão de login */
  #cadastro-botao{
      background-color: var(--cor-quaternaria);
@@ -50,13 +50,13 @@
      letter-spacing: 1.2px;
      transition: 0.6s all ease;
  }
- 
+
  #cadastro-botao:hover{
      opacity: 0.8;
      transform: translateY(-5px);
      cursor: pointer;
  }
- 
+
  /* Div dos links para redes sociais */
  .links-redes{
     width: 200px;
@@ -67,11 +67,11 @@
      height: 42px;
      transition: 0.8s all ease;
  }
- 
+
  .links-redes img:hover{
      transform: translateY(-4px);
  }
- 
+
  /* Estilos dos links */
  .texto-link{
      font-size: 0.875rem;
@@ -86,4 +86,3 @@
     opacity: 0.8;
     cursor: pointer;
  }
- 
