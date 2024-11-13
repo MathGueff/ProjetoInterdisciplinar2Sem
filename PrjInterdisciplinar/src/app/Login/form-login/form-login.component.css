@@ -1,11 +1,4 @@
-/* Div dos links para redes sociais */
-
-.links-redes img{
-    width: 42px;
-    height: 42px;
-    transition: 0.8s all ease;
-}
-
-.links-redes img:hover{
-    transform: translateY(-4px);
+.form{
+   width: 440px;
+   height: 500px;
 }
