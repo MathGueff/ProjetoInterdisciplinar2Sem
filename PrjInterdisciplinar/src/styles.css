@@ -107,7 +107,7 @@
 .card-icon-large{
   width: 150px;
   height: 150px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 2px solid var(--cor-primaria);
 }
 
@@ -126,9 +126,8 @@
 /* CSS padrão dos Formulários */
 /* Div do formulário */
 .form{
+  /* Width e Height devem ser definidos no CSS do componente, dentro dessa classe */
    background-color: var(--cor-form-login);
-   width: 440px;
-   height: 500px;
    border: 6px solid var(--cor-primaria);
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -191,4 +190,13 @@
 .link-form:hover{
   opacity: 0.8;
   cursor: pointer;
+}
+
+@media(max-width: 768px){
+  /* Breakpoint md */
+  .form{
+    width: auto !important;
+    height: auto !important;
+    padding: 10px;
+  }
 }
