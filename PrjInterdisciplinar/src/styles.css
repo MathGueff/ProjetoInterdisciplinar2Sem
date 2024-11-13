@@ -98,3 +98,77 @@
 .icone-cards {
   width: 30px;
 }
+
+/* Background do componente */
+.form-background{
+  background-color: var(--cor-background);
+}
+
+/* Div do formulário */
+.form{
+   background-color: var(--cor-form-login);
+   width: 440px;
+   height: 500px;
+   border: 6px solid var(--cor-primaria);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Elementos do formulário */
+.form-label{
+   font-size: 1rem !important;
+}
+
+.form-control{
+   background-color:  #dfdddd !important;/* #575757 */
+   border-radius: 10px !important;
+   width: 270px !important;
+   height: 40px !important;
+   font-size: 0.9rem !important;
+   transition: 0.6s transform ease !important;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-control:focus{
+   transform: translate(2px) !important;
+   border: 2px solid var(--cor-primaria) !important;
+}
+
+/* Icones do formulário */
+.form-icon{
+   width: 30px;
+   height: 30px;
+}
+
+/* Botão de login */
+.form-btn{
+   background-color: var(--cor-quaternaria) !important;
+   color: #fff ;
+   border: none;
+   border-radius: 5px;
+   width: 206px;
+   height: 46px;
+   font-size: 1rem;
+   letter-spacing: 1.2px;
+   transition: 0.6s all ease;
+}
+
+.form-btn:hover{
+   opacity: 0.8;
+   transform: translateY(-5px);
+   cursor: pointer;
+}
+
+/* Estilos dos links */
+.texto-link-form{
+  font-size: 0.875rem;
+}
+
+.link-form{
+  color: var(--cor-fonte-link);
+  font-size: 0.85rem;
+}
+
+.link-form:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
