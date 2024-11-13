@@ -5,6 +5,8 @@ import { DoencaDetalhesComponent } from './Doenca/doenca-detalhes/doenca-detalhe
 import { DoencasInicialComponent } from './Doenca/doencas-inicial/doencas-inicial.component';
 import { MenuAdminComponent } from './Admin/menu-admin/menu-admin.component';
 import { NoticiasInicialComponent } from './Noticias/noticias-inicial/noticias-inicial.component';
+import { FormLoginComponent } from './Login/form-login/form-login.component';
+import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.component';
 
 export const routes: Routes = [
   {path:'pagina-inicial', component:MenuUsuarioComponent},
@@ -12,6 +14,7 @@ export const routes: Routes = [
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
-  {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'noticia-inicial', component:NoticiasInicialComponent}
+  {path: 'login', component:FormLoginComponent},
+  {path: 'cadastro', component:FormCadastroComponent}
 ];

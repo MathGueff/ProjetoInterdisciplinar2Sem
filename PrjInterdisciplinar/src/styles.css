@@ -1,9 +1,13 @@
+/* Import da fonte Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
   margin: 0px;
+  padding: 0px;
+  font-family: var(--familia-primaria);
 }
 
+/* Variáveis do CSS global */
 :root{
     /* Cores de fundo */
     --cor-primaria: #295A80;
@@ -52,17 +56,17 @@
     --comentario-reclamacao: 1.25rem;
 }
 
-*{
-    font-family: var(--familia-primaria);
-    padding: 0px;
-    margin: 0px;
+/* Background das páginas */
+.background{
+  background-color: var(--cor-background);
 }
 
+/* CSS padrão para cards */
 .card{
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   border: none;
   transition: 0.4s all ease;
-  cursor: pointer;
 }
 
 .card-header{
@@ -95,6 +99,104 @@
   opacity: 0.8;
 }
 
-.icone-cards {
+.card-icon {
   width: 30px;
+  height: 30px;
+}
+
+.card-icon-large{
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  border: 2px solid var(--cor-primaria);
+}
+
+.card-image-div{
+  margin-bottom: 20px;
+  max-width: 250px !important;
+}
+
+@media(max-width: 992px){
+  /* Breakpoint md */
+  .card-image-div{
+    justify-content: center;
+  }
+}
+
+/* CSS padrão dos Formulários */
+/* Div do formulário */
+.form{
+  /* Width e Height devem ser definidos no CSS do componente, dentro dessa classe */
+   background-color: var(--cor-form-login);
+   border: 6px solid var(--cor-primaria);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Elementos do formulário */
+.form-label{
+   font-size: 1rem !important;
+}
+
+.form-control{
+   background-color:  #dfdddd !important;/* #575757 */
+   border-radius: 10px !important;
+   width: 270px !important;
+   height: 40px !important;
+   font-size: 0.9rem !important;
+   transition: 0.6s transform ease !important;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.form-control:focus{
+   transform: translate(2px) !important;
+   border: 2px solid var(--cor-primaria) !important;
+}
+
+/* Icones do formulário */
+.form-icon{
+   width: 30px;
+   height: 30px;
+}
+
+/* Botão de Ação */
+.form-btn{
+   background-color: var(--cor-quaternaria) !important;
+   color: #fff ;
+   border: none;
+   border-radius: 5px;
+   width: 206px;
+   height: 46px;
+   font-size: 1rem;
+   letter-spacing: 1.2px;
+   transition: 0.6s all ease;
+}
+
+.form-btn:hover{
+   opacity: 0.8;
+   transform: translateY(-5px);
+   cursor: pointer;
+}
+
+/* Estilos dos links */
+.texto-link-form{
+  font-size: 0.875rem;
+}
+
+.link-form{
+  color: var(--cor-fonte-link);
+  font-size: 0.85rem;
+}
+
+.link-form:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  /* Breakpoint md */
+  .form{
+    width: auto !important;
+    height: auto !important;
+    padding: 10px;
+  }
 }

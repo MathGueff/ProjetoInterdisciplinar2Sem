@@ -8,7 +8,7 @@ import { ViacepService } from './viacep.service';
   standalone: true,
   imports: [RouterLink, CommonModule],
   templateUrl: './form-cadastro.component.html',
-  styleUrl: './form-cadastro.component.css'
+  styleUrls: ['./form-cadastro.component.css', '../links-redes.css']
 })
 export class FormCadastroComponent {
   exibirCamposEndereco = false;
