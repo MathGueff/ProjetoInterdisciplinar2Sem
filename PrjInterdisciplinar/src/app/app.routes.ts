@@ -4,6 +4,7 @@ import { ReclamacaoDescricaoComponent } from './Reclamacao/reclamacao-descricao/
 import { DoencaDetalhesComponent } from './Doenca/doenca-detalhes/doenca-detalhes.component';
 import { DoencasInicialComponent } from './Doenca/doencas-inicial/doencas-inicial.component';
 import { MenuAdminComponent } from './Admin/menu-admin/menu-admin.component';
+import { NoticiasInicialComponent } from './Noticias/noticias-inicial/noticias-inicial.component';
 
 export const routes: Routes = [
   {path:'pagina-inicial', component:MenuUsuarioComponent},
@@ -11,5 +12,6 @@ export const routes: Routes = [
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
-  {path: 'doenca-detalhada', component:DoencaDetalhesComponent}
+  {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
+  {path: 'noticia-inicial', component:NoticiasInicialComponent}
 ];
