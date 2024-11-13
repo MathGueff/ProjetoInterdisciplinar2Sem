@@ -1,9 +1,13 @@
+/* Import da fonte Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
   margin: 0px;
+  padding: 0px;
+  font-family: var(--familia-primaria);
 }
 
+/* Variáveis do CSS global */
 :root{
     /* Cores de fundo */
     --cor-primaria: #295A80;
@@ -52,17 +56,17 @@
     --comentario-reclamacao: 1.25rem;
 }
 
-*{
-    font-family: var(--familia-primaria);
-    padding: 0px;
-    margin: 0px;
+/* Background das páginas */
+.background{
+  background-color: var(--cor-background);
 }
 
+/* CSS padrão para cards */
 .card{
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   border: none;
   transition: 0.4s all ease;
-  cursor: pointer;
 }
 
 .card-header{
@@ -95,15 +99,31 @@
   opacity: 0.8;
 }
 
-.icone-cards {
+.card-icon {
   width: 30px;
+  height: 30px;
 }
 
-/* Background do componente */
-.form-background{
-  background-color: var(--cor-background);
+.card-icon-large{
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  border: 2px solid var(--cor-primaria);
 }
 
+.card-image-div{
+  margin-bottom: 20px;
+  max-width: 250px !important;
+}
+
+@media(max-width: 992px){
+  /* Breakpoint md */
+  .card-image-div{
+    justify-content: center;
+  }
+}
+
+/* CSS padrão dos Formulários */
 /* Div do formulário */
 .form{
    background-color: var(--cor-form-login);
@@ -139,7 +159,7 @@
    height: 30px;
 }
 
-/* Botão de login */
+/* Botão de Ação */
 .form-btn{
    background-color: var(--cor-quaternaria) !important;
    color: #fff ;
