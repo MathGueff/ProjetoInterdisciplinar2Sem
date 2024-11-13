@@ -1,5 +1,5 @@
-<nav id="navbar-header" class="d-flex align-items-center justify-content-center">
-  <!-- Botão para chamar OFFCANVAS -->
+<nav id="navbar-header" class="d-flex align-items-center justify-content-between"> <!--Navbar-->
+  <!-- Botão para chamar o OFFCANVAS -->
   <button class="btn btn-outline-light d-lg-none btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">
     <img src="assets/icones/menu_white_navbar.svg" alt="">
   </button>
@@ -28,7 +28,7 @@
   </div>
 
   <!-- Links da navbar -->
-  <ul id="navbar-links" class="d-none d-lg-flex justify-content-evenly align-items-center">
+  <ul id="navbar-links" class="d-none d-lg-flex justify-content-evenly align-items-center"> <!--Em telas menores muda para display none -->
     <div *ngFor="let link of links">
       <li>
         <a routerLink="{{link.path}}" routerLinkActive="link-navbar-ativo" class="navbar-header-link d-flex justify-content-center align-items-center text-center">
@@ -38,12 +38,4 @@
       </li>
     </div>
   </ul>
-
-  <!-- Botão de login -->
-  <div id="login-navbar">
-    <a routerLink="/pagina-admin">
-      <img src="assets/icones/icon_white_login.svg" id="icon_login">
-      <span>Login</span>
-    </a>
-  </div>
 </nav>

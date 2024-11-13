@@ -14,6 +14,7 @@
     --cor-form-login: #DADADA;
     --cor-fonte-links: #414141;
     --cor-bloco-comentario:#98c1de;
+    --cor-background: #e8e3e3;
 
     /* Fontes */
     --familia-primaria: poppins, sans-serif;
@@ -27,28 +28,14 @@
     --texto-semibold: 600;
 
     /* Header  */
-    --header-altura: 120px;
-    --header-texto: 1.125rem;
-    --navbar-espacamento-letras: "1.5px";
+    --header-altura: 90px;
+    --header-texto: 1.01rem;
 
     /* Footer */
     --footer-altura: 242px;
     --footer-links: 1.25rem;
     --footer-titulos: 2rem;
     --footer-icones: 32px; /* width e height dos ícones*/
-
-    /* Login e Cadastro */
-    --login-titulo: 1.675rem;
-    --login-label: 0.875rem;
-    --login-botao: 1.125rem;
-    --login-texto: 0.875rem; /* Textos menores (p ou span) */
-
-    /* Menu */
-    --menu-icones: 92px; /* width e height dos ícones */
-
-    /* Informações */
-    --info-titulo: 1.875rem;
-    --info-icones: 101px; /* width e height dos ícones */
 
     /* Doenças e Notícias */
     --doencas-texto: 1rem;
@@ -69,4 +56,45 @@
     font-family: var(--familia-primaria);
     padding: 0px;
     margin: 0px;
+}
+
+.card{
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: 0.4s all ease;
+  cursor: pointer;
+}
+
+.card-header{
+  background-color: var(--cor-primaria) !important;
+  color: white !important;
+}
+
+.card-body{
+  background-color: #e0e0e0;
+}
+
+.card:hover{
+  opacity: 0.85;
+  transform: translateX(4px);
+}
+
+.btn-primary{
+  background-color: var(--cor-quaternaria) !important;
+  border-color: var(--cor-quaternaria) !important;
+  transition: 0.4s all ease !important;
+}
+
+.btn-primary:hover{
+  transform: translateY(2px);
+}
+
+.btn-primary:active{
+  background-color: var(--cor-quaternaria);
+  border-color: var(--cor-quaternaria);
+  opacity: 0.8;
+}
+
+.icone-cards {
+  width: 30px;
 }
