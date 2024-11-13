@@ -1,13 +1,13 @@
-import { MenuUsuarioComponent } from './Layout/menu-usuario/menu-usuario.component';
+import { MenuUsuarioComponent } from './Usuario/menu-usuario/menu-usuario.component';
 import { Routes } from '@angular/router';
 import { ReclamacaoDescricaoComponent } from './Reclamacao/reclamacao-descricao/reclamacao-descricao.component';
 import { DoencaDetalhesComponent } from './Doenca/doenca-detalhes/doenca-detalhes.component';
 import { DoencasInicialComponent } from './Doenca/doencas-inicial/doencas-inicial.component';
-import { MenuAdminComponent } from './Layout/menu-admin/menu-admin.component';
-import { ReclamacaoInicialComponent } from './Reclamacao/reclamacao-inicial/reclamacao-inicial.component';
 import { SobrenosComponent } from './Layout/sobrenos/sobrenos.component';
+import { MenuAdminComponent } from './Layout/menu-admin/menu-admin.component';
 import { FormLoginComponent } from './Login/form-login/form-login.component';
 import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.component';
+import { ReclamacaoInicialComponent } from './Reclamacao/reclamacao-inicial/reclamacao-inicial.component';
 
 
 export const routes: Routes = [
@@ -16,9 +16,8 @@ export const routes: Routes = [
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path:'reclamacao-inicial', component:ReclamacaoInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
-  {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
+  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
   {path: 'sobre-nos', component:SobrenosComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
-
 ];
