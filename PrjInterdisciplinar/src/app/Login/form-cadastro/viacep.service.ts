@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, tap } from 'rxjs';
-import { Endereco } from './endereco.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 
 export class ViacepService {
+    // constructor(private httpClient:HttpClient){}
+    // getList = () => {
+    //   const response = this.httpClient.get("https://viacep.com.br/ws/${cep}/json/");
+    //   return response;
+    // };
+
     // private enderecoSubject$ = new BehaviorSubject<Endereco | null>(null);
-    
+
     // obterEndereco(){
     //     return this.enderecoSubject$.asObservable();
     // }
