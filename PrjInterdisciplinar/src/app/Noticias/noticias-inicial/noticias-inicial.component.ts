@@ -16,7 +16,7 @@ export class NoticiasInicialComponent {
       tags:['#Prefeitura', '#Decisão'],
       description:
         'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
-      image: 'img/paginas/noticias',
+      image: 'img/paginas/noticias/noticia1.webp',
     }
   ]
 }
