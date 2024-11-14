@@ -1,15 +1,25 @@
-<div class="container-fluid card-reclamacao d-flex flex-column align-items-center gap-3">
-  <div class="tags w-100 d-flex justify-content-around">
-    <span>{{card.objTag}}</span>
-  </div>
-  <div class="card-body w-100 d-flex align-items-start gap-3">
-    <div class="imagem">
-      <img class="img-fluid" src="{{card.objImagem}}" alt="imagem #Qualquer">
+<div class="card h-100"> <!-- Div do card-->
+  <!-- Header do card -->
+  <h5 class="card-header pt-3 pb-3">
+    {{ card.tituloReclamao }}
+  </h5>
+  <!-- Body do Card -->
+  <div class="card-body d-flex justify-content-lg-start justify-content-md-center">
+    <!-- Row dos conteúdos do body -->
+    <div class="row justify-content-center">
+      <!-- Imagem do card -->
+      <div class="card-image-div col-lg-2 col-md-12 d-flex justify-content-lg-center">
+        <img src="{{ card.objImagem }}" alt="icone" class="card-icon-large">
+      </div>
+      <!-- Informações do card -->
+      <div class="col-lg-10 col-md-12">
+        <!-- Organização das informações -->
+        <div class="d-flex align-items-start flex-column ps-md-3 ps-lg-0">
+          <h5 class="card-title mt-md-3">{{ card.tituloReclamao }}</h5>
+          <p class="card-text">{{ card.descricaoReclamacao}}</p>
+          <a routerLink="/reclamacao-descricao/{{card.idReclamacao}}" class="btn btn-primary">Ver {{ card.tituloReclamao}}</a>
+        </div>
+      </div>
     </div>
-    <h3>{{card.tituloReclamao}}</h3>
-  </div>
-  <div class="link-card">
-    <a routerLink="/reclamacao-descricao/{{card.idReclamacao}}" routerLinkActive="router-link-active" >Clique para ver mais sobre</a>
-  </div>
-</div>
-
+  </div> <!-- Fim do Body -->
+</div> <!-- Fim da div do card -->

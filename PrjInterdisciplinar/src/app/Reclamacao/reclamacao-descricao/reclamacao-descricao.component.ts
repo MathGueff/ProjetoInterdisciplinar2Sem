@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Reclamacao } from '../../models/reclamacao';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reclamacao-descricao',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './reclamacao-descricao.component.html',
   styleUrl: './reclamacao-descricao.component.css'
 })
 export class ReclamacaoDescricaoComponent implements OnInit {
-  private reclacaoSubject:BehaviorSubject<Reclamacao | undefined> = new BehaviorSubject([] as any);
+  private reclacaoSubject = new BehaviorSubject<Reclamacao | undefined>(undefined);
   dado$: Observable<Reclamacao | undefined> = this.reclacaoSubject.asObservable();
-  constructor(private activedrouter : ActivatedRoute, private router : Router){}
+  constructor(private activedrouter : ActivatedRoute){}
   ngOnInit(): void {
     this.activedrouter.params.subscribe( (parametros) =>{
       const idParametro = Number(parametros['id']);
@@ -22,6 +23,7 @@ export class ReclamacaoDescricaoComponent implements OnInit {
 
       if(reclamacao){
         this.reclacaoSubject.next(reclamacao);
+        console.log(this.dado$);
       }else{
         console.log("Erro --> O método find esta retornando 'undefield'");
       }

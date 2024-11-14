@@ -69,7 +69,7 @@
   transition: 0.4s all ease;
 }
 
-.card-header{
+.card-header, .header-painel{
   background-color: var(--cor-primaria) !important;
   color: white !important;
 }

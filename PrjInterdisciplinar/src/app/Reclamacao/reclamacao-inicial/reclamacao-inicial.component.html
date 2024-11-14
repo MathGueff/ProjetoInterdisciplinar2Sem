@@ -38,9 +38,12 @@
   <div class="row">
 
   </div>
-  <div class=" col cards d-flex flex-column align-content-center align-items-center">
-    <div class="cards-item" *ngFor="let reclamacao of reclamacoes" >
-      <app-reclamacao-card [card] = "reclamacao"></app-reclamacao-card>
-    </div>
-  </div>
-</div><!-- container-fluid -->
+  <div class="row mt-4 mb-4 cards-div"> <!-- Row onde ficam os cards -->
+    @if (reclamacoes.length > 0) { <!-- verificando se a lista é vazia -->
+      <div class="col-12 p-4 ps-5 pe-5" *ngFor="let reclamacao of reclamacoes"> <!-- Coluna do card-->
+        <app-reclamacao-card [card]="reclamacao"></app-reclamacao-card>
+      </div> <!-- Fim da Coluna do card -->
+    }
+
+  </div> <!-- Fim do row dos cards -->
+</div><!-- Fim container-fluid -->
