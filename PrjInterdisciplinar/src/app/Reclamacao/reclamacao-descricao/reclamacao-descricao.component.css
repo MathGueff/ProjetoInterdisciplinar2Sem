@@ -8,14 +8,9 @@
   .painel .header-painel{
     border-bottom: 2px solid black;
   }
-  h1{
-    font-size: var(--fonte-terciaria);
-  }
-  .img-painel{
-    border: 5px solid white;
-    border-radius: 5px;
-  }
- /***** Header-Painel *****/
+.justifica {
+  text-align: justify;
+}
 
  /***** Body-Painel *****/
  .body-painel{
@@ -35,4 +30,3 @@
 .footer-painel .container-fluid a{
   text-decoration: none;
 }
-/***** End Footer-Painel *****/
