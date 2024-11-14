@@ -11,6 +11,7 @@ import { FormLoginComponent } from './Login/form-login/form-login.component';
 import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.component';
 
 
+
 export const routes: Routes = [
   {path:'pagina-inicial', component:MenuUsuarioComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},

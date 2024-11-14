@@ -11,8 +11,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrl: './reclamacao-descricao.component.css'
 })
 export class ReclamacaoDescricaoComponent implements OnInit {
-  private reclacaoSubject:BehaviorSubject<Reclamacao> = new BehaviorSubject([] as any);
-  dado$: Observable<Reclamacao> = this.reclacaoSubject.asObservable();
+  private reclacaoSubject:BehaviorSubject<Reclamacao | undefined> = new BehaviorSubject([] as any);
+  dado$: Observable<Reclamacao | undefined> = this.reclacaoSubject.asObservable();
   constructor(private activedrouter : ActivatedRoute, private router : Router){}
   ngOnInit(): void {
     this.activedrouter.params.subscribe( (parametros) =>{
