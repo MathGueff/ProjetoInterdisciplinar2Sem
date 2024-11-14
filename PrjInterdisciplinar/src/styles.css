@@ -63,15 +63,17 @@
 
 /* CSS padrão para cards */
 .card{
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border: none;
-  transition: 0.4s all ease;
+  transition: 0.6s all ease;
+  -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
-.card-header{
+.card-header, .header-painel{
   background-color: var(--cor-primaria) !important;
-  color: white !important;
+  color: rgb(238, 237, 237) !important;
 }
 
 .card-body{
@@ -80,17 +82,20 @@
 
 .card:hover{
   opacity: 0.85;
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 .btn-primary{
   background-color: var(--cor-quaternaria) !important;
   border-color: var(--cor-quaternaria) !important;
   transition: 0.4s all ease !important;
+  -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
 .btn-primary:hover{
-  transform: translateY(2px);
+  transform: translateY(4px);
 }
 
 .btn-primary:active{
@@ -108,7 +113,9 @@
   width: 150px;
   height: 150px;
   border-radius: 10px;
-  border: 2px solid var(--cor-primaria);
+  -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
 .card-image-div{

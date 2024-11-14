@@ -15,15 +15,6 @@ body{
 #div-select{
   background-color: var(--cor-terciaria);
 }
-#card-header{
-  background-color: var(--cor-primaria);
-  color: var(--cor-fundo);
-  font-weight: bold;
-}
-#card-body{
-  background-color: #E0E0E0;
-  font-weight: bold;
-}
 .borda-redonda{
   border-radius: 5px;
 }
