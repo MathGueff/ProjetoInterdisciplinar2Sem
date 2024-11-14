@@ -1,37 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Reclamacao } from '../../models/reclamacao';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Reclamacao } from './../../models/reclamacao';
+import { Component } from '@angular/core';
+import { ReclamacaoCardComponent } from '../reclamacao-card/reclamacao-card.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-reclamacao-descricao',
+  selector: 'app-reclamacao-inicial',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './reclamacao-descricao.component.html',
-  styleUrl: './reclamacao-descricao.component.css'
+  imports: [CommonModule, ReclamacaoCardComponent],
+  templateUrl: './reclamacao-inicial.component.html',
+  styleUrl: './reclamacao-inicial.component.css'
 })
-export class ReclamacaoDescricaoComponent implements OnInit {
-  private reclacaoSubject = new BehaviorSubject<Reclamacao | undefined>(undefined);
-  dado$: Observable<Reclamacao | undefined> = this.reclacaoSubject.asObservable();
-  constructor(private activedrouter : ActivatedRoute){}
-  ngOnInit(): void {
-    this.activedrouter.params.subscribe( (parametros) =>{
-      const idParametro = Number(parametros['id']);
-
-      const reclamacao = this.reclamacoes.find((reclamacao) => reclamacao.idReclamacao  === idParametro );
-
-      if(reclamacao){
-        this.reclacaoSubject.next(reclamacao);
-        console.log(this.dado$);
-      }else{
-        console.log("Erro --> O método find esta retornando 'undefield'");
-      }
-
-    }
-
-    )
-  }
+export class ReclamacaoInicialComponent {
   reclamacoes: Reclamacao [] = [
     {
       idReclamacao:1,
@@ -58,4 +37,5 @@ export class ReclamacaoDescricaoComponent implements OnInit {
       objTag: "Tag3"
     }
   ];
+
 }

@@ -71,7 +71,7 @@
   box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
-.card-header{
+.card-header, .header-painel{
   background-color: var(--cor-primaria) !important;
   color: rgb(238, 237, 237) !important;
 }
