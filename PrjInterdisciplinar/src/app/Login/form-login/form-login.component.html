@@ -1,19 +1,21 @@
 <div class="background"> <!-- background -->
     <div class="container-fluid d-flex justify-content-center align-items-center"> <!-- Div do container-->
         <!-- Início do formulário -->
-        <div class="form d-flex justify-content-center align-items-center flex-column m-3 rounded">
+        <form [formGroup]="formLogin" class="form d-flex justify-content-center align-items-center flex-column m-3 rounded">
             <h3 class="mb-4">Faça login</h3>
             <!-- Campos de entrada -->
             <div class="d-flex justify-content-center align-items-center flex-column gap-3">
                 <div>
                     <img class="icon me-1" src="assets/login/email_icon.svg">
                     <label for="email-login" class="form-label">Email:</label>
-                    <input type="email" name="email-login" class="form-control" id="email-login" placeholder="Email de login">
+                    <input formControlName="email" (change)="onChange('email')" type="email" name="email-login" class="form-control" id="email-login" placeholder="Email de login">
+                    <span class="texto-link-form"></span>
                 </div>
                 <div>
                     <img class="icon me-1" src="assets/login/senha_icon.svg" alt="">
                     <label for="senha-login" class="form-label">Senha:</label>
-                    <input type="password" name="senha-login" class="form-control" id="senha-login" placeholder="Senha de login">
+                    <input formControlName="senha" (change)="onChange('senha')" type="password" name="senha-login" class="form-control" id="senha-login" placeholder="Senha de login">
+                    <span class="texto-link-form"></span>
                 </div>
             </div>
             <!-- Fim dos campos -->
@@ -24,7 +26,7 @@
             </div>
 
             <!-- Botão de entrar -->
-            <button class="mt-3 form-btn">ENTRAR</button>
+            <button class="mt-3 form-btn" type="submit" (click) = "onSubmit()">ENTRAR</button>
 
             <!-- Links para entrada com redes sociais -->
             <div class="links-redes d-flex justify-content-between align-items-center mt-4 w-50">
@@ -37,6 +39,6 @@
             <div class="mt-4">
                 <span class="texto-link-form">Não possui uma conta? <a routerLink="/cadastro" class="link-form">Clique para criar uma</a></span>
             </div>
-        </div> <!-- Fim do formulário -->
+        </form> <!-- Fim do formulário -->
     </div>
 </div>
