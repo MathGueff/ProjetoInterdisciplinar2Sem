@@ -1,6 +1,11 @@
 body{
   background-color: #E9E9E9;
 }
+
+.container-fluid{
+  margin-top: 0;
+  padding-top: 0;
+}
 .segundo-fundo{
   background-color: #F0F0F0;
   margin: 32px 0px 72px 0px;
@@ -21,7 +26,8 @@ h2{
 .terceiro-fundo{
   background-color:var(--cor-terciaria);
 }
-.card{
+/* Código antigo do card */
+/* .card{
   background-color: var(--cor-secundaria);
   height: 200px;
   border: 0px;
@@ -40,4 +46,4 @@ h2{
 .card div{
   margin-top: 20px;
   max-height: 100px;
-}
+} */

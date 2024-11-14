@@ -1,0 +1,18 @@
+/* Div dos links para redes sociais */
+.links-redes img{
+    width: 42px;
+    height: 42px;
+    transition: 0.6s all ease;
+}
+
+.links-redes img:hover{
+    transform: translateY(-8px);
+}
+
+@media(max-width: 768px){
+    /* Breakpoint md */
+    .links-redes img{
+        width: 32px;
+        height: 32px;
+    }
+  }

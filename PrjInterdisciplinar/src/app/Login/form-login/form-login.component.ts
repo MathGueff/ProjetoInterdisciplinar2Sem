@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './form-login.component.html',
-  styleUrl: './form-login.component.css'
+  styleUrls: ['./form-login.component.css', '../links-redes.css']
 })
 export class FormLoginComponent {
 
