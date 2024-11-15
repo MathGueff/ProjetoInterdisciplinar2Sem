@@ -1,21 +1,21 @@
 <div class="background"> <!-- background -->
     <div class="container-fluid d-flex justify-content-center align-items-center"> <!-- Div do container-->
         <!-- Início do formulário -->
-        <form [formGroup]="formLogin" class="form d-flex justify-content-center align-items-center flex-column m-3 rounded">
+        <form [formGroup]="formLogin" class="form d-flex justify-content-center align-items-center flex-column m-3 p-3 rounded">
             <h3 class="mb-4">Faça login</h3>
             <!-- Campos de entrada -->
             <div class="d-flex justify-content-center align-items-center flex-column gap-3">
                 <div>
                     <img class="icon me-1" src="assets/login/email_icon.svg">
                     <label for="email-login" class="form-label">Email:</label>
-                    <input formControlName="email" (change)="onChange('email')" type="email" name="email-login" class="form-control" id="email-login" placeholder="Email de login">
-                    <span class="texto-link-form"></span>
+                    <input formControlName="email" type="email" name="email-login" class="form-control" id="email-login" placeholder="Email de login">
+                    <span *ngIf="!this.formLogin.controls.email.valid && this.formLogin.controls.email.touched" class="texto-validacao-erro-form ms-2"><img src="assets/login/erro_icon.svg" alt=""> Email inválido</span>
                 </div>
                 <div>
                     <img class="icon me-1" src="assets/login/senha_icon.svg" alt="">
                     <label for="senha-login" class="form-label">Senha:</label>
-                    <input formControlName="senha" (change)="onChange('senha')" type="password" name="senha-login" class="form-control" id="senha-login" placeholder="Senha de login">
-                    <span class="texto-link-form"></span>
+                    <input formControlName="senha" type="password" name="senha-login" class="form-control" id="senha-login" placeholder="Senha de login">
+                    <span *ngIf="!this.formLogin.controls.senha.valid && this.formLogin.controls.senha.touched" class="texto-validacao-erro-form ms-2"><img src="assets/login/erro_icon.svg" alt=""> Senha inválida</span>
                 </div>
             </div>
             <!-- Fim dos campos -->
