@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViacepService } from './viacep.service';
+import { Endereco } from './endereco.model';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -13,6 +14,7 @@ import { ViacepService } from './viacep.service';
 export class FormCadastroComponent {
   exibirCamposEndereco = false;
   cep : string = "";
+  // endereco : Endereco = {bairro: "", cidade: "", rua: ""};
 
   // constructor(private viacepService : ViacepService){}
 
@@ -25,5 +27,19 @@ export class FormCadastroComponent {
   //       console.error('Erro ao buscar o endereço:', err);
   //     }
   //   });
+  // }
+
+  // buscarCep(){
+  //   this.viacepService.getList().subscribe({
+  //     next: (response : any) => {
+  //       this.endereco.rua = response.logradouro;
+  //       this.endereco.bairro = response.bairro;
+  //       this.endereco.cidade = response.localidade;
+  //       alert(this.endereco);
+  //     },
+  //     error: (err : any) => {
+  //       console.log("Deu erro" + err);
+  //     }
+  //   })
   // }
 }

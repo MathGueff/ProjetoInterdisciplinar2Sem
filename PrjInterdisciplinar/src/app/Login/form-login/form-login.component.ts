@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -18,14 +18,18 @@ export class FormLoginComponent{
     senha : ['', [Validators.required, Validators.minLength(10)]]
   })
 
-  onChange(campo : string){
-    const control  = this.formLogin.get(campo);
-    if(control && control.valid){
-      alert(campo + " foi preenchido com sucesso")
-    }
-    else{
-      alert(campo + " não foi preenchido com sucesso")
-    }
+  // onChange(campo : string){
+  //   const control  = this.formLogin.get(campo);
+  //   if(control && control.valid){
+  //     alert(campo + " foi preenchido com sucesso")
+  //   }
+  //   else{
+  //     alert(campo + " não foi preenchido com sucesso")
+  //   }
+  // }
+
+  runProgress(){
+    // this.formLogin.get('email')?.length();
   }
 
   onSubmit(){

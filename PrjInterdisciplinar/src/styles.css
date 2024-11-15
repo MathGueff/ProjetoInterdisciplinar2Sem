@@ -95,7 +95,7 @@
 }
 
 .btn-primary:hover{
-  transform: translateY(4px);
+  transform: translateY(6px);
 }
 
 .btn-primary:active{
@@ -187,6 +187,16 @@
 /* Estilos dos links */
 .texto-link-form{
   font-size: 0.875rem;
+}
+
+.texto-validacao-erro-form{
+  font-size: 0.8rem;
+  color: #ff0a0a;
+}
+
+.texto-validacao-sucesso-form{
+  font-size: 0.8rem;
+  color: green;
 }
 
 .link-form{

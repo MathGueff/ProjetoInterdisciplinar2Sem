@@ -13,7 +13,7 @@ import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.compo
 
 
 export const routes: Routes = [
-  {path:'pagina-inicial', component:MenuUsuarioComponent},
+  {path:'', component:MenuUsuarioComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path:'reclamacao-inicial', component:ReclamacaoInicialComponent},
