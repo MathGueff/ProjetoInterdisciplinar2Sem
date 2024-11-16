@@ -1,6 +1,10 @@
 <div [formGroup]="formGroup">
-    <img class="icon me-1" [src]="icon">
-    <label [for]="controlName + '-' + formName" class="form-label">{{label}}</label>
+    <!-- FormControl -->
+    <img class="icon me-1" [src]="inputIcon">
+    <label [for]="controlName + '-' + formName" class="form-label">
+        {{label}}
+        <span *ngIf="required" class="required-control">*</span>
+    </label>
     <input
         [formControlName] = "controlName"
         [type]="type"
@@ -9,8 +13,8 @@
         [id]="controlName + '-' + formName" 
         [placeholder]="placeholder"
     >
+
     <!-- Exibição de erros no formulário -->
-    <!-- Caso a função de validação seja passada, executa checkFormStatus('invalid-control') -->
     <span 
         *ngIf="formGroup!.controls[controlName]?.invalid 
             && formGroup!.controls[controlName].touched 
@@ -19,4 +23,6 @@
         <img src="assets/login/erro_icon.svg" alt=""> 
         Campo obrigatório ou inválido
     </span>
+    <!-- Verifica se o campo é invalido (baseado nos Validators definidos), 
+        se foi tocado, e se não tem valor vazio, para então mostrar o span de erro -->
 </div>

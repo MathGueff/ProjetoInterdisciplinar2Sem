@@ -13,6 +13,7 @@
                 label="Email"
                 type="email"
                 placeholder="Email de login"
+                [required]="true"
                ></app-form-input> <!-- Passamos o contexto da função checkFormStatus neste componente para o filho  -->
 
                <app-form-input
@@ -22,6 +23,7 @@
                 label="Senha"
                 type="password"
                 placeholder="Senha de login"
+                [required]="true"
             ></app-form-input>
             </div>
             <!-- Fim dos campos -->

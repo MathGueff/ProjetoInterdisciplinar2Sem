@@ -23,11 +23,11 @@ export class FormLoginComponent implements OnInit{
   /* Reactive Form */
   protected formLogin = this.formBuilderService.group({
     email : ['', [Validators.required, Validators.email]],
-    senha : ['', [Validators.required, Validators.minLength(6)]]
+    senha : ['', [Validators.required, Validators.minLength(4)]]
   })
   
   /* Variável de controle de validação */
-  protected loginStatus : LoginErrorStatus = LoginErrorStatus.None;
+  protected loginErrorStatus : LoginErrorStatus = LoginErrorStatus.None;
   /*
     *None -> Formulário sem problemas
     *invalidControl -> Campo inválido
@@ -45,7 +45,7 @@ export class FormLoginComponent implements OnInit{
     else{
       /* Campos inválidos */
       //Campos de validação com a função checkFormStatus exibem a mensagem de erro
-      this.loginStatus = LoginErrorStatus.invalidControl; 
+      this.loginErrorStatus = LoginErrorStatus.invalidControl; 
     }
   }
 
@@ -53,31 +53,31 @@ export class FormLoginComponent implements OnInit{
   checkLogin(email : string, senha : string){
     if(this.userService.validateUser(email, senha)){
       /* Navega para a pagina principal */
-      this.loginStatus = LoginErrorStatus.None;
+      this.loginErrorStatus = LoginErrorStatus.None;
       this.router.navigate(['']);
     }
     else{
       /* Usuário inexistente */
-      this.loginStatus = LoginErrorStatus.invalidUser;
+      this.loginErrorStatus = LoginErrorStatus.invalidUser;
     }
   }
 
   /* Método para verificar status do enum (LoginErrorStatus.enum) */
   checkIfFormError(status : string) : boolean{
     /* Recebe o valor do enum (em string) e compara com o estado atual do formulário, se forem iguais, retorna true */
-    return this.loginStatus == status
+    return this.loginErrorStatus == status
   }
  
   ngOnInit() {
     // Detectando mudanças no campo 'email' e 'senha'
     this.formLogin.controls.email.valueChanges.subscribe(() => {
       // Limpando o erro quando o usuário alterar o valor do campo 'email'
-      this.loginStatus = LoginErrorStatus.None;
+      this.loginErrorStatus = LoginErrorStatus.None;
     });
 
     this.formLogin.controls.senha.valueChanges.subscribe(() => {
       // Limpando o erro quando o usuário alterar o valor do campo 'senha'
-      this.loginStatus = LoginErrorStatus.None;
+      this.loginErrorStatus = LoginErrorStatus.None;
     });
   }
 }
