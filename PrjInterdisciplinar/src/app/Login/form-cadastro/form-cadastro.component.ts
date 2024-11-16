@@ -20,11 +20,14 @@ export class FormCadastroComponent implements OnInit{
   private router = inject(Router);
   private userService = inject(UserService);
 
+  formName : string = "cadastro"; //Nome do formulário para concatenar ao nome do control (email-cadastro)
+  passwordMinLength = 6;
+
   protected formCadastro = this.formBuilderService.group({
-    nome : ['',[Validators.required, Validators.min(4)]],
+    nome : ['',[Validators.required, Validators.minLength(2)]],
     email : ['', [Validators.required, Validators.email]],
-    senha : ['', [Validators.required, Validators.minLength(4)]],
-    confirmaSenha : ['', [Validators.required, Validators.minLength(4)]],
+    senha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
+    confirmaSenha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
     telefone : [''], //Opcional
     cep : [''],  //Opcional
     numero : [''],  //Opcional

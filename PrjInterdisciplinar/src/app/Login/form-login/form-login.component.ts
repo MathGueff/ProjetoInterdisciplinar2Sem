@@ -15,6 +15,7 @@ import { LoginErrorStatus } from './LoginErrorStatus.enum';
 })
 
 export class FormLoginComponent implements OnInit{
+  formName : string = "login";
   /* Injeção de Dependências */
   private formBuilderService = inject(NonNullableFormBuilder);
   private router = inject(Router);
