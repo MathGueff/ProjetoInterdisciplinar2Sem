@@ -1,23 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { userService } from '../../Services/user.service';
-import { LoginStatus } from './FormStatus.enum';
+import { UserService } from '../../Services/user.service';
+import { FormInputComponent } from "../../Common/form-input/form-input.component";
+import { LoginErrorStatus } from './LoginErrorStatus.enum';
 
 @Component({
   selector: 'app-form-login',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule, FormInputComponent],
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.css', '../links-redes.css']
 })
 
-export class FormLoginComponent{
-  /* Injeções de Dependências */
+export class FormLoginComponent implements OnInit{
+  /* Injeção de Dependências */
   private formBuilderService = inject(NonNullableFormBuilder);
   private router = inject(Router);
-  constructor(private userService : userService){}
+  private userService = inject(UserService)
   
   /* Reactive Form */
   protected formLogin = this.formBuilderService.group({
@@ -26,18 +27,25 @@ export class FormLoginComponent{
   })
   
   /* Variável de controle de validação */
-  protected loginStatus : LoginStatus = LoginStatus.None;
+  protected loginStatus : LoginErrorStatus = LoginErrorStatus.None;
+  /*
+    *None -> Formulário sem problemas
+    *invalidControl -> Campo inválido
+    *invalidUser -> Usuário inexistente
+  */
 
   /* Método chamado com o btn submit */
   onSubmit(){
-    let email = this.formLogin.controls.email.value;
-    let senha = this.formLogin.controls.senha.value;
-    if(this.formLogin.valid){
+    if(this.formLogin.valid){  //Caso o formulário seja válido
+      let email = this.formLogin.controls.email.value;
+      let senha = this.formLogin.controls.senha.value;
+      //Chamando função para verificar usuário      
       this.checkLogin(email, senha);
     }
     else{
       /* Campos inválidos */
-      this.loginStatus = LoginStatus.invalidControl;
+      //Campos de validação com a função checkFormStatus exibem a mensagem de erro
+      this.loginStatus = LoginErrorStatus.invalidControl; 
     }
   }
 
@@ -45,20 +53,31 @@ export class FormLoginComponent{
   checkLogin(email : string, senha : string){
     if(this.userService.validateUser(email, senha)){
       /* Navega para a pagina principal */
-      this.loginStatus = LoginStatus.userValidated;
+      this.loginStatus = LoginErrorStatus.None;
       this.router.navigate(['']);
     }
     else{
       /* Usuário inexistente */
-      this.loginStatus = LoginStatus.invalidUser;
+      this.loginStatus = LoginErrorStatus.invalidUser;
     }
   }
 
-  /* Método para verificar status do enum */
-  checkFormStatus(status : string) : boolean{
-    if(this.loginStatus.valueOf() == status){
-      return true;
-    }
-    return false;
+  /* Método para verificar status do enum (LoginErrorStatus.enum) */
+  checkIfFormError(status : string) : boolean{
+    /* Recebe o valor do enum (em string) e compara com o estado atual do formulário, se forem iguais, retorna true */
+    return this.loginStatus == status
+  }
+ 
+  ngOnInit() {
+    // Detectando mudanças no campo 'email' e 'senha'
+    this.formLogin.controls.email.valueChanges.subscribe(() => {
+      // Limpando o erro quando o usuário alterar o valor do campo 'email'
+      this.loginStatus = LoginErrorStatus.None;
+    });
+
+    this.formLogin.controls.senha.valueChanges.subscribe(() => {
+      // Limpando o erro quando o usuário alterar o valor do campo 'senha'
+      this.loginStatus = LoginErrorStatus.None;
+    });
   }
 }

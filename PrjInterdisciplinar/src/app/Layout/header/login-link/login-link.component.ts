@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { userService } from '../../../Services/user.service';
+import { UserService } from '../../../Services/user.service';
 
 @Component({
   selector: 'app-login-link',
@@ -11,7 +11,7 @@ import { userService } from '../../../Services/user.service';
 })
 export class LoginLinkComponent implements OnInit{
   userAtivo : string = "";
-  private userService = inject(userService);
+  private userService = inject(UserService);
   
   ngOnInit(): void {
     /* Alterando o nome do usuário ativo com Observable */

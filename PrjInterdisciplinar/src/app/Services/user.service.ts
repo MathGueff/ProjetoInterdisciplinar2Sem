@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
-export class userService {
+export class UserService {
     private users : IUser[] = [
         {nome : "Matheus A", senha: "123456", email: "ma@gmail.com"},
         {nome : "Matheus G", senha: "123456", email: "th@gmail.com"}
@@ -29,15 +29,25 @@ export class userService {
     
     /* Adquire Usuário atual logado */
     getCurrentUser() : IUser | null{
-        if(this.userAtivoSubject){
-            return this.userAtivoSubject.getValue();
-        }
-        return null;
+        return this.userAtivoSubject.value;
     }
 
     /* Criação de um novo usuário */
     newUser(newUser : IUser){
-        this.users.push(newUser);
-        console.log(this.users);
+        if(!this.checkIfUserExists(newUser)){
+            /* Caso não haja usuário com esse email */
+            this.users.push(newUser);
+            console.log(this.users);
+        }
+        else{
+            alert("Usuário já existe");
+        }
+    }
+
+    /* Verificação de usuário existente */
+    checkIfUserExists(newUser : IUser) : boolean{
+        return this.users.some((user) => {
+            user.email === newUser.email;
+        })
     }
 }
