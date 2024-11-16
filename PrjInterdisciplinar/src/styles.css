@@ -144,7 +144,7 @@
    font-size: 1rem !important;
 }
 
-.form-control{
+.form-control, .form-select, .tags-selected{
    background-color:  #dfdddd !important;/* #575757 */
    border-radius: 10px !important;
    width: 270px !important;
@@ -154,7 +154,7 @@
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-.form-control:focus{
+.form-control:focus, .form-select:focus{
    transform: translate(2px) !important;
    border: 2px solid var(--cor-primaria) !important;
 }
