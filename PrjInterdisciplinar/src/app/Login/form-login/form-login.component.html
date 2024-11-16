@@ -14,6 +14,7 @@
                 type="email"
                 placeholder="Email de login"
                 [required]="true"
+                [errorValidators]="['required', 'email']" 
                ></app-form-input> <!-- Passamos o contexto da função checkFormStatus neste componente para o filho  -->
 
                <app-form-input
@@ -24,6 +25,7 @@
                 type="password"
                 placeholder="Senha de login"
                 [required]="true"
+                [errorValidators]="['required', 'minlength']" 
             ></app-form-input>
             </div>
             <!-- Fim dos campos -->

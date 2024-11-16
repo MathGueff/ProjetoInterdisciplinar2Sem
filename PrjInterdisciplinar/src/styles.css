@@ -203,6 +203,11 @@
   color: green;
 }
 
+.icone-validacao-form{
+  width: 16px;
+  height: 16px;
+}
+
 .link-form{
   color: var(--cor-fonte-link);
   font-size: 0.85rem;
