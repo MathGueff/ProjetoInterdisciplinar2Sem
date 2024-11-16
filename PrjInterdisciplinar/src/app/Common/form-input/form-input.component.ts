@@ -10,11 +10,11 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './form-input.component.css'
 })
 export class FormInputComponent {
-  @Input() formGroup !: FormGroup; 
-  @Input() formName !: string;
+  @Input() formGroup !: FormGroup; //Form gruop utilizado no componente pai
+  @Input() formName !: string; //Usado para concatenar ao nome do campo para gerar names e ids diferentes (controlName + '-' + formName)
   @Input() controlName!: string; //Nome do campo
   @Input() label!: string; //Nome exibido na label
-  @Input() icon !: string; //Icone do input
+  @Input() inputIcon !: string; //Icone do input
   @Input() type: string = 'text'; //Tipo do input
   @Input() placeholder!: string;  //Placeholder do input
   @Input() required !: boolean; //Se o campo é obrigatório (serve para adicionar o asterisco* como forma visual de separar obrigatórios de opcionais)

@@ -23,19 +23,25 @@ export class FormCadastroComponent implements OnInit{
   private userService = inject(UserService);
 
   protected formCadastro = this.formBuilderService.group({
-    nome : ['',[Validators.required, Validators.min(5)]],
+    nome : ['',[Validators.required, Validators.min(4)]],
     email : ['', [Validators.required, Validators.email]],
-    senha : ['', [Validators.required, Validators.minLength(6)]],
-    confirmaSenha : ['', [Validators.required, Validators.minLength(6)]],
-    telefone : [''],
-    cep : [''],
-    numero : [''],
-    logradouro : [''],
-    bairro : [''],
-    cidade : [''],
+    senha : ['', [Validators.required, Validators.minLength(4)]],
+    confirmaSenha : ['', [Validators.required, Validators.minLength(4)]],
+    telefone : [''], //Opcional
+    cep : [''],  //Opcional
+    numero : [''],  //Opcional
+    logradouro : [''],  //Opcional
+    bairro : [''],  //Opcional
+    cidade : [''],  //Opcional
   })
 
   protected cadastroErrorStatus : CadastroErrorStatus = CadastroErrorStatus.None;
+   /*
+    *None -> Formulário sem problemas
+    *invalidControl -> Campo inválido
+    *invalidUser -> Usuário inexistente
+    *userExists -> Usuário já existente com o email fornecido
+  */
 
   onSubmit(){
     if(this.formCadastro.valid){  //Caso o formulário seja válido
@@ -43,14 +49,16 @@ export class FormCadastroComponent implements OnInit{
       let confirmSenha = this.formCadastro.controls.confirmaSenha.value;
 
       if(senha === confirmSenha){
-        //Chamando função para verificar usuário   
+        //Interface de endereço para guardar as informações de endereço
         const userAddress : IEndereco = {
           cep : this.formCadastro.controls.cep.value,
           bairro : this.formCadastro.controls.bairro.value,
           logradouro : this.formCadastro.controls.logradouro.value,
           cidade : this.formCadastro.controls.cidade.value,
+          numero : this.formCadastro.controls.numero.value
         }
 
+        //Interface de usuário para guardar as informações do usuário e passar para o userService
         const newUser : IUser = {
           nome : this.formCadastro.controls.nome.value,
           email : this.formCadastro.controls.email.value,
@@ -58,23 +66,26 @@ export class FormCadastroComponent implements OnInit{
           endereco : userAddress,
           telefone : this.formCadastro.controls.telefone.value,
         }
-
+        
+        //Chamando função para verificar se usuário já existe com base no email
         if(!this.userService.checkIfUserExists(newUser)){
+          //Caso não haja usuário, cadastra um novo com os dados preenchidos
           this.userService.newUser(newUser);
+          //Retorna à pagina de login para que o usuário possa logar
           this.router.navigate(['/login']); 
         }
         else {
+          //Informa erro de usuário existente
           this.cadastroErrorStatus = CadastroErrorStatus.userExists;
         }
-
       }
       else{
+        //Informa erro de senhas não coincidentes
         this.cadastroErrorStatus = CadastroErrorStatus.invalidPassword;
       }
     }
     else{
-      /* Campos inválidos */
-      //Campos de validação com a função checkFormStatus exibem a mensagem de erro
+      //Informa erro de campos inválidos
       this.cadastroErrorStatus = CadastroErrorStatus.invalidControl; 
     }
   }
@@ -86,14 +97,27 @@ export class FormCadastroComponent implements OnInit{
   }
 
   ngOnInit() {
-    // Detectando mudanças no campo 'email' e 'senha'
+    // Detecta mudanças nos campos para resetar o status do erro atual
+
+    /* Serão substituídos por uma função para evitar duplicidade de codigo */
+    
     this.formCadastro.controls.email.valueChanges.subscribe(() => {
       // Limpando o erro quando o usuário alterar o valor do campo 'email'
       this.cadastroErrorStatus = CadastroErrorStatus.None;
     });
 
+    this.formCadastro.controls.nome.valueChanges.subscribe(() => {
+      // Limpando o erro quando o usuário alterar o valor do campo 'nome'
+      this.cadastroErrorStatus = CadastroErrorStatus.None;
+    });
+
     this.formCadastro.controls.senha.valueChanges.subscribe(() => {
       // Limpando o erro quando o usuário alterar o valor do campo 'senha'
+      this.cadastroErrorStatus = CadastroErrorStatus.None;
+    });
+
+    this.formCadastro.controls.confirmaSenha.valueChanges.subscribe(() => {
+      // Limpando o erro quando o usuário alterar o valor do campo 'confirmar senha'
       this.cadastroErrorStatus = CadastroErrorStatus.None;
     });
   }

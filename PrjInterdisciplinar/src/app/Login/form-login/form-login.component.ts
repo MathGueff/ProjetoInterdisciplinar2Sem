@@ -23,7 +23,7 @@ export class FormLoginComponent implements OnInit{
   /* Reactive Form */
   protected formLogin = this.formBuilderService.group({
     email : ['', [Validators.required, Validators.email]],
-    senha : ['', [Validators.required, Validators.minLength(6)]]
+    senha : ['', [Validators.required, Validators.minLength(4)]]
   })
   
   /* Variável de controle de validação */
