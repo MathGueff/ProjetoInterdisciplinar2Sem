@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViacepService } from './viacep.service';
-import { Endereco } from './endereco.model';
 
 @Component({
   selector: 'app-form-cadastro',

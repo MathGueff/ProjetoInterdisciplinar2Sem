@@ -1,32 +1,48 @@
 <div class="background"> <!-- background -->
     <div class="container-fluid d-flex justify-content-center align-items-center"> <!-- Div do container-->
         <!-- Início do formulário -->
-        <form [formGroup]="formLogin" class="form d-flex justify-content-center align-items-center flex-column m-3 p-3 rounded">
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="form d-flex justify-content-center align-items-center flex-column m-3 p-3 rounded">
             <h3 class="mb-4">Faça login</h3>
             <!-- Campos de entrada -->
             <div class="d-flex justify-content-center align-items-center flex-column gap-3">
-                <div>
-                    <img class="icon me-1" src="assets/login/email_icon.svg">
-                    <label for="email-login" class="form-label">Email:</label>
-                    <input formControlName="email" type="email" name="email-login" class="form-control" id="email-login" placeholder="Email de login">
-                    <span *ngIf="!this.formLogin.controls.email.valid && this.formLogin.controls.email.touched" class="texto-validacao-erro-form ms-2"><img src="assets/login/erro_icon.svg" alt=""> Email inválido</span>
-                </div>
-                <div>
-                    <img class="icon me-1" src="assets/login/senha_icon.svg" alt="">
-                    <label for="senha-login" class="form-label">Senha:</label>
-                    <input formControlName="senha" type="password" name="senha-login" class="form-control" id="senha-login" placeholder="Senha de login">
-                    <span *ngIf="!this.formLogin.controls.senha.valid && this.formLogin.controls.senha.touched" class="texto-validacao-erro-form ms-2"><img src="assets/login/erro_icon.svg" alt=""> Senha inválida</span>
-                </div>
+                <!-- Controls do formulário -->
+               <app-form-input
+               [formGroup]="formLogin"
+                icon="assets/login/email_icon.svg"
+                controlName="email"
+                label="Email"
+                type="email"
+                placeholder="Email de login"
+               ></app-form-input> <!-- Passamos o contexto da função checkFormStatus neste componente para o filho  -->
+
+               <app-form-input
+                [formGroup]="formLogin"
+                icon="assets/login/senha_icon.svg"
+                controlName="senha"
+                label="Senha"
+                type="password"
+                placeholder="Senha de login"
+            ></app-form-input>
             </div>
             <!-- Fim dos campos -->
 
             <!-- Link para redefinição de senha -->
-            <div class="mt-3">
+            <div class="mt-3 mb-3">
                 <a routerLink="" class="link-form">Esqueci minha senha</a>
             </div>
 
+            <!-- Caso algum dos controls esteja inválido -->
+            <span *ngIf="checkIfFormError('invalid-control')" class="texto-validacao-erro-form mb-2">
+                <img src="assets/login/erro_icon.svg" alt=""> Campos obrigatórios não preenchidos ou inválidos
+            </span> <!-- Método checkIfFormError retorna true caso o erro específico esteja ocorrendo (parametro é o valor de string do enum)-->
+
+            <!-- Caso os campos digitados não pertençam a um usuário existente -->
+            <span *ngIf="checkIfFormError('invalid-user')" class="texto-validacao-erro-form mb-2">
+                <img src="assets/login/erro_icon.svg" alt=""> Email e/ou senha incorretos 
+            </span>
+
             <!-- Botão de entrar -->
-            <button class="mt-3 form-btn" type="submit" (click) = "onSubmit()">ENTRAR</button>
+            <button class="form-btn" type="submit">ENTRAR</button>
 
             <!-- Links para entrada com redes sociais -->
             <div class="links-redes d-flex justify-content-between align-items-center mt-4 w-50">

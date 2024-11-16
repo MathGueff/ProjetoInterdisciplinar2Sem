@@ -1,0 +1,22 @@
+<div [formGroup]="formGroup">
+    <img class="icon me-1" [src]="icon">
+    <label [for]="controlName + '-' + formName" class="form-label">{{label}}</label>
+    <input
+        [formControlName] = "controlName"
+        [type]="type"
+        [name]= "controlName + '-' + formName"
+        class="form-control" 
+        [id]="controlName + '-' + formName" 
+        [placeholder]="placeholder"
+    >
+    <!-- Exibição de erros no formulário -->
+    <!-- Caso a função de validação seja passada, executa checkFormStatus('invalid-control') -->
+    <span 
+        *ngIf="formGroup!.controls[controlName]?.invalid 
+            && formGroup!.controls[controlName].touched 
+            && formGroup!.controls[controlName].value"
+        class="texto-validacao-erro-form ms-2">
+        <img src="assets/login/erro_icon.svg" alt=""> 
+        Campo obrigatório ou inválido
+    </span>
+</div>
