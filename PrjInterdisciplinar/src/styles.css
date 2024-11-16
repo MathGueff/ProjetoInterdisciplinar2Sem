@@ -156,7 +156,7 @@
 
 .form-control:focus, .form-select:focus{
    transform: translate(2px) !important;
-   border: 2px solid var(--cor-primaria) !important;
+   border: 3px solid var(--cor-primaria) !important;
 }
 
 /* Icones do formulário */
@@ -182,6 +182,10 @@
    opacity: 0.8;
    transform: translateY(-5px);
    cursor: pointer;
+}
+
+.required-control{
+  color: red;
 }
 
 /* Estilos dos links */
