@@ -1,28 +1,43 @@
 <div [formGroup]="formGroup">
     <!-- FormControl -->
-    <img class="icon me-1" [src]="inputIcon">
+    <img class="icon me-1" [src]="icon">
     <label [for]="controlName + '-' + formName" class="form-label">
         {{label}}
         <span *ngIf="required" class="required-control">*</span>
     </label>
-    <input
-        [formControlName] = "controlName"
-        [type]="type"
-        [name]= "controlName + '-' + formName"
-        class="form-control" 
-        [id]="controlName + '-' + formName" 
-        [placeholder]="placeholder"
-    >
+    <div class="d-flex">
+        <input
+            [formControlName] = "controlName"
+            [type]="type"
+            [name]= "controlName + '-' + formName"
+            class="form-control" 
+            [id]="controlName + '-' + formName" 
+            [placeholder]="placeholder"
+        >
+        <!-- <img *ngIf="type == 'password'" class="icon" src="assets/login/view_icon.svg"> -->
+    </div>
 
     <!-- Exibição de erros no formulário -->
-    <span 
-        *ngIf="formGroup!.controls[controlName]?.invalid 
-            && formGroup!.controls[controlName].touched 
-            && formGroup!.controls[controlName].value"
-        class="texto-validacao-erro-form ms-2">
-        <img src="assets/login/erro_icon.svg" alt=""> 
-        Campo obrigatório ou inválido
-    </span>
-    <!-- Verifica se o campo é invalido (baseado nos Validators definidos), 
-        se foi tocado, e se não tem valor vazio, para então mostrar o span de erro -->
+   
+    <!--
+        Verifica se o campo é invalido (baseado nos Validators definidos), 
+        se foi tocado, e se não tem valor vazio, para então mostrar o span de erro 
+        
+        Mostra todos spans com erro respectivo ativo
+    -->
+
+    <div 
+        *ngIf="formGroup.get(controlName)?.touched && formGroup.get(controlName)?.value">
+        <!-- Para cada Validator do controlName -->
+        <div *ngFor="let error of errorValidators">
+            <span 
+                *ngIf="formGroup.get(controlName)?.errors?.[error]"
+                class="texto-validacao-erro-form ms-2"
+            >
+                <img src="assets/login/erro_icon.svg" class="icone-validacao-form" alt=""> 
+                {{getErrorMessage(error)}}
+            </span>
+        </div>
+       
+    </div>
 </div>

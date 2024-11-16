@@ -14,6 +14,7 @@
                     type="text"
                     placeholder="Nome de usuário"
                     [required]="true"
+                    [errorValidators]="['required']" 
                     >
                     </app-form-input> 
                 </div>
@@ -26,6 +27,7 @@
                     type="mail"
                     placeholder="Email de cadastro"
                     [required]="true"
+                    [errorValidators]="['required', 'email']" 
                     >
                     </app-form-input>
                 </div>
@@ -38,6 +40,7 @@
                     type="password"
                     placeholder="Senha de login"
                     [required]="true"
+                    [errorValidators]="['required', 'minlength']" 
                     >
                     </app-form-input>
                 </div>
@@ -50,6 +53,7 @@
                     type="password"
                     placeholder="Confirmação da senha"
                     [required]="true"
+                    [errorValidators]="['required', 'minlength']" 
                     >
                     </app-form-input>
                 </div>
@@ -87,61 +91,57 @@
                     >
                     </app-form-input>
                 </div>
-                <div class="col-md-12 col-sm-12 mb-3">
-                    <a (click) = "this.exibirCamposEndereco = !this.exibirCamposEndereco" class="small mt-2 link-form">{{exibirCamposEndereco ? "Mostrar apenas CEP" : "Não sei meu CEP"}} </a>
+                
+                <div class="col-md-6 col-sm-12 mb-3">
+                    <app-form-input
+                    [formGroup]="formCadastro"
+                    icon="assets/login/endereco_icon.svg"
+                    controlName="bairro"
+                    label="Bairro:"
+                    type="text"
+                    placeholder="Digite seu bairro"
+                    >
+                    </app-form-input>
                 </div>
-                @if (exibirCamposEndereco) {    
-                    <div class="col-md-6 col-sm-12 mb-3">
-                        <app-form-input
-                        [formGroup]="formCadastro"
-                        icon="assets/login/endereco_icon.svg"
-                        controlName="bairro"
-                        label="Bairro:"
-                        type="text"
-                        placeholder="Digite seu bairro"
-                        >
-                        </app-form-input>
-                    </div>
-                    <div class="col-md-6 col-sm-12 mb-3">
-                        <app-form-input
-                        [formGroup]="formCadastro"
-                        icon="assets/login/endereco_icon.svg"
-                        controlName="logradouro"
-                        label="Rua:"
-                        type="text"
-                        placeholder="Digite sua rua"
-                        >
-                        </app-form-input>
-                    </div>
-                    <div class="col-md-6 col-sm-12 mb-3">
-                        <app-form-input
-                        [formGroup]="formCadastro"
-                        icon="assets/login/endereco_icon.svg"
-                        controlName="cidade"
-                        label="Cidade:"
-                        type="text"
-                        placeholder="Digite sua cidade"
-                        >
-                        </app-form-input>
-                    </div>
-                }
+                <div class="col-md-6 col-sm-12 mb-3">
+                    <app-form-input
+                    [formGroup]="formCadastro"
+                    icon="assets/login/endereco_icon.svg"
+                    controlName="logradouro"
+                    label="Rua:"
+                    type="text"
+                    placeholder="Digite sua rua"
+                    >
+                    </app-form-input>
+                </div>
+                <div class="col-md-6 col-sm-12 mb-3">
+                    <app-form-input
+                    [formGroup]="formCadastro"
+                    icon="assets/login/endereco_icon.svg"
+                    controlName="cidade"
+                    label="Cidade:"
+                    type="text"
+                    placeholder="Digite sua cidade"
+                    >
+                    </app-form-input>
+                </div>
             </div>
 
             <!-- Texto explicativo e botão -->
             <span class="small mt-2 mb-2">Saiba porque precisamos dessas informações de contato <a class="link-form">aqui</a></span>
 
             <!-- Caso algum dos controls esteja inválido -->
-            <span *ngIf="checkIfFormError('invalid-control')" class="texto-validacao-erro-form mb-2">
+            <span *ngIf="checkIfFormError('invalid-control')" class="texto-validacao-erro-form mb-1">
                 <img src="assets/login/erro_icon.svg" alt=""> Campos obrigatórios não preenchidos ou inválidos
             </span> <!-- Método checkIfFormError retorna true caso o erro específico esteja ocorrendo (parametro é o valor de string do enum)-->
 
             <!-- Caso as senhas não coincidam -->
-            <span *ngIf="checkIfFormError('invalid-password')" class="texto-validacao-erro-form mb-2">
+            <span *ngIf="checkIfFormError('invalid-password')" class="texto-validacao-erro-form mb-1">
                 <img src="assets/login/erro_icon.svg" alt=""> Senhas não coincidem
             </span>
 
              <!-- Caso já exista um usuário -->
-             <span *ngIf="checkIfFormError('user-exists')" class="texto-validacao-erro-form mb-2">
+             <span *ngIf="checkIfFormError('user-exists')" class="texto-validacao-erro-form mb-1">
                 <img src="assets/login/erro_icon.svg" alt=""> Já existe um usuário com esse email
             </span>
 
