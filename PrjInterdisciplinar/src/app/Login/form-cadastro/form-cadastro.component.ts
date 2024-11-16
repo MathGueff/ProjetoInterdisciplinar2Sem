@@ -16,8 +16,6 @@ import { CadastroErrorStatus } from './CadastroErrorStatus.enum';
   styleUrls: ['./form-cadastro.component.css', '../links-redes.css']
 })
 export class FormCadastroComponent implements OnInit{
-  exibirCamposEndereco = false;
-
   private formBuilderService = inject(NonNullableFormBuilder);
   private router = inject(Router);
   private userService = inject(UserService);
