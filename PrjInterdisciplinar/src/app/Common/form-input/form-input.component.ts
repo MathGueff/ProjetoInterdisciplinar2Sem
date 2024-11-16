@@ -17,4 +17,5 @@ export class FormInputComponent {
   @Input() icon !: string; //Icone do input
   @Input() type: string = 'text'; //Tipo do input
   @Input() placeholder!: string;  //Placeholder do input
+  @Input() required !: boolean; //Se o campo é obrigatório (serve para adicionar o asterisco* como forma visual de separar obrigatórios de opcionais)
 }

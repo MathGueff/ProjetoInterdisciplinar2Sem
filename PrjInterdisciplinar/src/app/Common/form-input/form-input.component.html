@@ -1,6 +1,9 @@
 <div [formGroup]="formGroup">
     <img class="icon me-1" [src]="icon">
-    <label [for]="controlName + '-' + formName" class="form-label">{{label}}</label>
+    <label [for]="controlName + '-' + formName" class="form-label">
+        {{label}}
+        <span *ngIf="required" class="required-control">*</span>
+    </label>
     <input
         [formControlName] = "controlName"
         [type]="type"

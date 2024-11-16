@@ -34,20 +34,12 @@ export class UserService {
 
     /* Criação de um novo usuário */
     newUser(newUser : IUser){
-        if(!this.checkIfUserExists(newUser)){
-            /* Caso não haja usuário com esse email */
-            this.users.push(newUser);
-            console.log(this.users);
-        }
-        else{
-            alert("Usuário já existe");
-        }
+        this.users.push(newUser);
+        console.log(this.users);
     }
 
     /* Verificação de usuário existente */
     checkIfUserExists(newUser : IUser) : boolean{
-        return this.users.some((user) => {
-            user.email === newUser.email;
-        })
+        return this.users.some(user => user.email === newUser.email);
     }
 }

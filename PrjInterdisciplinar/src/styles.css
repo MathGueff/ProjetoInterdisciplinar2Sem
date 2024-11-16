@@ -184,6 +184,10 @@
    cursor: pointer;
 }
 
+.required-control{
+  color: red;
+}
+
 /* Estilos dos links */
 .texto-link-form{
   font-size: 0.875rem;
