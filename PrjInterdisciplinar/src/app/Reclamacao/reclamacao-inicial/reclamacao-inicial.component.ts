@@ -56,7 +56,6 @@ export class ReclamacaoInicialComponent implements OnInit {
     this.TagSelect.valueChanges.subscribe( valor => {
       console.log("TagForm: " + this.TagSelect.value.tagForm);
       const lista = this.reclamacoes.filter((reclamacao) =>{ // filtrando o array pela tag pesquisada
-        console.log("ObjTag" + reclamacao.objTag);
         return reclamacao.objTag === this.TagSelect.value.tagForm
       });
       this.reclamacaoSubject.next(lista);
