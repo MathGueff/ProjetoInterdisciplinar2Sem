@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ReclamacaoCardComponent } from '../reclamacao-card/reclamacao-card.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TagSelectComponent } from "../../Common/tag-select/tag-select.component";
 
 @Component({
   selector: 'app-reclamacao-inicial',
   standalone: true,
-  imports: [CommonModule, ReclamacaoCardComponent,RouterLink],
+  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent],
   templateUrl: './reclamacao-inicial.component.html',
   styleUrl: './reclamacao-inicial.component.css'
 })

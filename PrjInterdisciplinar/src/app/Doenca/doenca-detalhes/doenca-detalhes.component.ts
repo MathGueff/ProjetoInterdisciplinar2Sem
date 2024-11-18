@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Detalhe } from '../../models/doencas';
+import { Detalhe } from '../../models/detalhe';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-doenca-detalhes',
