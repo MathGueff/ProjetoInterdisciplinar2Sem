@@ -1,44 +1,31 @@
-<div id="fundo" class="m-5 px-5 py-4 justifica rounded">
-  <div class="info pb-3 mb-3 d-flex flex-line">
+<div *ngIf="dado$ | async as Detalhes;" class="painel m-5 justifica rounded">
+  <div class="header-painel p-3 mb-3 d-flex flex-line gap-5">
     <img
       id="imgDoenca"
       class="me-3"
-      src="img/paginas/doencas/ShistossomaMansoni.png"
-      alt="SchistosomaMansoni.png"
+      src="{{Detalhes.imgDoenca}}"
+      alt="DoencaFoto.png"
     />
     <div>
-      <h2 id="titulo">Esquistossomose</h2>
+      <h2 id="titulo">{{Detalhes.title}}</h2>
       <h5>Transmissão:</h5>
       <span>
-        É uma doença parasitária, diretamente relacionada ao saneamento
-        precário, causada pelo Schistosoma mansoni. A pessoa adquire a infecção
-        quando entra em contato com água doce onde existam caramujos infectados
-        pelos vermes causadores da esquistossomose. No Brasil, a esquistossomose
-        é conhecida popularmente como “xistose”, “barriga d’água” ou “doença dos
-        caramujos”.
+        {{Detalhes.transmission}}
       </span>
     </div>
   </div>
   <div class="info pb-3 mb-3">
     <h5>Tratamento:</h5>
     <span>
-      O diagnóstico da esquistossomose é feito por meio de exames laboratoriais
-      de fezes. É possível detectar, por meio desses exames, os ovos do parasita
-      causador da doença. O médico também pode solicitar teste de anticorpos
-      para verificar sinais de infecção e para formas graves ultrassonografia. O
-      tratamento da esquistossomose, para os casos simples, é em dose única e
-      supervisionado feito por meio do medicamento Praziquantel, receitado pelo
-      médico e distribuído gratuitamente pelo Ministério da Saúde. Os casos
-      graves geralmente requerem internação hospitalar e até mesmo tratamento
-      cirúrgico, conforme cada situação
+      {{Detalhes.treatment}}
     </span>
   </div>
   <div class="info mb-3">
     <h5>Sintomas:</h5>
     <ul>
-      <div *ngFor="let sintoma of sintomas">
+      <div>
         <li>
-          <p>{{ sintoma.nome }}</p>
+          <p>{{Detalhes.symotomsName}}</p>
         </li>
       </div>
     </ul>
@@ -48,7 +35,7 @@
     >https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose</a
   >
   <div class="d-flex justify-content-end">
-    <a class="d-flex text-decoration-none align-items-center" routerLink="">
+    <a class="d-flex text-decoration-none align-items-center" routerLink="/doenca-inicial">
       <img
       id="voltar"
       class="me-2"

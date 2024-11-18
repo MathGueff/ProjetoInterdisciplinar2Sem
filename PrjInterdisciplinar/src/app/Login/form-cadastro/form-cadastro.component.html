@@ -8,19 +8,21 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/usuario_icon.svg"
                     controlName="nome"
                     label="Nome: "
                     type="text"
                     placeholder="Nome de usuário"
                     [required]="true"
-                    [errorValidators]="['required']" 
+                    [errorValidators]="['required','minlength']" 
                     >
                     </app-form-input> 
                 </div>
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/email_icon.svg"
                     controlName="email"
                     label="Email: "
@@ -34,6 +36,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/senha_icon.svg"
                     controlName="senha"
                     label="Senha: "
@@ -47,6 +50,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/senha_icon.svg"
                     controlName="confirmaSenha"
                     label="Confirme sua senha: "
@@ -60,6 +64,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/telefone_icon.svg"
                     controlName="telefone"
                     label="Telefone:"
@@ -72,6 +77,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/endereco_icon.svg"
                     controlName="cep"
                     label="CEP:"
@@ -83,6 +89,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/endereco_icon.svg"
                     controlName="numero"
                     label="Número:"
@@ -95,6 +102,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/endereco_icon.svg"
                     controlName="bairro"
                     label="Bairro:"
@@ -106,6 +114,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/endereco_icon.svg"
                     controlName="logradouro"
                     label="Rua:"
@@ -117,6 +126,7 @@
                 <div class="col-md-6 col-sm-12 mb-3">
                     <app-form-input
                     [formGroup]="formCadastro"
+                    [formName]="this.formName"
                     icon="assets/login/endereco_icon.svg"
                     controlName="cidade"
                     label="Cidade:"

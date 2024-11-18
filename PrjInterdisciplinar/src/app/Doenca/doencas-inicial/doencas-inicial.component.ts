@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Doencas } from '../../models/doencas';
+import { DoencaCardComponent } from '../doenca-card/doenca-card.component';
 
 @Component({
   selector: 'app-doencas-inicial',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DoencaCardComponent],
   templateUrl: './doencas-inicial.component.html',
   styleUrl: './doencas-inicial.component.css',
 })
