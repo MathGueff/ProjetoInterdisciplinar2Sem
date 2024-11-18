@@ -15,14 +15,15 @@
   <div class="row mb-5">
     <div class="col tags">
       <h2 class="mb-4">Filtre pela Tag</h2>
-      <form class="pesquisa-tag p-4">
+      <form class="pesquisa-tag p-4" [formGroup]="TagSelect">
         <div class="tag-reclamacao">
-          <select class="form-select text-center borda" name="tag" id="">
-            <option value="tag1">Tag1</option>
-            <option value="tag2">Tag2</option>
-            <option value="tag3">Tag3</option>
-            <option value="tag4">Tag4</option>
-          </select>
+          <input list="box" type="search" class="form-select text-center borda" formControlName="tagForm">
+          <datalist id="box">
+            <option>Tag1</option>
+            <option>Tag2</option>
+            <option>Tag3</option>
+            <option>Tag4</option>
+          </datalist>
         </div>
       </form>
       <!-- <app-tag-select></app-tag-select> -->
@@ -41,7 +42,7 @@
   </div>
   <div class="row mt-4 mb-4 cards-div"> <!-- Row onde ficam os cards -->
     @if (reclamacoes.length > 0) { <!-- verificando se a lista é vazia -->
-      <div class="col-12 p-4 ps-5 pe-5" *ngFor="let reclamacao of reclamacoes"> <!-- Coluna do card-->
+      <div class="col-12 p-4 ps-5 pe-5" *ngFor="let reclamacao of data$ |async"> <!-- Coluna do card-->
         <app-reclamacao-card [card]="reclamacao"></app-reclamacao-card>
       </div> <!-- Fim da Coluna do card -->
     }

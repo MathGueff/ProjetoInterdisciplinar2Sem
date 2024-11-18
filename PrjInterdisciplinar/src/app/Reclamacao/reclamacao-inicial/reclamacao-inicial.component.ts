@@ -1,18 +1,24 @@
 import { Reclamacao } from './../../models/reclamacao';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReclamacaoCardComponent } from '../reclamacao-card/reclamacao-card.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TagSelectComponent } from "../../Common/tag-select/tag-select.component";
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-reclamacao-inicial',
   standalone: true,
-  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent],
+  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent,ReactiveFormsModule],
   templateUrl: './reclamacao-inicial.component.html',
   styleUrl: './reclamacao-inicial.component.css'
 })
-export class ReclamacaoInicialComponent {
+export class ReclamacaoInicialComponent implements OnInit {
+  private reclamacaoSubject =new BehaviorSubject<Reclamacao[]>([] as any);
+  data$:Observable<Reclamacao[]> = this.reclamacaoSubject.asObservable();
+  TagSelect: FormGroup;
   reclamacoes: Reclamacao [] = [
     {
       idReclamacao:1,
@@ -39,5 +45,22 @@ export class ReclamacaoInicialComponent {
       objTag: "Tag3"
     }
   ];
+  constructor(private fb:FormBuilder){
+    this.TagSelect = this.fb.group({
+        tagForm: ['']
+      }
+    );
+  }
+
+  ngOnInit():void{
+    this.TagSelect.valueChanges.subscribe( valor => {
+      console.log("TagForm: " + this.TagSelect.value.tagForm);
+      const lista = this.reclamacoes.filter((reclamacao) =>{ // filtrando o array pela tag pesquisada
+        console.log("ObjTag" + reclamacao.objTag);
+        return reclamacao.objTag === this.TagSelect.value.tagForm
+      });
+      this.reclamacaoSubject.next(lista);
+    })
+  }
 
 }
