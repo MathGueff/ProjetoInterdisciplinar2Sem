@@ -19,10 +19,12 @@
         <div class="tag-reclamacao">
           <input list="box" type="search" class="form-select text-center borda" formControlName="tagForm">
           <datalist id="box">
+            <option selected>Todos</option>
             <option>Tag1</option>
             <option>Tag2</option>
             <option>Tag3</option>
             <option>Tag4</option>
+            <option>Nenhum</option>
           </datalist>
         </div>
       </form>
@@ -41,11 +43,10 @@
 
   </div>
   <div class="row mt-4 mb-4 cards-div"> <!-- Row onde ficam os cards -->
-    @if (reclamacoes.length > 0) { <!-- verificando se a lista é vazia -->
+    @if (data$ | async) { <!-- verificando se houve atualização da lista -->
       <div class="col-12 p-4 ps-5 pe-5" *ngFor="let reclamacao of data$ |async"> <!-- Coluna do card-->
         <app-reclamacao-card [card]="reclamacao"></app-reclamacao-card>
       </div> <!-- Fim da Coluna do card -->
     }
-
   </div> <!-- Fim do row dos cards -->
 </div><!-- Fim container-fluid -->

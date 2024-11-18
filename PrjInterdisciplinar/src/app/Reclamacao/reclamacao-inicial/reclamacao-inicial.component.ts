@@ -46,18 +46,27 @@ export class ReclamacaoInicialComponent implements OnInit {
     }
   ];
   constructor(private fb:FormBuilder){
+    this.reclamacaoSubject.next(this.reclamacoes);
     this.TagSelect = this.fb.group({
-        tagForm: ['']
+        tagForm: ['Todos']
       }
     );
   }
 
   ngOnInit():void{
-    this.TagSelect.valueChanges.subscribe( valor => {
-      console.log("TagForm: " + this.TagSelect.value.tagForm);
-      const lista = this.reclamacoes.filter((reclamacao) =>{ // filtrando o array pela tag pesquisada
+    this.TagSelect.valueChanges.subscribe(() => {
+      let lista : Reclamacao [] = [];
+      //Verifica se nenhuma Tag foi selecionada
+      if(this.TagSelect.value.tagForm === "Todas"){
+        lista = this.reclamacoes;
+      }
+      // Filtra o array de Reclamações pela tag selecionada
+      else{
+        lista = this.reclamacoes.filter((reclamacao) =>{
         return reclamacao.objTag === this.TagSelect.value.tagForm
       });
+      }
+      //atualizando o valor do Observabale
       this.reclamacaoSubject.next(lista);
     })
   }
