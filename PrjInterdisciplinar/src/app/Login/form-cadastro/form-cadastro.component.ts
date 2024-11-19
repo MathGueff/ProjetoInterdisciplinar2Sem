@@ -7,6 +7,7 @@ import { UserService } from '../../Services/user.service';
 import { IUser } from '../../models/usuario.model';
 import { IEndereco } from '../../models/endereco.model';
 import { CadastroErrorStatus } from './CadastroErrorStatus.enum';
+import { ViacepService } from '../../Services/viacep.service';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -19,6 +20,7 @@ export class FormCadastroComponent implements OnInit{
   private formBuilderService = inject(NonNullableFormBuilder);
   private router = inject(Router);
   private userService = inject(UserService);
+  private viacepService = inject(ViacepService);
 
   formName : string = "cadastro"; //Nome do formulário para concatenar ao nome do control (email-cadastro)
   passwordMinLength = 6;
@@ -29,11 +31,11 @@ export class FormCadastroComponent implements OnInit{
     senha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
     confirmaSenha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
     telefone : [''], //Opcional
-    cep : [''],  //Opcional
+    cep : ['', [Validators.minLength(8), Validators.maxLength(8)]],  //Opcional
     numero : [''],  //Opcional
     logradouro : [''],  //Opcional
     bairro : [''],  //Opcional
-    cidade : [''],  //Opcional
+    localidade : [''],  //Opcional
   })
 
   protected cadastroErrorStatus : CadastroErrorStatus = CadastroErrorStatus.None;
@@ -55,7 +57,7 @@ export class FormCadastroComponent implements OnInit{
           cep : this.formCadastro.controls.cep.value,
           bairro : this.formCadastro.controls.bairro.value,
           logradouro : this.formCadastro.controls.logradouro.value,
-          cidade : this.formCadastro.controls.cidade.value,
+          cidade : this.formCadastro.controls.localidade.value,
           numero : this.formCadastro.controls.numero.value
         }
 
@@ -99,27 +101,63 @@ export class FormCadastroComponent implements OnInit{
 
   ngOnInit() {
     // Detecta mudanças nos campos para resetar o status do erro atual
-
-    /* Serão substituídos por uma função para evitar duplicidade de codigo */
-    
-    this.formCadastro.controls.email.valueChanges.subscribe(() => {
-      // Limpando o erro quando o usuário alterar o valor do campo 'email'
-      this.cadastroErrorStatus = CadastroErrorStatus.None;
+    Object.keys(this.formCadastro.controls).forEach(control => {
+      if(control != "cep"){
+        this.formCadastro.get(control)?.valueChanges.subscribe(() => {
+          // Limpando o erro quando o usuário alterar o valor do campo 'senha'
+          this.cadastroErrorStatus = CadastroErrorStatus.None;
+        });
+      }
     });
 
-    this.formCadastro.controls.nome.valueChanges.subscribe(() => {
-      // Limpando o erro quando o usuário alterar o valor do campo 'nome'
-      this.cadastroErrorStatus = CadastroErrorStatus.None;
+    //VIACEP
+    this.formCadastro.controls.cep.valueChanges.subscribe(() => {
+      if(this.formCadastro.controls.cep.valid && this.formCadastro.controls.cep.value.length == 8){
+        this.searchAddress();
+      }
+      else{
+        console.log("CEP INVÁLIDO")
+        this.resetAddressControls();
+      }
     });
+  }
 
-    this.formCadastro.controls.senha.valueChanges.subscribe(() => {
-      // Limpando o erro quando o usuário alterar o valor do campo 'senha'
-      this.cadastroErrorStatus = CadastroErrorStatus.None;
-    });
+  searchAddress(){
+      this.viacepService.getAddress(this.formCadastro.controls.cep.value).subscribe({
+        next: (response) => {
+          if (response.logradouro) {
+            this.setAddressControl('logradouro', response.logradouro);
+          } else {
+            console.log("O logradouro não foi encontrado para o CEP informado.");
+          }
+  
+          if (response.bairro) {
+            this.setAddressControl('bairro', response.bairro);
+          } else {
+            console.log("O logradouro não foi encontrado para o CEP informado.");
+          }
+  
+          if (response.localidade) {
+            this.setAddressControl('localidade', response.localidade);
+          } else {
+            console.log("O logradouro não foi encontrado para o CEP informado.");
+          }
+  
+        },
+        error: (e) =>  {
+          console.log(e);
+        }
+      })
+  }
 
-    this.formCadastro.controls.confirmaSenha.valueChanges.subscribe(() => {
-      // Limpando o erro quando o usuário alterar o valor do campo 'confirmar senha'
-      this.cadastroErrorStatus = CadastroErrorStatus.None;
-    });
+  resetAddressControls() {
+  let addressControls = ['logradouro', 'bairro', 'localidade'];
+  addressControls.forEach((field) => {
+    this.formCadastro.get(field)!.reset();
+  });
+}
+
+  private setAddressControl(control : string, value : string){
+    this.formCadastro.get(control)?.setValue(value)
   }
 }
