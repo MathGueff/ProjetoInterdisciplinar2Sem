@@ -83,6 +83,7 @@
                     label="CEP:"
                     type="text"
                     placeholder="Digite seu CEP"
+                    [errorValidators]="['minlength', 'maxlength']" 
                     >
                     </app-form-input>
                 </div>
@@ -128,7 +129,7 @@
                     [formGroup]="formCadastro"
                     [formName]="this.formName"
                     icon="assets/login/endereco_icon.svg"
-                    controlName="cidade"
+                    controlName="localidade"
                     label="Cidade:"
                     type="text"
                     placeholder="Digite sua cidade"

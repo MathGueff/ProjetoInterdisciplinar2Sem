@@ -30,14 +30,18 @@ export class FormInputComponent{
         return 'Campo obrigatório'
     
       case 'minlength':
-        let minValue = this.formGroup.get(this.controlName)?.errors?.['minlength']?.requiredLength -1;
-        return `Deve ser maior do que ${minValue} ${minValue > 1 ? 'caracteres' : 'caractere'}`
+        let minValue = this.formGroup.get(this.controlName)?.errors?.['minlength']?.requiredLength;
+        return `Deve ser maior ou igual a ${minValue} ${minValue > 1 ? 'caracteres' : 'caractere'}`
+
+      case 'maxlength':
+        let maxValue = this.formGroup.get(this.controlName)?.errors?.['maxlength']?.requiredLength;
+        return `Deve ser menor ou igual a ${maxValue} ${maxValue > 1 ? 'caracteres' : 'caractere'}`
 
       case 'email':
         return `Email inválido`
 
       default:
-        return 'Erro de validação'
+        return 'Tipo de validação não especificada'
     }
   }
 }
