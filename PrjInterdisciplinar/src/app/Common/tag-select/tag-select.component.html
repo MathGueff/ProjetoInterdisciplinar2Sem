@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      <label for="tags" class="form-label">Tags:</label>
+      <input list="tags-select" class="form-control" id="tags" formControlName="tagsSelecteds" placeholder="Procure uma Tag">
+      <datalist id="tags-select">
+        <!-- <option *ngFor="let item of list" [value]="item">{{item}}</option> -->
+        <option>Tag1</option>
+        <option>Tag2</option>
+        <option>Tag3</option>
+        <option>Tag4</option>
+      </datalist>
+    </div>
+
+    <div class="col">
+      <label class="form-label">Tags selecionadas:</label>
+      <div class="row tags-selected">
+        <div class="col-6 mt-1 tag">
+          <span>Esgoto a céu aberto</span>
+        </div>
+        <div class="col-6 mt-1 tag">
+          <span>Esgoto a céu aberto</span>
+        </div>
+        <div class="col-6 mt-1 tag">
+          <span>Esgoto a céu aberto</span>
+        </div>
+        <div class="col-6 mt-1 tag">
+          <span>Esgoto a céu aberto</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</form>
