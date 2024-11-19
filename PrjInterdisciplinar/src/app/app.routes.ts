@@ -9,6 +9,7 @@ import { MenuAdminComponent } from './Admin/menu-admin/menu-admin.component';
 import { NoticiasInicialComponent } from './Noticias/noticias-inicial/noticias-inicial.component';
 import { FormLoginComponent } from './Login/form-login/form-login.component';
 import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.component';
+import { ComentarioCentralComponent } from './Comentario/comentario-central/comentario-central.component';
 
 
 
@@ -23,5 +24,6 @@ export const routes: Routes = [
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'login', component:FormLoginComponent},
-  {path: 'cadastro', component:FormCadastroComponent}
+  {path: 'cadastro', component:FormCadastroComponent},
+  {path: 'comentario',component:ComentarioCentralComponent}
 ];

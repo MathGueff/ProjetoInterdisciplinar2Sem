@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Reclamacao } from '../../models/reclamacao';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reclamacao-descricao',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './reclamacao-descricao.component.html',
   styleUrl: './reclamacao-descricao.component.css'
 })
