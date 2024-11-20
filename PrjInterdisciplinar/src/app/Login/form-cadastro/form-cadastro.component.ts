@@ -36,6 +36,7 @@ export class FormCadastroComponent implements OnInit{
     logradouro : [''],  //Opcional
     bairro : [''],  //Opcional
     localidade : [''],  //Opcional
+    complemento : ['']
   })
 
   protected cadastroErrorStatus : CadastroErrorStatus = CadastroErrorStatus.None;
@@ -58,7 +59,8 @@ export class FormCadastroComponent implements OnInit{
           bairro : this.formCadastro.controls.bairro.value,
           logradouro : this.formCadastro.controls.logradouro.value,
           cidade : this.formCadastro.controls.localidade.value,
-          numero : this.formCadastro.controls.numero.value
+          numero : this.formCadastro.controls.numero.value,
+          complemento : this.formCadastro.controls.complemento.value
         }
 
         //Interface de usuário para guardar as informações do usuário e passar para o userService
@@ -69,13 +71,13 @@ export class FormCadastroComponent implements OnInit{
           endereco : userAddress,
           telefone : this.formCadastro.controls.telefone.value,
         }
-        
+
         //Chamando função para verificar se usuário já existe com base no email
         if(!this.userService.checkIfUserExists(newUser)){
           //Caso não haja usuário, cadastra um novo com os dados preenchidos
           this.userService.newUser(newUser);
           //Retorna à pagina de login para que o usuário possa logar
-          this.router.navigate(['/login']); 
+          this.router.navigate(['/login']);
         }
         else {
           //Informa erro de usuário existente
@@ -89,7 +91,7 @@ export class FormCadastroComponent implements OnInit{
     }
     else{
       //Informa erro de campos inválidos
-      this.cadastroErrorStatus = CadastroErrorStatus.invalidControl; 
+      this.cadastroErrorStatus = CadastroErrorStatus.invalidControl;
     }
   }
 
@@ -130,19 +132,19 @@ export class FormCadastroComponent implements OnInit{
           } else {
             console.log("O logradouro não foi encontrado para o CEP informado.");
           }
-  
+
           if (response.bairro) {
             this.setAddressControl('bairro', response.bairro);
           } else {
             console.log("O logradouro não foi encontrado para o CEP informado.");
           }
-  
+
           if (response.localidade) {
             this.setAddressControl('localidade', response.localidade);
           } else {
             console.log("O logradouro não foi encontrado para o CEP informado.");
           }
-  
+
         },
         error: (e) =>  {
           console.log(e);

@@ -28,13 +28,15 @@ export class FormInputComponent{
     switch (erro) {
       case 'required':
         return 'Campo obrigatório'
-    
+
       case 'minlength':
         let minValue = this.formGroup.get(this.controlName)?.errors?.['minlength']?.requiredLength;
+        //let minValue = this.formGroup.get(this.controlName)?.errors?.['minlength']?.requiredLength;
         return `Deve ser maior ou igual a ${minValue} ${minValue > 1 ? 'caracteres' : 'caractere'}`
 
       case 'maxlength':
         let maxValue = this.formGroup.get(this.controlName)?.errors?.['maxlength']?.requiredLength;
+        //let maxValue = this.formGroup.get(this.controlName)?.errors?.['maxlength']?.requiredLength;
         return `Deve ser menor ou igual a ${maxValue} ${maxValue > 1 ? 'caracteres' : 'caractere'}`
 
       case 'email':
