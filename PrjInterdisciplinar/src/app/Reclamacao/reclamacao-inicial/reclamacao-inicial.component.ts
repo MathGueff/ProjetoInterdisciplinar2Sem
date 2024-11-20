@@ -1,16 +1,24 @@
 import { Reclamacao } from './../../models/reclamacao';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReclamacaoCardComponent } from '../reclamacao-card/reclamacao-card.component';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { TagSelectComponent } from "../../Common/tag-select/tag-select.component";
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-reclamacao-inicial',
   standalone: true,
-  imports: [CommonModule, ReclamacaoCardComponent],
+  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent,ReactiveFormsModule],
   templateUrl: './reclamacao-inicial.component.html',
   styleUrl: './reclamacao-inicial.component.css'
 })
-export class ReclamacaoInicialComponent {
+export class ReclamacaoInicialComponent implements OnInit {
+  private reclamacaoSubject =new BehaviorSubject<Reclamacao[]>([] as any);
+  data$:Observable<Reclamacao[]> = this.reclamacaoSubject.asObservable();
+  TagSelect: FormGroup;
   reclamacoes: Reclamacao [] = [
     {
       idReclamacao:1,
@@ -37,5 +45,30 @@ export class ReclamacaoInicialComponent {
       objTag: "Tag3"
     }
   ];
+  constructor(private fb:FormBuilder){
+    this.reclamacaoSubject.next(this.reclamacoes);
+    this.TagSelect = this.fb.group({
+        tagForm: ['Todos']
+      }
+    );
+  }
+
+  ngOnInit():void{
+    this.TagSelect.valueChanges.subscribe(() => {
+      let lista : Reclamacao [] = [];
+      //Verifica se nenhuma Tag foi selecionada
+      if(this.TagSelect.value.tagForm === "Todas"){
+        lista = this.reclamacoes;
+      }
+      // Filtra o array de Reclamações pela tag selecionada
+      else{
+        lista = this.reclamacoes.filter((reclamacao) =>{
+        return reclamacao.objTag === this.TagSelect.value.tagForm
+      });
+      }
+      //atualizando o valor do Observabale
+      this.reclamacaoSubject.next(lista);
+    })
+  }
 
 }

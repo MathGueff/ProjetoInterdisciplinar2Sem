@@ -10,7 +10,7 @@ import { NoticiasInicialComponent } from './Noticias/noticias-inicial/noticias-i
 import { FormLoginComponent } from './Login/form-login/form-login.component';
 import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.component';
 import { ComentarioCentralComponent } from './Comentario/comentario-central/comentario-central.component';
-
+import { ReclamacaoFormComponent } from './Reclamacao/reclamacao-form/reclamacao-form.component';
 
 
 export const routes: Routes = [
@@ -25,5 +25,7 @@ export const routes: Routes = [
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
-  {path: 'comentario',component:ComentarioCentralComponent}
+  {path: 'comentario',component:ComentarioCentralComponent},
+  {path: 'reclamacao-form', component: ReclamacaoFormComponent},
+
 ];
