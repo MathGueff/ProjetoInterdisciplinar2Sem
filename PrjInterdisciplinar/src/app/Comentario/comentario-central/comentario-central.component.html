@@ -8,7 +8,6 @@
     <!-- Corpo Comentario -->
      <div class="body-comentario w-100 d-flex flex-column h-auto gap-5 p-0 mt-4">
         <!-- looping do componente a baixo. a diretiva ngStyle irá colocar o comentário a esquerda caso o Id do Administrador seja nulo, se for nulo colocará o comentário a direita -->
-        <app-comentario-baixo class="autor" [ngStyle]="{'justify-content': variavel === null ? 'flex-start' : 'flex-end'}"></app-comentario-baixo>
       <app-comentario-baixo></app-comentario-baixo>
       <app-comentario-baixo></app-comentario-baixo>
      </div>
