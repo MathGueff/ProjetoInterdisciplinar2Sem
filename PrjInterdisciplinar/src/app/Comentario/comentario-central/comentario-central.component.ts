@@ -12,7 +12,5 @@ import { ComentarioInputComponent } from '../comentario-input/comentario-input.c
   styleUrl: './comentario-central.component.css'
 })
 export class ComentarioCentralComponent {
-variavel: any = null
-
-
+variavel: any = ''
 }

@@ -6,12 +6,13 @@
        <app-comentario-cima></app-comentario-cima>
     </div>
     <!-- Corpo Comentario -->
-     <div class="body-comentario w-100 d-flex flex-column h-auto gap-5 p-0 mt-4">
+     <div class="body-comentario w-100 d-flex flex-column h-auto mt-5 gap-5 p-0 mt-4">
         <!-- looping do componente a baixo. a diretiva ngStyle irá colocar o comentário a esquerda caso o Id do Administrador seja nulo, se for nulo colocará o comentário a direita -->
       <app-comentario-baixo></app-comentario-baixo>
       <app-comentario-baixo></app-comentario-baixo>
+      <app-comentario-baixo class="autor" [ngStyle]="{'justify-content': variavel === null ? 'flex-start' : 'flex-end'}"></app-comentario-baixo>
      </div>
-     <div class="novo-comentario">
+     <div class="novo-comentario mt-5 mb-3 p-0">
       <app-comentario-input></app-comentario-input>
      </div>
   </div>
