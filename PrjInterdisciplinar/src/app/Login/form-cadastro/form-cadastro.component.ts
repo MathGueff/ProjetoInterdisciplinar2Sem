@@ -30,7 +30,8 @@ export class FormCadastroComponent implements OnInit{
     email : ['', [Validators.required, Validators.email]],
     senha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
     confirmaSenha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
-    telefone : [''], //Opcional
+    telefone : ['', [Validators.minLength(11), Validators.maxLength(11)]], //Opcional
+    cpf: ['',[Validators.minLength(11), Validators.maxLength(11)]],
     cep : ['', [Validators.minLength(8), Validators.maxLength(8)]],  //Opcional
     numero : [''],  //Opcional
     logradouro : [''],  //Opcional
@@ -70,6 +71,7 @@ export class FormCadastroComponent implements OnInit{
           senha : this.formCadastro.controls.senha.value,
           endereco : userAddress,
           telefone : this.formCadastro.controls.telefone.value,
+          cpf : this.formCadastro.controls.cpf.value
         }
 
         //Chamando função para verificar se usuário já existe com base no email

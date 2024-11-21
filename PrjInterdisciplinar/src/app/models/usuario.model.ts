@@ -10,5 +10,5 @@ export interface IUser{
     email: string,
     telefone?: string,
     cpf?: string,
-    endereco?: IEndereco 
+    endereco?: IEndereco
 }

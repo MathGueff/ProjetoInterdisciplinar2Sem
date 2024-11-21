@@ -32,7 +32,12 @@
         </div>
         <div class="col-md-6 col-sm-12 mb-3">
           <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/telefone_icon.svg"
-            controlName="telefone" label="Telefone:" type="tel" placeholder="Telefone para contato">
+            controlName="telefone" label="Telefone:" type="tel" placeholder="Telefone para contato" [errorValidators]="['minlength', 'maxlength']">
+          </app-form-input>
+        </div>
+        <div class="col-md-6 col-sm-12 mb-3">
+          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/cpf_icon.svg"
+            controlName="cpf" label="CPF:" type="text" placeholder="Digite seu CPF" [errorValidators]="['minlength', 'maxlength']">
           </app-form-input>
         </div>
         <hr>

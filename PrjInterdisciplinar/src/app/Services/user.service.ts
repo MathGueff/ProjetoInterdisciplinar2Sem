@@ -13,7 +13,7 @@ export class UserService {
     /* Observable para avisar quando um novo usuário é logado */
     private userAtivoSubject = new BehaviorSubject<IUser | null>(null);
     userAtivo$: Observable<IUser | null> = this.userAtivoSubject.asObservable();
-    
+
     /* Validação de Usuário */
     validateUser(email : string, senha : string) : boolean{
         const findUser = this.users.find(
@@ -26,7 +26,7 @@ export class UserService {
         /* Caso não tenha achado um usuário com email e senha fornecidos */
         return false;
     }
-    
+
     /* Adquire Usuário atual logado */
     getCurrentUser() : IUser | null{
         return this.userAtivoSubject.value;
