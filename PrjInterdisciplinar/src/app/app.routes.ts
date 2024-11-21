@@ -14,7 +14,7 @@ export const routes: Routes = [
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
-  {path: 'noticia-inicial', component:NoticiasInicialComponent}
+  {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent}
 ];
