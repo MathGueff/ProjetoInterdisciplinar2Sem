@@ -14,11 +14,12 @@ import { ReclamacaoFormComponent } from './Reclamacao/reclamacao-form/reclamacao
 
 
 export const routes: Routes = [
-  {path:'', component:MenuUsuarioComponent},
+  {path: '', component:MenuUsuarioComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},
   {path: 'doenca-inicial',component:DoencasInicialComponent},
-  {path:'reclamacao-inicial', component:ReclamacaoInicialComponent},
+  {path: 'reclamacao-inicial', component:ReclamacaoInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
+  {path: 'doenca-detalhada/:id', component:DoencaDetalhesComponent},
   {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
   {path: 'sobre-nos', component:SobrenosComponent},
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},

@@ -1,7 +1,6 @@
 <div class="background">
   <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
     <!-- Banner -->
-    <div class="col-1"></div>
     <div
       class="col-10 segundo-fundo d-flex flex-line justify-content-center align-items-center"
     >
@@ -18,19 +17,15 @@
         os cuidados necessários!
       </span>
     </div>
-    <div class="col-1"></div>
     <!-- Banner -->
-    <div class="row">
+    <div class="row d-flex justify-content-center">
       <!-- Titulo -->
       <div class="col-12 d-flex flex-line justify-content-center align-items-center text-center">
         <h2>Doenças relacionas ao saneamento básico:</h2>
       </div>
       <!-- Titulo -->
       <!-- Filtro -->
-      <div class="col-2"></div>
-      <div
-        class="col-8 row segundo-fundo terceiro-fundo d-flex flex-line text-center align-items-center"
-      >
+      <div class="col-8 row segundo-fundo terceiro-fundo d-flex flex-line text-center align-items-center">
         <div class="col-12 row d-flex flex-line justify-content-center">
           <div class="col-6 d-flex flex-column">
             <label class="form-label">Pesquise uma doença</label>
@@ -42,20 +37,19 @@
           </div>
         </div>
       </div>
-      <div class="col-2"></div>
       <!-- Filtro -->
     </div>
-    <div class="row mt-4 mb-4 cards-div"> <!-- Row onde ficam os cards -->
+    <div class="row my-4 cards-div"> <!-- Row onde ficam os cards -->
       @if (doencas.length > 0) { <!-- verificando se a lista é vazia -->
         <div class="col-12 p-4 px-5" *ngFor="let doenca of doencas"> <!-- Coluna do card-->
           <app-doenca-card [cardDoenca]="doenca"></app-doenca-card>
         </div> <!-- Fim da Coluna do card -->
       }
-  
+
     </div>
     <!-- Card antigo de doença -->
     <!-- <div class="row gap-5" *ngFor="let doenca of doencas">
-      <div class="col-1"></div>
+
       <div class="col-10 row card d-flex flex-line overflow-hidden">
         <img
           class="col-2"
@@ -68,7 +62,7 @@
           <span>{{ doenca.description }}</span>
         </div>
       </div>
-      <div class="col-1"></div>
+
     </div> -->
   </div>
 </div>

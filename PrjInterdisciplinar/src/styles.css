@@ -56,6 +56,10 @@
     --comentario-reclamacao: 1.25rem;
 }
 
+.rounded{
+  border-radius: 20px;
+}
+
 /* Background das páginas */
 .background{
   background-color: var(--cor-background);

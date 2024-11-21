@@ -1,47 +1,46 @@
-<div *ngIf="dado$ | async as Detalhes;" class="painel m-5 justifica rounded">
+<div *ngIf="dado$ | async as Detalhes" class="painel m-5 justifica rounded">
   <div class="header-painel p-3 mb-3 d-flex flex-line gap-5">
     <img
       id="imgDoenca"
       class="me-3"
-      src="{{Detalhes.imgDoenca}}"
+      src="{{ Detalhes.imgDoenca }}"
       alt="DoencaFoto.png"
     />
     <div>
-      <h2 id="titulo">{{Detalhes.title}}</h2>
+      <h2 id="titulo">{{ Detalhes.title }}</h2>
       <h5>Transmissão:</h5>
       <span>
-        {{Detalhes.transmission}}
+        {{ Detalhes.transmission }}
       </span>
     </div>
   </div>
   <div class="info pb-3 mb-3">
     <h5>Tratamento:</h5>
     <span>
-      {{Detalhes.treatment}}
+      {{ Detalhes.treatment }}
     </span>
   </div>
   <div class="info mb-3">
     <h5>Sintomas:</h5>
     <ul>
-      <div>
+      <div *ngFor="let symptoms of Detalhes.symotomsName">
         <li>
-          <p>{{Detalhes.symotomsName}}</p>
+          <p>{{ symptoms }}</p>
         </li>
       </div>
     </ul>
   </div>
-  <a
-    href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose"
-    >https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose</a
-  >
+  <a routerLink="{{ Detalhes.source }}">{{ Detalhes.source }}</a>
   <div class="d-flex justify-content-end">
-    <a class="d-flex text-decoration-none align-items-center" routerLink="/doenca-inicial">
+    <a
+      class="d-flex text-decoration-none align-items-center"
+      routerLink="/doenca-inicial">
       <img
-      id="voltar"
-      class="me-2"
-      src="img/paginas/doencas/voltar.svg"
-      alt="voltar.svg"
-    />Voltar</a
-    >
+        id="voltar"
+        class="me-2"
+        src="img/paginas/doencas/voltar.svg"
+        alt="voltar.svg"/>
+      Voltar
+    </a>
   </div>
 </div>
