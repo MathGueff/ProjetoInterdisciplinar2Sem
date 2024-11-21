@@ -25,6 +25,6 @@ export const routes: Routes = [
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
-  {path: 'comentario',component:ComentarioCentralComponent},
+  {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
   {path: 'reclamacao-form', component: ReclamacaoFormComponent},
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reclamacao } from '../../models/reclamacao';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -17,8 +17,9 @@ export class ReclamacaoDescricaoComponent implements OnInit {
   constructor(private activedrouter : ActivatedRoute){}
   ngOnInit(): void {
     this.activedrouter.params.subscribe( (parametros) =>{
+      // pega o valor do parametro da URL
       const idParametro = Number(parametros['id']);
-
+      // procura a reclamação que tenha o ID da URL
       const reclamacao = this.reclamacoes.find((reclamacao) => reclamacao.idReclamacao  === idParametro );
 
       if(reclamacao){

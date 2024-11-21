@@ -1,8 +1,9 @@
-<div class="card-comentario h-auto mx-5">
+<div class="card-comentario h-auto mx-5 d-flex flex-column">
   <div class="user-comentario">
-    <span>Admin</span>
+    <span>{{this.autor}}</span>
   </div>
   <div class="conteudo-comentario mt-1">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima architecto facere magnam est quidem, optio commodi ad nam odio sit voluptatibus voluptates neque non, et reprehenderit dolore! Sequi, ea. Dolorum!Lorem</p>
+    <p>{{comentario.descricaoComentario}}</p>
   </div>
+  <span class="text-end">{{comentario.dataComentario}}</span>
 </div>

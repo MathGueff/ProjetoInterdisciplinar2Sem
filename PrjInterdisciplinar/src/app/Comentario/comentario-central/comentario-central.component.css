@@ -7,3 +7,6 @@
   display: flex;
   align-items: center;
 }
+.body-comentario,.novo-comentario{
+  background-color: #e0e0e0;
+}
