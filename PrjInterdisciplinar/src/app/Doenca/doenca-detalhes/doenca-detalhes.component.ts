@@ -30,7 +30,7 @@ export class DoencaDetalhesComponent {
       treatment: 'Metronidazol, tinidazol, secnidazol ou ornidazol e nitazoxanida não matam todos os cistos que estão no intestino grosso. Um segundo medicamento (como paromomicina, diiodohidroxiquina ou furoato de diloxanida) é usado para matar esses cistos e, assim, prevenir uma recaída.',
       imgDoenca: 'img/paginas/doencas/colera.webp',
       symotomsName: ['Dor ou cólica abdominal', 'Febre', 'Diarreia, podendo ser forte e com sangue ou muco', 'Perda de peso', 'Náuseas e vômitos', 'Gases', 'Fadiga', 'Abdômen sensível ao toque'],
-      source:'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose'
+      source:'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/colera'
     },
     {
       id: 3,
