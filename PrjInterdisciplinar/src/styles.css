@@ -63,15 +63,17 @@
 
 /* CSS padrão para cards */
 .card{
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   border: none;
-  transition: 0.4s all ease;
+  transition: 0.6s all ease;
+  -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
-.card-header{
+.card-header, .header-painel{
   background-color: var(--cor-primaria) !important;
-  color: white !important;
+  color: rgb(238, 237, 237) !important;
 }
 
 .card-body{
@@ -80,17 +82,20 @@
 
 .card:hover{
   opacity: 0.85;
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 .btn-primary{
   background-color: var(--cor-quaternaria) !important;
   border-color: var(--cor-quaternaria) !important;
   transition: 0.4s all ease !important;
+  -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
 .btn-primary:hover{
-  transform: translateY(2px);
+  transform: translateY(6px);
 }
 
 .btn-primary:active{
@@ -108,7 +113,9 @@
   width: 150px;
   height: 150px;
   border-radius: 10px;
-  border: 2px solid var(--cor-primaria);
+  -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
+  box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
 .card-image-div{
@@ -137,7 +144,7 @@
    font-size: 1rem !important;
 }
 
-.form-control{
+.form-control, .form-select, .tags-selected{
    background-color:  #dfdddd !important;/* #575757 */
    border-radius: 10px !important;
    width: 270px !important;
@@ -147,9 +154,9 @@
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-.form-control:focus{
+.form-control:focus, .form-select:focus{
    transform: translate(2px) !important;
-   border: 2px solid var(--cor-primaria) !important;
+   border: 3px solid var(--cor-primaria) !important;
 }
 
 /* Icones do formulário */
@@ -177,9 +184,28 @@
    cursor: pointer;
 }
 
+.required-control{
+  color: red;
+}
+
 /* Estilos dos links */
 .texto-link-form{
   font-size: 0.875rem;
+}
+
+.texto-validacao-erro-form{
+  font-size: 0.8rem;
+  color: #ff0a0a;
+}
+
+.texto-validacao-sucesso-form{
+  font-size: 0.8rem;
+  color: green;
+}
+
+.icone-validacao-form{
+  width: 16px;
+  height: 16px;
 }
 
 .link-form{

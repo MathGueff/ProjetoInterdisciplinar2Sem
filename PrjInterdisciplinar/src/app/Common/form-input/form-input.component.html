@@ -1,0 +1,41 @@
+<div [formGroup]="formGroup">
+    <!-- FormControl -->
+    <img class="icon me-1" [src]="icon">
+    <label [for]="controlName + '-' + formName" class="form-label">
+        {{label}}
+        <span *ngIf="required" class="required-control">*</span>
+    </label>
+    <div class="d-flex">
+        <input
+            [formControlName] = "controlName"
+            [type]="type"
+            [name]= "controlName + '-' + formName"
+            class="form-control"
+            [id]="controlName + '-' + formName"
+            [placeholder]="placeholder"
+        >
+        <!-- <img *ngIf="type == 'password'" class="icon" src="assets/login/view_icon.svg"> -->
+    </div>
+
+    <!-- Exibição de erros no formulário -->
+
+    <!--
+        Verifica se o campo é invalido (baseado nos Validators definidos),
+        se foi tocado, e se não tem valor vazio, para então mostrar o span de erro
+
+        Mostra todos spans com erro respectivo ativo
+    -->
+
+    <!-- Para cada Validator do controlName -->
+    <div *ngFor="let error of errorValidators">
+        @if (formGroup.get(controlName)?.value && formGroup.get(controlName)?.touched) {
+            <span
+                *ngIf="formGroup.get(controlName)?.errors?.[error]"
+                class="texto-validacao-erro-form ms-2"
+            >
+                <img src="assets/login/erro_icon.svg" class="icone-validacao-form" alt="">
+                {{getErrorMessage(error)}}
+            </span>
+        }
+    </div>
+</div>

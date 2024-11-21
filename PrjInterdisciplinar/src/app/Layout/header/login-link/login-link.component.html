@@ -1,6 +1,7 @@
 <div id="login-navbar">
     <a routerLink="/login">
     <img src="assets/icones/icon_white_login.svg" id="icon_login">
-    <span>Login</span>
+    <!-- Caso haja um usuário, exibe o nome, caso contrário, escreve login-->
+    <span>{{this.userAtivo}}</span> 
     </a>
 </div>

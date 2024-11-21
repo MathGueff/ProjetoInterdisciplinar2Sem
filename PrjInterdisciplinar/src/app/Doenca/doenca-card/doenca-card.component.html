@@ -1,0 +1,26 @@
+<div class="card h-100"> <!-- Div do card-->
+    <!-- Header do card -->
+    <h5 class="card-header pt-3 pb-3">
+      {{ cardDoenca.title }}
+    </h5>
+    <!-- Body do Card -->
+    <div class="card-body d-flex justify-content-lg-start justify-content-md-center">
+      <!-- Row dos conteúdos do body -->
+      <div class="row justify-content-center">
+        <!-- Imagem do card -->
+        <div class="card-image-div col-lg-2 col-md-12 d-flex justify-content-lg-center">
+          <img src="{{ cardDoenca.image }}" alt="icone" class="card-icon-large">
+        </div>
+        <!-- Informações do card -->
+        <div class="col-lg-10 col-md-12">
+          <!-- Organização das informações -->
+          <div class="d-flex align-items-start flex-column ps-md-3 ps-lg-0">
+            <h5 class="card-title mt-md-3">{{ cardDoenca.title }}</h5>
+            <p class="card-text">{{ cardDoenca.description}}</p>
+            <a routerLink="/doenca-detalhada/{{ cardDoenca.id }}" class="btn btn-primary">Ver {{ cardDoenca.title}}</a>
+          </div>
+        </div>
+      </div>
+    </div> <!-- Fim do Body -->
+  </div> <!-- Fim da div do card -->
+  
