@@ -1,15 +1,28 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { IUser } from "../models/usuario.model";
+import { IUser } from "../models/user.model";
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 
 export class UserMockService{
-  constructor(private http : HttpClient){}
+  private http = inject(HttpClient);
 
-  public getUsersList() : Observable<IUser>{
-      let apiUrl = `https://apimocha.com/saneasp/usuarios`;
-      return this.http.get<IUser>(apiUrl);
+  private apiUrl = `https://apimocha.com/sanea-sp/usuarios`;
+
+  public getUsersList() : Observable<IUser[]>{
+    return this.http.get<IUser[]>(this.apiUrl);
+  }
+
+  public addUserToList(newUser: IUser): void {
+    this.http.post(this.apiUrl, newUser).subscribe({
+      next: (response) => {
+        console.log('Usuário adicionado com sucesso:', response); 
+      },
+      error: (err) => {
+        console.error('Erro ao adicionar usuário:', err);
+      },
+    });
   }
 }

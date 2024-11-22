@@ -1,16 +1,8 @@
 /* Login */
-#login-navbar {
-    transition: 0.4s all ease-in-out;
-  }
+
+  /* Botão de login enquanto deslogado */
   
-  #login-navbar:hover {
-    opacity: 0.5;
-  }
-  
-  #login-navbar a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .login-link a {
     color: white;
     font-size: calc(var(--header-texto) + 0.1rem);
     font-weight: 500;
@@ -20,4 +12,56 @@
   #icon_login {
     width: calc(var(--header-altura) - 20px);
     height: calc(var(--header-altura) - 20px);
+  }
+
+  /* Botão de login enquanto estiver logado */
+  .login-menu, .login-link{
+    transition: 0.7s all ease;
+  }
+
+  .login-menu a{
+    color: #eeeeee;
+    text-decoration: none;
+  }
+
+  .login-menu:hover, .login-link:hover{
+    transform: translateX(5px);
+  }
+
+  .login-menu:hover .dropdown-toggle, .login-link:hover{
+    opacity: 0.6;
+  }
+
+  .dropdown-toggle{
+    cursor: pointer;
+    transition: 0.7s all ease;
+  }
+
+  .dropdown-toggle a{
+    color: #eeeeee;
+  }
+
+  .dropdown-menu{
+    overflow: hidden;
+  }
+
+  .dropdown-item img{
+    width: 24px;
+    height: 24px;
+  }
+
+  .dropdown-item, .dropdown-menu{
+    color: #eeeeee !important;
+    background-color: var(--cor-primaria) !important;
+    opacity: 1 !important;
+    transition: 0.4s all ease;
+  }
+
+  .dropdown-item{
+    cursor: pointer;
+  }
+
+  .dropdown-item:hover{
+    opacity: 0.4 !important;
+    transform: translateX(5px);
   }

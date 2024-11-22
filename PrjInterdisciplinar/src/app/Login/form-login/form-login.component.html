@@ -4,20 +4,21 @@
         <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="form d-flex justify-content-center align-items-center flex-column m-3 p-3 rounded">
             <h3 class="mb-4">Faça login</h3>
             <!-- Campos de entrada -->
-            <div class="d-flex justify-content-center align-items-center flex-column gap-3">
+            <div class="row mt-3" style="width: 100%; max-width: 270px;">
                 <!-- Controls do formulário -->
-               <app-form-input
-                [formGroup]="formLogin"
-                [formName]="this.formName"
-                icon="assets/login/email_icon.svg"
-                controlName="email"
-                label="Email"
-                type="email"
-                placeholder="Email de login"
-                [required]="true"
-                [errorValidators]="['required', 'email']" 
-               ></app-form-input> <!-- Passamos o contexto da função checkFormStatus neste componente para o filho  -->
-
+                <div class="col-md-12 col-sm-12 mb-3">
+                    <app-form-input
+                        [formGroup]="formLogin"
+                        [formName]="this.formName"
+                        icon="assets/login/email_icon.svg"
+                        controlName="email"
+                        label="Email"
+                        type="email"
+                        placeholder="Email de login"
+                        [required]="true"
+                        [errorValidators]="['required', 'email']" 
+                    ></app-form-input> <!-- Passamos o contexto da função checkFormStatus neste componente para o filho  -->
+                </div>
                <app-form-input
                 [formGroup]="formLogin"
                 [formName]="this.formName"
