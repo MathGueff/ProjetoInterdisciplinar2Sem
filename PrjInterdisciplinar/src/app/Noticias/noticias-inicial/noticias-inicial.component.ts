@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Noticia } from '../../models/noticia';
-import { NoticiasCardComponent } from '../noticias-card/noticias-card.component';
 
 @Component({
   selector: 'app-noticias-inicial',
   standalone: true,
-  imports: [CommonModule, NoticiasCardComponent],
+  imports: [CommonModule],
   templateUrl: './noticias-inicial.component.html',
   styleUrl: './noticias-inicial.component.css'
 })
