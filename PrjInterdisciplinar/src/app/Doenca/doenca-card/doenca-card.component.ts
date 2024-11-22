@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Doencas } from '../../models/doencas';
-
 import { RouterLink } from '@angular/router';
 
 @Component({
