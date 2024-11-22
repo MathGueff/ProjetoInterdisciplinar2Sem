@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormInputComponent } from "../../Common/form-input/form-input.component";
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../Services/user.service';
-import { IUser } from '../../models/usuario.model';
+import { IUser } from '../../models/user.model';
 import { IEndereco } from '../../models/endereco.model';
 import { CadastroErrorStatus } from './CadastroErrorStatus.enum';
 import { ViacepService } from '../../Services/viacep.service';
@@ -66,6 +66,7 @@ export class FormCadastroComponent implements OnInit{
 
         //Interface de usuário para guardar as informações do usuário e passar para o userService
         const newUser : IUser = {
+          id: this.userService.getCurrentID(),
           nome : this.formCadastro.controls.nome.value,
           email : this.formCadastro.controls.email.value,
           senha : this.formCadastro.controls.senha.value,
