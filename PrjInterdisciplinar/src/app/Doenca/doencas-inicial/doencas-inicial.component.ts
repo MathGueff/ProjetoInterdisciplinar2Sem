@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Doencas } from '../../models/doencas';
 import { DoencaCardComponent } from '../doenca-card/doenca-card.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-doencas-inicial',
@@ -53,4 +54,12 @@ export class DoencasInicialComponent {
       image: 'img/paginas/doencas/ascaridiase.webp',
     },
   ];
+
+  constructor(private fb:FormBuilder){
+    this.Subject.next(this.);
+    this.TagSelect = this.fb.group({
+        tagForm: ['Todos']
+      }
+    );
+  }
 }

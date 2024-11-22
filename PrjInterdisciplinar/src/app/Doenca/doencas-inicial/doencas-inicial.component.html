@@ -25,18 +25,25 @@
       </div>
       <!-- Titulo -->
       <!-- Filtro -->
-      <div class="col-8 row segundo-fundo terceiro-fundo d-flex flex-line text-center align-items-center justify-content-center">
-        <div class="col-12 row d-flex flex-line justify-content-center">
-          <div class="col-6 d-flex flex-column align-items-center justify-content-center">
-            <label class="form-label">Pesquise uma doença</label>
-            <input type="text" name="doencas" class="form-control" />
-          </div>
-          <div class="col-6 d-flex flex-column align-items-center justify-content-center">
-            <label class="form-label">Pesquise uma doença</label>
-            <select class="form-select" name="doencas"></select>
-          </div>
+      <div class="row mb-5">
+        <div class="col tags">
+          <h2 class="mb-4">Filtre pela Tag</h2>
+          <form class="pesquisa-tag p-4" [formGroup]="TagSelect">
+            <div class="tag-reclamacao">
+              <input list="box" type="search" class="form-select text-center borda" formControlName="tagForm">
+              <datalist id="box">
+                <option selected>Todos</option>
+                <option>Tag1</option>
+                <option>Tag2</option>
+                <option>Tag3</option>
+                <option>Tag4</option>
+                <option>Nenhum</option>
+              </datalist>
+            </div>
+          </form>
+          <!-- <app-tag-select></app-tag-select> -->
         </div>
-      </div>
+      </div> 
       <!-- Filtro -->
     </div>
     <div class="row my-4 cards-div"> <!-- Row onde ficam os cards -->
