@@ -155,11 +155,11 @@ export class FormCadastroComponent implements OnInit{
   }
 
   resetAddressControls() {
-  let addressControls = ['logradouro', 'bairro', 'localidade'];
-  addressControls.forEach((field) => {
-    this.formCadastro.get(field)!.reset();
-  });
-}
+    let addressControls = ['logradouro', 'bairro', 'localidade'];
+    addressControls.forEach((field) => {
+      this.formCadastro.get(field)!.reset();
+    });
+  }
 
   private setAddressControl(control : string, value : string){
     this.formCadastro.get(control)?.setValue(value)
