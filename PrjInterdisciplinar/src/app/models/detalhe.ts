@@ -1,8 +1,9 @@
 export class Detalhe {
   id: number = 0;
-  title:string = '';
+  title: string = '';
   transmission: string = '';
   treatment: string = '';
   imgDoenca: string = '';
-  symotomsName: string[] = []
+  symotomsName: string[] = [];
+  source: string = '';
 }

@@ -1,0 +1,62 @@
+<div class="background"> <!-- background -->
+  <div class="container-fluid d-flex justify-content-center align-items-center flex-column"> <!-- Div do container-->
+    <!-- Formulário de Cadastro -->
+    <form [formGroup]="formDoenca" (ngSubmit)="onSubmit()"
+      class="form d-flex justify-content-center align-items-center flex-column m-3 p-4 rounded">
+      <h3 class="mb-4">Cadastre uma nova doença</h3>
+      <!-- Campos do formulário -->
+      <div class="row mt-3" style="width: 100%; max-width: 600px;">
+        <div class="col-md-12 col-sm-12 mb-3">
+          <app-form-input
+            [formGroup]="this.formDoenca"
+            controlName="nome_doenca"
+            icon="assets/icones/icon_black_doenca.svg"
+            label="Nome:"
+            placeholder="Digite o nome da doença"
+            [required]="true"
+            [errorValidators]="['required']"
+          >
+          </app-form-input>
+        </div>
+        <div class="col-md-12 col-sm-12 mb-3">
+          <app-form-input
+            [formGroup]="this.formDoenca"
+            controlName="tratamento"
+            icon="assets/icones/icon_black_doenca.svg"
+            label="Tratamentos:"
+            placeholder="Digite a forma de tratamento"
+            [required]="true"
+            [errorValidators]="['required']"
+          >
+          </app-form-input>
+        </div>
+        <div class="col-md-12 col-sm-12 mb-3">
+          <app-form-input
+            [formGroup]="this.formDoenca"
+            controlName="transmissao"
+            icon="assets/icones/icon_black_doenca.svg"
+            label="Transmissão:"
+            placeholder="Digite as formas de transmissão"
+            [required]="true"
+            [errorValidators]="['required']"
+          >
+          </app-form-input>
+        </div>
+      </div>
+
+      <!-- Caso algum dos controls esteja inválido -->
+      <span *ngIf="checkIfFormError('invalid-control')" class="texto-validacao-erro-form mb-1">
+        <img src="assets/login/erro_icon.svg" alt=""> Campos obrigatórios não preenchidos ou inválidos
+      </span>
+      <!-- Método checkIfFormError retorna true caso o erro específico esteja ocorrendo (parametro é o valor de string do enum)-->
+
+      <!-- Caso já exista um usuário -->
+      <span *ngIf="checkIfFormError('invalid-name')" class="texto-validacao-erro-form mb-1">
+        <img src="assets/login/erro_icon.svg" alt=""> Uma doença com esse nome já foi cadastrada
+      </span>
+
+      <!-- Botão de entrar -->
+      <button class="mt-3 form-btn" type="submit">CADASTRAR</button>
+    </form> <!-- Fim do formulário -->
+  </div>
+</div>

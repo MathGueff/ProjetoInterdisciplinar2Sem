@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormInputComponent } from "../../Common/form-input/form-input.component";
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../Services/user.service';
-import { IUser } from '../../models/usuario.model';
+import { IUser } from '../../models/user.model';
 import { IEndereco } from '../../models/endereco.model';
 import { CadastroErrorStatus } from './CadastroErrorStatus.enum';
 import { ViacepService } from '../../Services/viacep.service';
@@ -30,7 +30,8 @@ export class FormCadastroComponent implements OnInit{
     email : ['', [Validators.required, Validators.email]],
     senha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
     confirmaSenha : ['', [Validators.required, Validators.minLength(this.passwordMinLength)]],
-    telefone : [''], //Opcional
+    telefone : ['', [Validators.minLength(11), Validators.maxLength(11)]], //Opcional
+    cpf: ['',[Validators.minLength(11), Validators.maxLength(11)]],
     cep : ['', [Validators.minLength(8), Validators.maxLength(8)]],  //Opcional
     numero : [''],  //Opcional
     logradouro : [''],  //Opcional
@@ -65,11 +66,13 @@ export class FormCadastroComponent implements OnInit{
 
         //Interface de usuário para guardar as informações do usuário e passar para o userService
         const newUser : IUser = {
+          id: this.userService.getCurrentID(),
           nome : this.formCadastro.controls.nome.value,
           email : this.formCadastro.controls.email.value,
           senha : this.formCadastro.controls.senha.value,
           endereco : userAddress,
           telefone : this.formCadastro.controls.telefone.value,
+          cpf : this.formCadastro.controls.cpf.value
         }
 
         //Chamando função para verificar se usuário já existe com base no email
@@ -153,11 +156,11 @@ export class FormCadastroComponent implements OnInit{
   }
 
   resetAddressControls() {
-  let addressControls = ['logradouro', 'bairro', 'localidade'];
-  addressControls.forEach((field) => {
-    this.formCadastro.get(field)!.reset();
-  });
-}
+    let addressControls = ['logradouro', 'bairro', 'localidade'];
+    addressControls.forEach((field) => {
+      this.formCadastro.get(field)!.reset();
+    });
+  }
 
   private setAddressControl(control : string, value : string){
     this.formCadastro.get(control)?.setValue(value)
