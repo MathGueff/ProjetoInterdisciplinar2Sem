@@ -10,11 +10,11 @@
         <!-- looping do componente a baixo. a diretiva ngStyle irá colocar o comentário a esquerda caso o Id do Administrador seja nulo, se for nulo colocará o comentário a direita -->
 
         @if (data$ | async) {
-              <app-comentario-baixo *ngFor="let comentario of data$|async" [ngStyle]="{'justify-content': comentario.objAdmin === null ? 'flex-start' : 'flex-end'}"
-              class="autor"
-              [comentario]="comentario"
-              >
-            </app-comentario-baixo>
+          <app-comentario-baixo *ngFor="let comentario of data$|async" [ngStyle]="{'justify-content': comentario.objAdmin === null ? 'flex-start' : 'flex-end'}"
+          class="autor"
+          [comentario]="comentario"
+          >
+        </app-comentario-baixo>
       }
       </div>
      <div class="novo-comentario pt-5 pb-3 px-0">
