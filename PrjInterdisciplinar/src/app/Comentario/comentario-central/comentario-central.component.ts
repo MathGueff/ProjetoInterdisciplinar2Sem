@@ -158,7 +158,6 @@ export class ComentarioCentralComponent implements OnInit {
     },
   ];
   //Objeto Reclamação para colocar no título, data e descrição
-  objreclamacao !: Reclamacao;
   constructor(private activeroute: ActivatedRoute) {}
   ngOnInit(): void {
     this.activeroute.params.subscribe((params) => {
