@@ -3,14 +3,14 @@
     <!-- Header do comentario -->
     <div class="header-comentario py-2">
       <!-- Informações da Reclamação -->
-       <app-comentario-cima></app-comentario-cima>
+       <app-comentario-cima *ngIf="reclamacao$ | async as reclamacao" [reclamacao] = "reclamacao"></app-comentario-cima>
     </div>
     <!-- Corpo Comentario -->
      <div class="body-comentario w-100 d-flex flex-column h-auto pt-5 pb-3 gap-5 p-0">
         <!-- looping do componente a baixo. a diretiva ngStyle irá colocar o comentário a esquerda caso o Id do Administrador seja nulo, se for nulo colocará o comentário a direita -->
 
-        @if (data$ | async) {
-          <app-comentario-baixo *ngFor="let comentario of data$|async" [ngStyle]="{'justify-content': comentario.objAdmin === null ? 'flex-start' : 'flex-end'}"
+        @if (comentario$ | async) {
+          <app-comentario-baixo *ngFor="let comentario of comentario$|async" [ngStyle]="{'justify-content': comentario.objAdmin === null ? 'flex-start' : 'flex-end'}"
           class="autor"
           [comentario]="comentario"
           >

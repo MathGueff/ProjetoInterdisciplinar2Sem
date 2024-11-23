@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Reclamacao } from '../../models/reclamacao';
 
 @Component({
   selector: 'app-comentario-cima',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './comentario-cima.component.css'
 })
 export class ComentarioCimaComponent {
-
+  @Input() reclamacao !: Reclamacao
 }

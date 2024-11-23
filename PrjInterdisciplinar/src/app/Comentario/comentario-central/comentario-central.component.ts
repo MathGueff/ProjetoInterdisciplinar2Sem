@@ -25,8 +25,15 @@ export class ComentarioCentralComponent implements OnInit {
   //Observable Comentário
   private comentarioSubject: BehaviorSubject<Comentario[]> =
     new BehaviorSubject([] as any);
-  data$: Observable<Comentario[]> = this.comentarioSubject.asObservable();
+  comentario$: Observable<Comentario[]> = this.comentarioSubject.asObservable();
 
+  //Observable Reclamacao
+  private reclamacaoSubject: BehaviorSubject<Reclamacao> = new BehaviorSubject(
+    Reclamacao as any
+  );
+  reclamacao$: Observable<Reclamacao> = this.reclamacaoSubject.asObservable();
+
+  //Array para os objetos de Comentario
   comentarios: Comentario[] = [
     {
       id: 1,
@@ -157,24 +164,81 @@ export class ComentarioCentralComponent implements OnInit {
       },
     },
   ];
+
+  //Array para os objetos de Reclamação
+  reclamacoes: Reclamacao[] = [
+    {
+      idReclamacao: 1,
+      tituloReclamao: 'Sei sei lá lá',
+      descricaoReclamacao:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis nec dui venenatis tempor. Nullam vitae sodales neque, at sodales lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris dictum fringilla efficitur. Aliquam sit amet mi nunc. Nullam vel viverra turpis. Sed nec condimentum urna. Phasellus eu consectetur purus. Suspendisse non fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+      dataReclamacao: '22/10/2004',
+      objImagem: 'img/paginas/reclamacoes/user1.jpg',
+      objTag: 'Tag1',
+    },
+    {
+      idReclamacao: 2,
+      tituloReclamao: 'Sei sei lá lá2',
+      descricaoReclamacao:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis nec dui venenatis tempor. Nullam vitae sodales neque, at sodales lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris dictum fringilla efficitur. Aliquam sit amet mi nunc. Nullam vel viverra turpis. Sed nec condimentum urna. Phasellus eu consectetur purus. Suspendisse non fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+      dataReclamacao: '22/10/2024',
+      objImagem: 'img/paginas/reclamacoes/user2.jpg',
+      objTag: 'Tag2',
+    },
+    {
+      idReclamacao: 3,
+      tituloReclamao: 'Sei sei lá lá 3',
+      descricaoReclamacao:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis nec dui venenatis tempor. Nullam vitae sodales neque, at sodales lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris dictum fringilla efficitur. Aliquam sit amet mi nunc. Nullam vel viverra turpis. Sed nec condimentum urna. Phasellus eu consectetur purus. Suspendisse non fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+      dataReclamacao: '10/10/2014',
+      objImagem: 'img/paginas/reclamacoes/user3.jpg',
+      objTag: 'Tag3',
+    },
+    {
+      idReclamacao: 4,
+      tituloReclamao: 'Sei sei lá lá 4',
+      descricaoReclamacao:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mattis nec dui venenatis tempor. Nullam vitae sodales neque, at sodales lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris dictum fringilla efficitur. Aliquam sit amet mi nunc. Nullam vel viverra turpis. Sed nec condimentum urna. Phasellus eu consectetur purus. Suspendisse non fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+      dataReclamacao: '11/10/2014',
+      objImagem: 'img/paginas/reclamacoes/user3.jpg',
+      objTag: 'Tag3',
+    }
+  ];
+
   //Objeto Reclamação para colocar no título, data e descrição
   constructor(private activeroute: ActivatedRoute) {}
   ngOnInit(): void {
     this.activeroute.params.subscribe((params) => {
-      // pega o valor do parametro da URL
+      // pega o valor do parametro da URL da Reclamação
       const IdParametro = Number(params['idReclamamacao']);
 
-      //Filtra todos os comentários de acordo com o ID da objReclamação e retorna uma Array
-      const comentario = this.comentarios.filter(
-        (comentario) => comentario.objReclamacao.idReclamacao === IdParametro
+      // procura se existe uma reclamação com esse ID, caso não ache, retorna undefield
+      const reclamacao = this.reclamacoes.find(
+        (reclamacao) => reclamacao.idReclamacao === IdParametro
       );
 
-      //Verifica se o Array é vazio
-      if (comentario.length > 0) {
-        //atualiza o observable
-        this.comentarioSubject.next(comentario);
+      //Verifica se o reclamacao está fazia
+      if (reclamacao !== undefined) {
+
+        //Filtra todos os comentários de acordo com o ID da objReclamação e retorna uma Array
+        const comentario = this.comentarios.filter(
+          (comentario) => comentario.objReclamacao.idReclamacao === IdParametro
+        );
+
+        //Verifica se o Array é vazio
+        if (comentario.length > 0) {
+
+          //atualiza os observables
+          this.comentarioSubject.next(comentario);
+          this.reclamacaoSubject.next(reclamacao);
+        }
+        else{
+          console.log("Não foi encontrado nenhum comentário dessa reclamação");
+        }
       }
-      console.log(comentario);
+      else{
+        console.log("Id de Reclamação Inválido");
+      }
     });
   }
 }
