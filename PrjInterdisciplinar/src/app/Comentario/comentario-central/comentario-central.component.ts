@@ -50,6 +50,20 @@ export class ComentarioCentralComponent implements OnInit {
         objImagem: 'img/paginas/reclamacoes/user1.jpg',
         objTag: 'Tag1',
       },
+      objUsuario: {
+        id: 44,
+        nome: 'Charlie',
+        senha: '111111',
+        email: 'wq@gmail.com',
+        telefone: '89127247116',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'São José',
+          cep: '40952615',
+          complemento: '',
+          numero: '887',
+        },
+      },
     },
     {
       id: 2,
@@ -65,6 +79,20 @@ export class ComentarioCentralComponent implements OnInit {
         dataReclamacao: '22/10/2004',
         objImagem: 'img/paginas/reclamacoes/user1.jpg',
         objTag: 'Tag1',
+      },
+      objUsuario: {
+        id: 44,
+        nome: 'Charlie',
+        senha: '111111',
+        email: 'wq@gmail.com',
+        telefone: '89127247116',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'São José',
+          cep: '40952615',
+          complemento: '',
+          numero: '887',
+        },
       },
     },
     {
@@ -82,6 +110,20 @@ export class ComentarioCentralComponent implements OnInit {
         objImagem: 'img/paginas/reclamacoes/user1.jpg',
         objTag: 'Tag1',
       },
+      objUsuario: {
+        id: 44,
+        nome: 'Charlie',
+        senha: '111111',
+        email: 'wq@gmail.com',
+        telefone: '89127247116',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'São José',
+          cep: '40952615',
+          complemento: '',
+          numero: '887',
+        },
+      },
     },
     {
       id: 4,
@@ -97,6 +139,20 @@ export class ComentarioCentralComponent implements OnInit {
         dataReclamacao: '22/10/2004',
         objImagem: 'img/paginas/reclamacoes/user1.jpg',
         objTag: 'Tag1',
+      },
+      objUsuario: {
+        id: 44,
+        nome: 'Charlie',
+        senha: '111111',
+        email: 'wq@gmail.com',
+        telefone: '89127247116',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'São José',
+          cep: '40952615',
+          complemento: '',
+          numero: '887',
+        },
       },
     },
     {
@@ -114,6 +170,20 @@ export class ComentarioCentralComponent implements OnInit {
         objImagem: 'img/paginas/reclamacoes/user2.jpg',
         objTag: 'Tag2',
       },
+      objUsuario: {
+        id: 44,
+        nome: 'Charlie',
+        senha: '111111',
+        email: 'wq@gmail.com',
+        telefone: '89127247116',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'São José',
+          cep: '40952615',
+          complemento: '',
+          numero: '887',
+        },
+      },
     },
     {
       id: 6,
@@ -129,6 +199,20 @@ export class ComentarioCentralComponent implements OnInit {
         dataReclamacao: '22/10/2024',
         objImagem: 'img/paginas/reclamacoes/user2.jpg',
         objTag: 'Tag2',
+      },
+      objUsuario: {
+        id: 44,
+        nome: 'Charlie',
+        senha: '111111',
+        email: 'wq@gmail.com',
+        telefone: '89127247116',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'São José',
+          cep: '40952615',
+          complemento: '',
+          numero: '887',
+        },
       },
     },
     {
@@ -146,6 +230,20 @@ export class ComentarioCentralComponent implements OnInit {
         objImagem: 'img/paginas/reclamacoes/user3.jpg',
         objTag: 'Tag3',
       },
+      objUsuario: {
+        id: 47,
+        nome: 'Samuel',
+        senha: '111111',
+        email: 'Vs@gmail.com',
+        telefone: '66062121965',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'Santo Antônio',
+          cep: '85357746',
+          complemento: '',
+          numero: '661',
+        },
+      },
     },
     {
       id: 8,
@@ -161,6 +259,20 @@ export class ComentarioCentralComponent implements OnInit {
         dataReclamacao: '10/10/2014',
         objImagem: 'img/paginas/reclamacoes/user3.jpg',
         objTag: 'Tag3',
+      },
+      objUsuario: {
+        id: 47,
+        nome: 'Samuel',
+        senha: '111111',
+        email: 'Vs@gmail.com',
+        telefone: '66062121965',
+        endereco: {
+          cidade: 'Santos',
+          bairro: 'Santo Antônio',
+          cep: '85357746',
+          complemento: '',
+          numero: '661',
+        },
       },
     },
   ];
@@ -202,7 +314,7 @@ export class ComentarioCentralComponent implements OnInit {
       dataReclamacao: '11/10/2014',
       objImagem: 'img/paginas/reclamacoes/user3.jpg',
       objTag: 'Tag3',
-    }
+    },
   ];
 
   //Objeto Reclamação para colocar no título, data e descrição
@@ -219,7 +331,6 @@ export class ComentarioCentralComponent implements OnInit {
 
       //Verifica se o reclamacao está fazia
       if (reclamacao !== undefined) {
-
         //Filtra todos os comentários de acordo com o ID da objReclamação e retorna uma Array
         const comentario = this.comentarios.filter(
           (comentario) => comentario.objReclamacao.idReclamacao === IdParametro
@@ -227,17 +338,14 @@ export class ComentarioCentralComponent implements OnInit {
 
         //Verifica se o Array é vazio
         if (comentario.length > 0) {
-
           //atualiza os observables
           this.comentarioSubject.next(comentario);
           this.reclamacaoSubject.next(reclamacao);
+        } else {
+          console.log('Não foi encontrado nenhum comentário dessa reclamação');
         }
-        else{
-          console.log("Não foi encontrado nenhum comentário dessa reclamação");
-        }
-      }
-      else{
-        console.log("Id de Reclamação Inválido");
+      } else {
+        console.log('Id de Reclamação Inválido');
       }
     });
   }
