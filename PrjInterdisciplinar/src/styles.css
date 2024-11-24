@@ -66,7 +66,7 @@
 }
 
 /* CSS padrão para cards */
-.card{
+.card, .comentario{
   cursor: pointer;
   border: none;
   transition: 0.6s all ease;
@@ -75,7 +75,7 @@
   box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
 
-.card-header, .header-painel{
+.card-header, .header-painel, .header-comentario{
   background-color: var(--cor-primaria) !important;
   color: rgb(238, 237, 237) !important;
 }

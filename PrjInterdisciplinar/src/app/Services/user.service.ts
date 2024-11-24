@@ -1,5 +1,5 @@
+import { IUser } from './../models/user.model';
 import { inject, Injectable } from '@angular/core';
-import { IUser } from '../models/user.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserMockService } from './user-mock.service';
 
@@ -64,6 +64,10 @@ export class UserService {
 
     getCurrentID() : number{
         return this.users.length + 1
+    }
+    // Procura o usuário de acordo com o ID
+    getUserId(id:number) : IUser | undefined{
+      return this.users.find((user) => id === user.id);
     }
 
     logout(){
