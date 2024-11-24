@@ -9,8 +9,9 @@ import { MenuAdminComponent } from './Admin/menu-admin/menu-admin.component';
 import { NoticiasInicialComponent } from './Noticias/noticias-inicial/noticias-inicial.component';
 import { FormLoginComponent } from './Login/form-login/form-login.component';
 import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.component';
+import { ComentarioCentralComponent } from './Comentario/comentario-central/comentario-central.component';
 import { ReclamacaoFormComponent } from './Reclamacao/reclamacao-form/reclamacao-form.component';
-
+import { FormDoencaComponent } from './Doenca/form-doenca/form-doenca.component';
 
 
 export const routes: Routes = [
@@ -18,13 +19,16 @@ export const routes: Routes = [
   {path: 'pagina-admin', component:MenuAdminComponent},
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path: 'reclamacao-inicial', component:ReclamacaoInicialComponent},
-  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
-  {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'doenca-detalhada/:id', component:DoencaDetalhesComponent},
+  {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
   {path: 'sobre-nos', component:SobrenosComponent},
+  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
-  {path: 'reclamacao-form', component: ReclamacaoFormComponent}
+  {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
+  {path: 'reclamacao-form', component: ReclamacaoFormComponent},
+  {path: 'doenca-form', component: FormDoencaComponent}
+
 ];
