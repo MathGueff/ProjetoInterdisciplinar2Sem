@@ -3,13 +3,13 @@ import { Component, Input } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-input',
+  selector: 'app-form-field',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './form-input.component.html',
-  styleUrl: './form-input.component.css'
+  templateUrl: './form-field.component.html',
+  styleUrl: './form-field.component.css'
 })
-export class FormInputComponent{
+export class FormFieldComponent{
   @Input() formGroup !: FormGroup; //Form gruop utilizado no componente pai
   @Input() formName : string = 'form'; //Usado para concatenar ao nome do campo para gerar names e ids diferentes (controlName + '-' + formName)
   @Input() controlName!: string; //Nome do campo
@@ -18,8 +18,9 @@ export class FormInputComponent{
   @Input() type: string = 'text'; //Tipo do input
   @Input() placeholder!: string;  //Placeholder do input
   @Input() required !: boolean; //Se o campo é obrigatório (serve para adicionar o asterisco* como forma visual de separar obrigatórios de opcionais)
+  @Input() fieldType : string = 'input';
 
-  @Input() errorValidators : string[] = []; //Tipos de erros para o campo (ex required, minlength)
+  @Input() validators : string[] = []; //Select, input ou textarea
 
   /*Retorna a mensagem correspondente ao tipo de validação que os campos possuem
     erro -> string obtida pelo ngFor, obtida da lista de erros passada pelo componente pai em errorValidator

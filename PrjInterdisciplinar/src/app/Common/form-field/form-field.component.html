@@ -5,15 +5,28 @@
         {{label}}
         <span *ngIf="required" class="required-control">*</span>
     </label>
-    <div class="d-flex">
+    <!-- Baseado no tipo especificado ele mostra um input, textarea ou select -->
+    <div [ngSwitch]="fieldType">
         <input
+            *ngSwitchDefault
             [formControlName] = "controlName"
-            [type]="type"
             [name]= "controlName + '-' + formName"
-            class="form-control"
             [id]="controlName + '-' + formName"
+            [type]="type"
             [placeholder]="placeholder"
+            class="form-control"
         >
+        <textarea
+        *ngSwitchCase="'textarea'"
+        [formControlName]="controlName"
+        [name]="controlName + '-' + formName"
+        [id]="controlName + '-' + formName"
+        [placeholder]="placeholder"
+        rows="3"
+        class="form-control"
+      ></textarea>
+      
+
         <!-- <img *ngIf="type == 'password'" class="icon" src="assets/login/view_icon.svg"> -->
     </div>
 
@@ -27,14 +40,14 @@
     -->
 
     <!-- Para cada Validator do controlName -->
-    <div *ngFor="let error of errorValidators">
+    <div *ngFor="let validator of validators">
         @if (formGroup.get(controlName)?.value && formGroup.get(controlName)?.touched) {
             <span
-                *ngIf="formGroup.get(controlName)?.errors?.[error]"
+                *ngIf="formGroup.get(controlName)?.errors?.[validator]"
                 class="texto-validacao-erro-form ms-2"
             >
                 <img src="assets/login/erro_icon.svg" class="icone-validacao-form" alt="">
-                {{getErrorMessage(error)}}
+                {{getErrorMessage(validator)}}
             </span>
         }
     </div>

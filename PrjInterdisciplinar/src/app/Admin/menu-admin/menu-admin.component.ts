@@ -12,9 +12,12 @@ import { RouterLink } from '@angular/router';
 })
 export class MenuAdminComponent {
   links : MenuAdmin[] = [
-    {path: '/reclamacao-descricao', nome : 'Gerenciar Reclamações',  img : 'assets/icones/icon_white_reclamacao.svg'},
-    {path: '/doenca-detalhada', nome : 'Gerenciar notícias do site', img : 'assets/icones/icon_white_noticia.svg'},
+    {path: '/reclamacao-inicial', nome : 'Gerenciar Reclamações',  img : 'assets/icones/icon_white_reclamacao.svg'},
+    {path: '/reclamacao-inicial', nome : 'Ver reclamações respondidas',  img : 'assets/icones/icon_white_reclamacao.svg'},
+    {path: '/noticia-inicial', nome : 'Gerenciar notícias do site', img : 'assets/icones/icon_white_noticia.svg'},
+    {path: '/noticia-inicial', nome : 'Cadastre uma nova notícia', img : 'assets/icones/icon_white_noticia.svg'},
     {path: '/doenca-inicial', nome : 'Gerenciar doenças do site', img : 'assets/icones/icon_white_doenca.svg'},
-    {path: '/pagina-inicial', nome : 'Ver página sobre o responsável', img : 'assets/icones/icon_white_responsavel.svg'}
+    {path: '/doenca-form', nome : 'Cadastre uma nova doença', img : 'assets/icones/icon_white_doenca.svg'},
+    {path: '/pagina-inicial', nome : 'Ver página sobre o responsável', img : 'assets/icones/icon_white_responsavel.svg'},
   ]
 }

@@ -17,7 +17,7 @@ ul {
 
 .navbar-header-link {
   text-decoration: none;
-  color: #eeeeee;
+  color: var(--cor-fonte-branca);
   font-weight: 500;
   gap: 10px;
   position: relative;

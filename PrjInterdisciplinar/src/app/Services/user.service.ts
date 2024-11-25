@@ -65,6 +65,7 @@ export class UserService {
     getCurrentID() : number{
         return this.users.length + 1
     }
+    
     // Procura o usuário de acordo com o ID
     getUserId(id:number) : IUser | undefined{
       return this.users.find((user) => id === user.id);

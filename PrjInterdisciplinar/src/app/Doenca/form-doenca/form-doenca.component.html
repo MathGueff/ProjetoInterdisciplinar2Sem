@@ -6,41 +6,19 @@
       <h3 class="mb-4">Cadastre uma nova doença</h3>
       <!-- Campos do formulário -->
       <div class="row mt-3" style="width: 100%; max-width: 600px;">
-        <div class="col-md-12 col-sm-12 mb-3">
-          <app-form-input
+        <div class="col-md-12 col-sm-12 mb-3" *ngFor="let input of inputs">
+          <app-form-field
             [formGroup]="this.formDoenca"
-            controlName="nome_doenca"
-            icon="assets/icones/icon_black_doenca.svg"
-            label="Nome:"
-            placeholder="Digite o nome da doença"
-            [required]="true"
-            [errorValidators]="['required']"
-          >
-          </app-form-input>
-        </div>
-        <div class="col-md-12 col-sm-12 mb-3">
-          <app-form-input
-            [formGroup]="this.formDoenca"
-            controlName="tratamento"
-            icon="assets/icones/icon_black_doenca.svg"
-            label="Tratamentos:"
-            placeholder="Digite a forma de tratamento"
-            [required]="true"
-            [errorValidators]="['required']"
-          >
-          </app-form-input>
-        </div>
-        <div class="col-md-12 col-sm-12 mb-3">
-          <app-form-input
-            [formGroup]="this.formDoenca"
-            controlName="transmissao"
-            icon="assets/icones/icon_black_doenca.svg"
-            label="Transmissão:"
-            placeholder="Digite as formas de transmissão"
-            [required]="true"
-            [errorValidators]="['required']"
-          >
-          </app-form-input>
+            formName="form-doenca"
+            controlName="{{input.controlName}}"
+            icon="{{input.icon}}"
+            label="{{input.label}}"
+            placeholder="{{input.placeholder}}"
+            [required]="input.required || false"
+            [validators]="input.validators || []"
+            [fieldType]="input.typeField || ''"
+            >
+          </app-form-field>
         </div>
       </div>
 

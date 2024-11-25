@@ -6,35 +6,26 @@
             <!-- Campos de entrada -->
             <div class="row mt-3" style="width: 100%; max-width: 270px;">
                 <!-- Controls do formulário -->
-                <div class="col-md-12 col-sm-12 mb-3">
-                    <app-form-input
-                        [formGroup]="formLogin"
-                        [formName]="this.formName"
-                        icon="assets/login/email_icon.svg"
-                        controlName="email"
-                        label="Email"
-                        type="email"
-                        placeholder="Email de login"
-                        [required]="true"
-                        [errorValidators]="['required', 'email']" 
-                    ></app-form-input> <!-- Passamos o contexto da função checkFormStatus neste componente para o filho  -->
+                <div class="col-md-12 col-sm-12 mb-3" *ngFor="let input of inputs">
+                    <app-form-field
+                        [formGroup]="this.formLogin"
+                        type = {{input.type}}
+                        formName="form-login"
+                        controlName="{{input.controlName}}"
+                        icon="{{input.icon}}"
+                        label="{{input.label}}"
+                        placeholder="{{input.placeholder}}"
+                        [required]="input.required || false"
+                        [validators]="input.validators || []"
+                        [fieldType]="input.typeField || ''"
+                    >
+                    </app-form-field>
                 </div>
-               <app-form-input
-                [formGroup]="formLogin"
-                [formName]="this.formName"
-                icon="assets/login/senha_icon.svg"
-                controlName="senha"
-                label="Senha"
-                type="password"
-                placeholder="Senha de login"
-                [required]="true"
-                [errorValidators]="['required', 'minlength']" 
-            ></app-form-input>
             </div>
             <!-- Fim dos campos -->
 
             <!-- Link para redefinição de senha -->
-            <div class="mt-3 mb-3">
+            <div class="mb-3">
                 <a routerLink="" class="link-form">Esqueci minha senha</a>
             </div>
 
