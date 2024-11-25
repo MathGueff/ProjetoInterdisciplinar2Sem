@@ -16,7 +16,7 @@ export class ComentarioInputComponent {
 
   constructor(private formBuilder : FormBuilder){
     this.inputText = this.formBuilder.group({
-      textForm:['']
+      textForm:['', Validators.required]
     })
   }
 
@@ -32,8 +32,9 @@ export class ComentarioInputComponent {
     }
   }
   onSubmit() {
-    let mensagem = this.inputText.value.textForm;
-    if(mensagem !== ''){
+
+    if(this.inputText.valid){
+      let mensagem = this.inputText.value.textForm;
       console.log(mensagem);
     }
     else{

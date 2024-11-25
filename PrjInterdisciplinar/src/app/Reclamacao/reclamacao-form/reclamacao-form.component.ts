@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ViacepService } from '../../Services/viacep.service';
 
 @Component({
   selector: 'app-reclamacao-form',
@@ -13,24 +15,97 @@ import {
   templateUrl: './reclamacao-form.component.html',
   styleUrl: './reclamacao-form.component.css',
 })
-export class ReclamacaoFormComponent {
+export class ReclamacaoFormComponent implements OnInit {
   private formBuider = inject(NonNullableFormBuilder);
+  private router = inject(Router);
+  private viacepService = inject(ViacepService);
+
+  rows: number = 0;
+
+
 
   form = this.formBuider.group({
     titulo: ['', [Validators.required]],
     descricao: ['', [Validators.required]],
-    cep: ['', [Validators.required]],
+    cep: [
+      '',
+      [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+    ],
     numero: ['', [Validators.required]],
     cidade: ['', [Validators.required]],
     bairro: ['', [Validators.required]],
     rua: ['', [Validators.required]],
+    complemento: [''],
     tag: ['Nenhum'],
     imagem: [''],
   });
 
   onSubmit() {
-    if(this.form.valid){
-      console.log(this.form.value)
+    if (this.form.valid) {
+      console.log(this.form.value);
+      this.router.navigate(['reclamacao-inicial']);
     }
+  }
+  ngOnInit(): void {
+    this.form.controls.cep.valueChanges.subscribe(() => {
+      if (
+        this.form.controls.cep.valid &&
+        this.form.controls.cep.value.length == 8) {
+        this.searchAddress();
+      } else {
+        console.log('CEP INVÁLIDO');
+        this.resetAddressControls();
+      }
+    });
+  }
+  searchAddress() {
+    this.viacepService.getAddress(this.form.controls.cep.value).subscribe({
+      next: (response) => {
+        if (response.logradouro) {
+          this.setAddressControl('rua', response.logradouro);
+        } else {
+          console.log('A rua não foi encontrada para o CEP informado.');
+        }
+
+        if (response.bairro) {
+          this.setAddressControl('bairro', response.bairro);
+        } else {
+          console.log('O logradouro não foi encontrado para o CEP informado.');
+        }
+
+        if (response.localidade) {
+          this.setAddressControl('cidade', response.localidade);
+        } else {
+          console.log('A cidade não foi encontrada para o CEP informado.');
+        }
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
+  }
+
+  resetAddressControls() {
+    let addressControls = ['logradouro', 'bairro', 'localidade'];
+    addressControls.forEach((field) => {
+      this.form.get(field)!.reset();
+    });
+  }
+
+  private setAddressControl(control: string, value: string) {
+    this.form.get(control)?.setValue(value);
+  }
+  protected autoResize():void {
+    let objTextArea = document.querySelector('textarea');
+    if (objTextArea?.value) {
+      if (objTextArea.scrollHeight > objTextArea.offsetHeight) {
+        this.rows += 1;
+      }
+    } else {
+      this.rows = 0;
+    }
+  }
+  protected setPreview(){
+    // função para mudar imagem
   }
 }
