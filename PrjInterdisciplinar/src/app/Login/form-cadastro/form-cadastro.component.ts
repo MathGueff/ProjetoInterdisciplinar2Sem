@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { FormInputComponent } from "../../Common/form-input/form-input.component";
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../Services/user.service';
 import { IUser } from '../../models/user.model';
 import { IEndereco } from '../../models/endereco.model';
 import { CadastroErrorStatus } from './CadastroErrorStatus.enum';
 import { ViacepService } from '../../Services/viacep.service';
+import { IFieldForm } from '../../models/fieldForm.model';
+import { FormFieldComponent } from "../../Common/form-field/form-field.component";
 
 @Component({
   selector: 'app-form-cadastro',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormInputComponent, ReactiveFormsModule],
+  imports: [RouterLink, CommonModule, ReactiveFormsModule, FormFieldComponent],
   templateUrl: './form-cadastro.component.html',
   styleUrls: ['./form-cadastro.component.css', '../links-redes.css']
 })
@@ -39,6 +40,115 @@ export class FormCadastroComponent implements OnInit{
     localidade : [''],  //Opcional
     complemento : ['']
   })
+
+  inputs : IFieldForm[] = [
+    { 
+      controlName:'nome', 
+      type : 'text',
+      icon:'assets/login/usuario_icon.svg', 
+      label:'Nome:', 
+      placeholder: 'Nome de usuário', 
+      required: true, 
+      validators: ['required','minlength']
+    },
+    { 
+      controlName:'email', 
+      type : 'email',
+      icon:'assets/login/email_icon.svg', 
+      label:'Email:', 
+      placeholder: 'Email de usuário', 
+      required: true, 
+      validators: ['required','email']
+    },
+    { 
+      controlName:'senha', 
+      type : 'password',
+      icon:'assets/login/senha_icon.svg', 
+      label:'Senha:', 
+      placeholder: 'Senha de login', 
+      required: true, 
+      validators: ['required','minlength']
+    },
+    { 
+      controlName:'confirmaSenha', 
+      type : 'password',
+      icon:'assets/login/senha_icon.svg', 
+      label:'Confirme sua senha:', 
+      placeholder: 'Confirmação da senha', 
+      required: true, 
+      validators: ['required','minlength']
+    },
+    { 
+      controlName:'telefone', 
+      type : 'tel',
+      icon:'assets/login/telefone_icon.svg', 
+      label:'Telefone:', 
+      placeholder: 'Telefone para contato', 
+      required: false, 
+      validators: ['minlength', 'maxlength']
+    },
+    { 
+      controlName:'cpf', 
+      type : 'text',
+      icon:'assets/login/cpf_icon.svg', 
+      label:'CPF:', 
+      placeholder: 'Digite seu CPF', 
+      required: false, 
+      validators: ['minlength', 'maxlength']
+    }
+  ]
+
+  addressInputs : IFieldForm[] = [
+    { 
+      controlName:'cep', 
+      type : 'text',
+      icon:'assets/login/endereco_icon.svg', 
+      label:'CEP:', 
+      placeholder: 'Digite seu CEP', 
+      required: false, 
+      validators: ['minlength', 'maxlength']
+    },
+    { 
+      controlName:'logradouro', 
+      type : 'text',
+      icon:'assets/login/endereco_icon.svg', 
+      label:'Rua:', 
+      placeholder: 'Digite sua rua', 
+      required: false, 
+    },
+    { 
+      controlName:'bairro', 
+      type : 'text',
+      icon:'assets/login/endereco_icon.svg', 
+      label:'Bairro:', 
+      placeholder: 'Digite seu bairro', 
+      required: false, 
+    },
+    { 
+      controlName:'localidade', 
+      type : 'text',
+      icon:'assets/login/endereco_icon.svg', 
+      label:'Cidade:', 
+      placeholder: 'Digite sua cidade', 
+      required: false, 
+    },
+    { 
+      controlName:'numero', 
+      type : 'text',
+      icon:'assets/login/endereco_icon.svg', 
+      label:'Número:', 
+      placeholder: 'Digite seu número', 
+      required: false, 
+    },
+    { 
+      controlName:'complemento', 
+      type : 'text',
+      icon:'assets/login/endereco_icon.svg', 
+      label:'Complemento:', 
+      placeholder: 'Digite seu complemento', 
+      required: false, 
+    },
+  ]
 
   protected cadastroErrorStatus : CadastroErrorStatus = CadastroErrorStatus.None;
    /*

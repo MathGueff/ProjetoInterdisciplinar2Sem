@@ -5,18 +5,22 @@ import { IDoenca } from "../models/doencas.model";
 
 export class DoencaService{
   private doencas : IDoenca[] = [
-    {nome_doenca : "Matheus", transmissao: "Ônibus", tratamento: "Paulada"},
-    {nome_doenca : "Davy", transmissao: "Programação", tratamento: "Água"}
+    {id : 1, nome_doenca : "Matheus", descricao: "teste", transmissao: "Ônibus", tratamento: "Paulada"},
+    {id : 2, nome_doenca : "Davy", descricao: "teste2", transmissao: "Programação", tratamento: "Água"}
   ]
 
-  /* Validação de Usuário */
+  /* Validação de Doença */
   validateDoenca(newDoenca : string) : boolean{
-    return this.doencas.some(doenca => doenca.nome_doenca === newDoenca);
+    return this.doencas.some(doenca => doenca.nome_doenca != newDoenca);
   }
 
-  /* Criação de um novo usuário */
+  /* Criação de uma nova Doença */
   newDoenca(newDoenca : IDoenca){
     this.doencas.push(newDoenca);
     console.log(this.doencas);
+  }
+
+  getCurrentID() : number{
+    return this.doencas.length + 1
   }
 }

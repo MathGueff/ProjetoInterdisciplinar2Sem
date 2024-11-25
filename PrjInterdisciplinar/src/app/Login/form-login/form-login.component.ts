@@ -3,13 +3,15 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../Services/user.service';
-import { FormInputComponent } from "../../Common/form-input/form-input.component";
 import { LoginErrorStatus } from './LoginErrorStatus.enum';
+import { IFieldForm } from '../../models/fieldForm.model';
+import { FormFieldComponent } from "../../Common/form-field/form-field.component";
+
 
 @Component({
   selector: 'app-form-login',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule, CommonModule, FormInputComponent],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule, FormFieldComponent],
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.css', '../links-redes.css']
 })
@@ -27,6 +29,27 @@ export class FormLoginComponent implements OnInit{
     senha : ['', [Validators.required, Validators.minLength(4)]]
   })
   
+  inputs : IFieldForm[] = [
+    { 
+      controlName:'email', 
+      type : 'email',
+      icon:'assets/login/email_icon.svg', 
+      label:'Email:', 
+      placeholder: 'Email de login', 
+      required: true, 
+      validators: ['required','email']
+    },
+    { 
+      controlName:'senha', 
+      type : 'password',
+      icon:'assets/login/senha_icon.svg', 
+      label:'Senha:', 
+      placeholder: 'Senha de login', 
+      required: true, 
+      validators: ['required','minlength']
+    }
+  ]
+
   /* Variável de controle de validação */
   protected loginErrorStatus : LoginErrorStatus = LoginErrorStatus.None;
   /*

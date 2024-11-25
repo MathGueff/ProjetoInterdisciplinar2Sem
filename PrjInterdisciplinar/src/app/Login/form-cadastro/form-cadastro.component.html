@@ -6,71 +6,36 @@
       <h3 class="mb-4">Cadastre-se</h3>
       <!-- Campos do formulário -->
       <div class="row mt-3" style="width: 100%; max-width: 600px;">
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/usuario_icon.svg"
-            controlName="nome" label="Nome:" type="text" placeholder="Nome de usuário" [required]="true"
-            [errorValidators]="['required','minlength']">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/email_icon.svg"
-            controlName="email" label="Email: " type="mail" placeholder="Email de cadastro" [required]="true"
-            [errorValidators]="['required', 'email']">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/senha_icon.svg"
-            controlName="senha" label="Senha: " type="password" placeholder="Senha de login" [required]="true"
-            [errorValidators]="['required', 'minlength']">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/senha_icon.svg"
-            controlName="confirmaSenha" label="Confirme sua senha: " type="password" placeholder="Confirmação da senha"
-            [required]="true" [errorValidators]="['required', 'minlength']">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/telefone_icon.svg"
-            controlName="telefone" label="Telefone:" type="tel" placeholder="Telefone para contato" [errorValidators]="['minlength', 'maxlength']">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/cpf_icon.svg"
-            controlName="cpf" label="CPF:" type="text" placeholder="Digite seu CPF" [errorValidators]="['minlength', 'maxlength']">
-          </app-form-input>
+        <div class="col-md-6 col-sm-12 mb-3" *ngFor="let input of inputs">
+          <app-form-field
+            [formGroup]="this.formCadastro"
+            type = {{input.type}}
+            formName="form-cadastro"
+            controlName="{{input.controlName}}"
+            icon="{{input.icon}}"
+            label="{{input.label}}"
+            placeholder="{{input.placeholder}}"
+            [required]="input.required || false"
+            [validators]="input.validators || []"
+            [fieldType]="input.typeField || ''"
+          >
+          </app-form-field>
         </div>
         <hr>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/endereco_icon.svg"
-            controlName="cep" label="CEP:" type="text" placeholder="Digite seu CEP"
-            [errorValidators]="['minlength', 'maxlength']">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/endereco_icon.svg"
-            controlName="bairro" label="Bairro:" type="text" placeholder="Digite seu bairro">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/endereco_icon.svg"
-            controlName="logradouro" label="Rua:" type="text" placeholder="Digite sua rua">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/endereco_icon.svg"
-            controlName="localidade" label="Cidade:" type="text" placeholder="Digite sua cidade">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/endereco_icon.svg"
-            controlName="complemento" label="Complemento:" type="text" placeholder="Digite o complemento">
-          </app-form-input>
-        </div>
-        <div class="col-md-6 col-sm-12 mb-3">
-          <app-form-input [formGroup]="formCadastro" [formName]="this.formName" icon="assets/login/endereco_icon.svg"
-            controlName="numero" label="Número:" type="number" placeholder="Digite seu número">
-          </app-form-input>
+        <div class="col-md-6 col-sm-12 mb-3" *ngFor="let input of addressInputs">
+          <app-form-field
+            [formGroup]="this.formCadastro"
+            type = {{input.type}}
+            formName="form-cadastro"
+            controlName="{{input.controlName}}"
+            icon="{{input.icon}}"
+            label="{{input.label}}"
+            placeholder="{{input.placeholder}}"
+            [required]="input.required || false"
+            [validators]="input.validators || []"
+            [fieldType]="input.typeField || ''"
+          >
+          </app-form-field>
         </div>
       </div>
 

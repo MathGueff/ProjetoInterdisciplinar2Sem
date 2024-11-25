@@ -8,11 +8,11 @@
 }
 h5{
   padding-top: 12px;
-  color: white;
+  color: var(--cor-fonte-branca);
   font-weight: bold;
 }
 .links-footer a, span{
-  color: white;
+  color: var(--cor-fonte-branca);
   text-decoration: none;
   transition: .3s;
   display: inline-block;

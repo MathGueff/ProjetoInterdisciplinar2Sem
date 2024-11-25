@@ -23,6 +23,7 @@
     /* Fontes */
     --familia-primaria: poppins, sans-serif;
     --familia-secundaria: georgia, sans-serif;
+    --cor-fonte-branca: #e2e2e2;
 
     /* Tamanho do texto */
     --fonte-primaria: 1rem;
@@ -77,11 +78,13 @@
 
 .card-header, .header-painel, .header-comentario{
   background-color: var(--cor-primaria) !important;
-  color: rgb(238, 237, 237) !important;
+  color: var(--cor-fonte-branca) !important;
+  font-size: 1.2rem;
 }
 
 .card-body{
   background-color: #e0e0e0;
+  font-size: 0.85rem;
 }
 
 .card:hover{
@@ -114,8 +117,8 @@
 }
 
 .card-icon-large{
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 10px;
   -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
   -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
