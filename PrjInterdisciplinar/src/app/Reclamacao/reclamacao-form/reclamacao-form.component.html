@@ -144,7 +144,7 @@
             <p class="invalid-form ms-3">Campo obrigatório</p>
           </div>
         </div>
-        <div class="col-md-12 col-sm-12 mb-3">
+        <div class="col-md-6 col-sm-12 mb-3">
           <img class="icon me-1" src="assets/login/endereco_icon.svg" />
           <label for="rua" class="form-label"
             >Rua:
@@ -160,6 +160,20 @@
           <div *ngIf="form.get('rua')?.invalid && form.get('rua')?.touched">
             <p class="invalid-form ms-3">Campo obrigatório</p>
           </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12 mb-3">
+          <img class="icon me-1" src="assets/login/endereco_icon.svg" />
+          <label for="complemento" class="form-label"
+            >Complemento:
+          </label>
+          <input
+            type="text"
+            formControlName="complemento"
+            class="form-control"
+            id="complemento"
+            placeholder="Complemento"
+          />
         </div>
 
         <hr />
@@ -215,7 +229,7 @@
             class="form-control"
             id=""
             placeholder="Confirmação da sua senha"
-            (change)="setPreview()"
+            (change)="setPreview($event)"
           />
         </div>
 
@@ -224,16 +238,20 @@
             <label class="form-label">Pré-visualização</label>
             <img
               class="preview-img img-fluid"
-              src="img/paginas/reclamacoes/user1.jpg"
+              [src]="src"
               id="imgPreview"
+              *ngIf="src;"
             />
           </div>
         </div>
       </form>
       <!-- Botão de entrar -->
-      <button type="submit" (click)="onSubmit()" class="mt-3 form-btn">
-        CADASTRAR
-      </button>
+      <div class="botoes d-flex justify-content-between w-100">
+        <button class="mt-3 form-btn" (click)="Voltar()">VOLTAR</button>
+        <button type="submit" (click)="onSubmit()" class="mt-3 form-btn">
+          CADASTRAR
+        </button>
+      </div>
     </div>
     <!-- Fim do formulário -->
   </div>

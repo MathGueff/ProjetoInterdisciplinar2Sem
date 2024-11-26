@@ -20,8 +20,8 @@ export class ReclamacaoFormComponent implements OnInit {
   private router = inject(Router);
   private viacepService = inject(ViacepService);
 
-  rows: number = 0;
-
+  rows: number = 2;
+  src: any = null;
 
 
   form = this.formBuider.group({
@@ -86,7 +86,7 @@ export class ReclamacaoFormComponent implements OnInit {
   }
 
   resetAddressControls() {
-    let addressControls = ['logradouro', 'bairro', 'localidade'];
+    let addressControls = ['rua', 'bairro', 'cidade'];
     addressControls.forEach((field) => {
       this.form.get(field)!.reset();
     });
@@ -98,14 +98,27 @@ export class ReclamacaoFormComponent implements OnInit {
   protected autoResize():void {
     let objTextArea = document.querySelector('textarea');
     if (objTextArea?.value) {
-      if (objTextArea.scrollHeight > objTextArea.offsetHeight) {
+      if (objTextArea.scrollHeight >= objTextArea.offsetHeight) {
         this.rows += 1;
+        console.log("Scroll Height: "+ objTextArea.scrollHeight);
+        console.log("offsetHeight: "+ objTextArea.offsetHeight);
       }
     } else {
-      this.rows = 0;
+      this.rows = 2;
     }
   }
-  protected setPreview(){
-    // função para mudar imagem
+  protected setPreview(event: any){
+    const file:File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.src = e.target.result;
+
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  Voltar(){
+    this.router.navigate(['reclamacao-inicial']);
   }
 }

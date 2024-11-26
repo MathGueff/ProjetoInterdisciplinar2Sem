@@ -24,3 +24,10 @@ textarea{
   resize: none;
   overflow: hidden;
 }
+.preview{
+  border: 3px solid white;
+  height: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
