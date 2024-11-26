@@ -1,30 +1,51 @@
-body{
-  background-color: #E9E9E9;
+body {
+  background-color: #e9e9e9;
 }
 
-.container-fluid{
+.container-fluid {
   margin-top: 0;
   padding-top: 0;
 }
-.segundo-fundo{
-  background-color: #F0F0F0;
+.segundo-fundo {
+  background-color: #f0f0f0;
   margin: 32px 0px 72px 0px;
   font-size: var(--doencas-texto);
   border-radius: 20px;
   padding: 30px 10px;
   gap: 20px;
 }
-#main-img{
+#main-img {
   width: 300px;
 }
-#texto-banner-doencas{
-  width:580px;
+#texto-banner-doencas {
+  width: 580px;
 }
-h2{
+h2 {
   font-size: 25.5px;
 }
-.terceiro-fundo{
-  background-color:var(--cor-terciaria);
+.terceiro-fundo {
+  background-color: var(--cor-terciaria);
+}
+.tags,
+.adicionar {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+}
+.tags .pesquisa-tag,
+.adicionar .adicionar-btn {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  background-color: var(--cor-terciaria);
+  width: 60%;
+  align-items: center;
+}
+.titulo-reclamacao,
+.tag-reclamacao {
+  text-align: center;
+  width: 50%;
 }
 /* Código antigo do card */
 /* .card{
@@ -47,4 +68,3 @@ h2{
   margin-top: 20px;
   max-height: 100px;
 } */
-

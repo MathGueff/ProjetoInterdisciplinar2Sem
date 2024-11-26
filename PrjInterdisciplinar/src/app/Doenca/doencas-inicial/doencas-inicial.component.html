@@ -28,22 +28,22 @@
       <div class="row mb-5">
         <div class="col tags">
           <h2 class="mb-4">Filtre pela Tag</h2>
-          <form class="pesquisa-tag p-4" > <!-- [formGroup]="TagSelect" -->
+          <form class="pesquisa-tag p-4" [formGroup]="TagSelect">
             <div class="tag-reclamacao">
               <input list="box" type="search" class="form-select text-center borda" formControlName="tagForm">
               <datalist id="box">
                 <option selected>Todos</option>
-                <option>Tag1</option>
-                <option>Tag2</option>
-                <option>Tag3</option>
-                <option>Tag4</option>
+                <option>tag1</option>
+                <option>tag2</option>
+                <option>tag3</option>
+                <option>tag4</option>
+                <option>tag5</option>
                 <option>Nenhum</option>
               </datalist>
             </div>
           </form>
-          <!-- <app-tag-select></app-tag-select> -->
         </div>
-      </div> 
+      </div>
       <!-- Filtro -->
     </div>
     <div class="row my-4 cards-div d-flex justify-content-center align-items-center"> <!-- Row onde ficam os cards -->
