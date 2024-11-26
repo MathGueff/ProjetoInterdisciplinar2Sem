@@ -42,111 +42,111 @@ export class FormCadastroComponent implements OnInit{
   })
 
   inputs : IFieldForm[] = [
-    { 
-      controlName:'nome', 
+    {
+      controlName:'nome',
       type : 'text',
-      icon:'assets/login/usuario_icon.svg', 
-      label:'Nome:', 
-      placeholder: 'Nome de usuário', 
-      required: true, 
+      icon:'assets/login/usuario_icon.svg',
+      label:'Nome:',
+      placeholder: 'Nome de usuário',
+      required: true,
       validators: ['required','minlength']
     },
-    { 
-      controlName:'email', 
+    {
+      controlName:'email',
       type : 'email',
-      icon:'assets/login/email_icon.svg', 
-      label:'Email:', 
-      placeholder: 'Email de usuário', 
-      required: true, 
+      icon:'assets/login/email_icon.svg',
+      label:'Email:',
+      placeholder: 'Email de usuário',
+      required: true,
       validators: ['required','email']
     },
-    { 
-      controlName:'senha', 
+    {
+      controlName:'senha',
       type : 'password',
-      icon:'assets/login/senha_icon.svg', 
-      label:'Senha:', 
-      placeholder: 'Senha de login', 
-      required: true, 
+      icon:'assets/login/senha_icon.svg',
+      label:'Senha:',
+      placeholder: 'Senha de login',
+      required: true,
       validators: ['required','minlength']
     },
-    { 
-      controlName:'confirmaSenha', 
+    {
+      controlName:'confirmaSenha',
       type : 'password',
-      icon:'assets/login/senha_icon.svg', 
-      label:'Confirme sua senha:', 
-      placeholder: 'Confirmação da senha', 
-      required: true, 
+      icon:'assets/login/senha_icon.svg',
+      label:'Confirme sua senha:',
+      placeholder: 'Confirmação da senha',
+      required: true,
       validators: ['required','minlength']
     },
-    { 
-      controlName:'telefone', 
+    {
+      controlName:'telefone',
       type : 'tel',
-      icon:'assets/login/telefone_icon.svg', 
-      label:'Telefone:', 
-      placeholder: 'Telefone para contato', 
-      required: false, 
+      icon:'assets/login/telefone_icon.svg',
+      label:'Telefone:',
+      placeholder: 'Telefone para contato',
+      required: false,
       validators: ['minlength', 'maxlength']
     },
-    { 
-      controlName:'cpf', 
+    {
+      controlName:'cpf',
       type : 'text',
-      icon:'assets/login/cpf_icon.svg', 
-      label:'CPF:', 
-      placeholder: 'Digite seu CPF', 
-      required: false, 
+      icon:'assets/login/cpf_icon.svg',
+      label:'CPF:',
+      placeholder: 'Digite seu CPF',
+      required: false,
       validators: ['minlength', 'maxlength']
     }
   ]
 
   addressInputs : IFieldForm[] = [
-    { 
-      controlName:'cep', 
+    {
+      controlName:'cep',
       type : 'text',
-      icon:'assets/login/endereco_icon.svg', 
-      label:'CEP:', 
-      placeholder: 'Digite seu CEP', 
-      required: false, 
+      icon:'assets/login/endereco_icon.svg',
+      label:'CEP:',
+      placeholder: 'Digite seu CEP',
+      required: false,
       validators: ['minlength', 'maxlength']
     },
-    { 
-      controlName:'logradouro', 
+    {
+      controlName:'logradouro',
       type : 'text',
-      icon:'assets/login/endereco_icon.svg', 
-      label:'Rua:', 
-      placeholder: 'Digite sua rua', 
-      required: false, 
+      icon:'assets/login/endereco_icon.svg',
+      label:'Rua:',
+      placeholder: 'Digite sua rua',
+      required: false,
     },
-    { 
-      controlName:'bairro', 
+    {
+      controlName:'bairro',
       type : 'text',
-      icon:'assets/login/endereco_icon.svg', 
-      label:'Bairro:', 
-      placeholder: 'Digite seu bairro', 
-      required: false, 
+      icon:'assets/login/endereco_icon.svg',
+      label:'Bairro:',
+      placeholder: 'Digite seu bairro',
+      required: false,
     },
-    { 
-      controlName:'localidade', 
+    {
+      controlName:'localidade',
       type : 'text',
-      icon:'assets/login/endereco_icon.svg', 
-      label:'Cidade:', 
-      placeholder: 'Digite sua cidade', 
-      required: false, 
+      icon:'assets/login/endereco_icon.svg',
+      label:'Cidade:',
+      placeholder: 'Digite sua cidade',
+      required: false,
     },
-    { 
-      controlName:'numero', 
+    {
+      controlName:'numero',
       type : 'text',
-      icon:'assets/login/endereco_icon.svg', 
-      label:'Número:', 
-      placeholder: 'Digite seu número', 
-      required: false, 
+      icon:'assets/login/endereco_icon.svg',
+      label:'Número:',
+      placeholder: 'Digite seu número',
+      required: false,
     },
-    { 
-      controlName:'complemento', 
+    {
+      controlName:'complemento',
       type : 'text',
-      icon:'assets/login/endereco_icon.svg', 
-      label:'Complemento:', 
-      placeholder: 'Digite seu complemento', 
-      required: false, 
+      icon:'assets/login/endereco_icon.svg',
+      label:'Complemento:',
+      placeholder: 'Digite seu complemento',
+      required: false,
     },
   ]
 
