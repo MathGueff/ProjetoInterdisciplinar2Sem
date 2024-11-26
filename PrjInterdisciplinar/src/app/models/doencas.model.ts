@@ -3,5 +3,6 @@ export interface IDoenca{
   nome_doenca :  string,
   descricao : string,
   transmissao : string,
-  tratamento : string
+  tratamento : string,
+  sintomas : string[]
 }

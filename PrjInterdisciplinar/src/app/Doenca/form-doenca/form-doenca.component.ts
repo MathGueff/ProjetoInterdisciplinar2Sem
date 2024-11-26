@@ -20,13 +20,16 @@ export class FormDoencaComponent {
   private fb = inject(NonNullableFormBuilder);
   private doencaService = inject(DoencaService);
   private router = inject(Router)
+  protected sintomas : string[] = [];
 
   protected formDoenca = this.fb.group({
     nome_doenca : ['', [Validators.required]],
     descricao : ['', [Validators.required, Validators.minLength(15)]],
     transmissao : ['', [Validators.required]],
-    tratamento : ['', [Validators.required]]
+    tratamento : ['', [Validators.required]],
+    sintoma : ['']
   })
+
 
   //Configuração dos inputs do formulário
 
@@ -64,17 +67,26 @@ export class FormDoencaComponent {
       required: true, 
       validators: ['required']
     },
+    {
+      controlName:'sintoma', 
+      icon:'assets/icones/icon_black_doenca.svg', 
+      label:'Sintomas:', 
+      placeholder: 'Digite o sintoma para adicionar', 
+      required: true, 
+      validators: ['required']
+    },
   ];
 
   onSubmit(){
-    if(this.formDoenca.valid){
+    if(this.formDoenca.valid && this.sintomas.length > 0){
       if(this.doencaService.validateDoenca(this.formDoenca.controls.nome_doenca.value)){
         const newDoenca : IDoenca  = {
           id : this.doencaService.getCurrentID(),
           nome_doenca : this.formDoenca.controls.nome_doenca.value,
           descricao : this.formDoenca.controls.descricao.value,
           transmissao : this.formDoenca.controls.transmissao.value,
-          tratamento : this.formDoenca.controls.tratamento.value
+          tratamento : this.formDoenca.controls.tratamento.value,
+          sintomas : this.sintomas,
         }
         console.log(newDoenca);
         this.doencaService.newDoenca(newDoenca);
@@ -89,7 +101,38 @@ export class FormDoencaComponent {
     }
   }
 
+  addSintoma(){
+    const sintoma = this.formDoenca.controls.sintoma;
+    if(sintoma.valid && sintoma.value != ""){
+      let sintoma_novo = sintoma.value;
+      sintoma_novo = sintoma_novo.trim();
+      sintoma_novo = sintoma_novo[0].toUpperCase() + sintoma_novo.slice(1).toLowerCase()
+      if(!this.sintomas.some((sintoma) => sintoma == sintoma_novo )){
+        sintoma.reset();
+        this.sintomas.push(sintoma_novo);
+      }
+      else{
+        this.doencaErrorStatus = DoencaErrorStatus.invalidSintoma;
+      }
+    }
+    else{
+      this.doencaErrorStatus = DoencaErrorStatus.nullSintoma;
+    }
+  }
+
+  removeSintoma(sintoma_excluido : string){
+    const i = this.sintomas.indexOf(sintoma_excluido);  // Encontra o índice do sintoma
+
+    if (i !== -1) {
+      this.sintomas.splice(i, 1);  // Remove 1 item na posição encontrada
+    }
+  }
+
   ngOnInit() {
+    this.resetErrorStatus();
+  }
+
+  resetErrorStatus(){
     // Detecta mudanças nos campos para resetar o status do erro atual
     Object.keys(this.formDoenca.controls).forEach(control => {
       this.formDoenca.get(control)?.valueChanges.subscribe(() => {
