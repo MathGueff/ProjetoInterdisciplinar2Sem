@@ -4,6 +4,6 @@ export class Reclamacao {
   descricaoReclamacao:string = "";
   dataReclamacao: string = "" //por enquanto a data vai ser string
   objImagem : string = ""; //por enquanto o objImagem vai ser tipo String
-  objTag : string ="" ; // por enquanto objTag vai ser Stringz
+  objTag : string ="" ; // por enquanto objTag vai ser String
 }
 
