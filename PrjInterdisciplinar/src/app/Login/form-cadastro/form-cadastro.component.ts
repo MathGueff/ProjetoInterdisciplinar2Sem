@@ -49,7 +49,7 @@ export class FormCadastroComponent implements OnInit{
       label:'Nome:',
       placeholder: 'Nome de usuário',
       required: true,
-      validators: ['required','minlength']
+      validators: ['required','minlength'],
     },
     {
       controlName:'email',
