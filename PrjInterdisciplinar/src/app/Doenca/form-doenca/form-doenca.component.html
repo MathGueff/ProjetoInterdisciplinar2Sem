@@ -1,7 +1,7 @@
 <div class="background"> <!-- background -->
   <div class="container-fluid d-flex justify-content-center align-items-center flex-column"> <!-- Div do container-->
     <!-- Formulário de Cadastro -->
-    <form [formGroup]="formDoenca" (ngSubmit)="onSubmit()"
+    <form [formGroup]="formDoenca"
       class="form d-flex justify-content-center align-items-center flex-column m-3 p-4 rounded">
       <h3 class="mb-4">Cadastre uma nova doença</h3>
       <!-- Campos do formulário -->
@@ -20,7 +20,34 @@
             >
           </app-form-field>
         </div>
+
+        <!-- Caso já exista um usuário -->
+        <span *ngIf="checkIfFormError('null-sintoma')" class="texto-validacao-erro-form mb-1">
+          <img src="assets/login/erro_icon.svg" alt=""> Insira um sintoma primeiro
+        </span>
+
+        <!-- Caso já exista um usuário -->
+        <span *ngIf="checkIfFormError('invalid-sintoma')" class="texto-validacao-erro-form mb-1">
+          <img src="assets/login/erro_icon.svg" alt=""> Um sintoma com esse nome já foi inserido
+        </span>
+
+        <div class="col-6 mb-3">
+          <button class="mt-3 form-btn" (click)="addSintoma()">Adicionar sintoma</button>
+        </div>
+
+        @if (sintomas && sintomas.length > 0) {
+          <div class="col-md-12 col-sm-12 mb-3 sintomas rounded p-3">
+              <label class="form-label">Sintomas Adicionados:</label>
+              <ul>
+                <li class="sintoma_adicionado" 
+                  *ngFor="let sintoma of sintomas" (click)="removeSintoma(sintoma)">
+                  {{sintoma}}
+                </li>
+              </ul>
+          </div>
+        }
       </div>
+      
 
       <!-- Caso algum dos controls esteja inválido -->
       <span *ngIf="checkIfFormError('invalid-control')" class="texto-validacao-erro-form mb-1">
@@ -33,8 +60,13 @@
         <img src="assets/login/erro_icon.svg" alt=""> Uma doença com esse nome já foi cadastrada
       </span>
 
-      <!-- Botão de entrar -->
-      <button class="mt-3 form-btn" type="submit">CADASTRAR</button>
+      <div class="d-flex gap-2 flex-wrap-reverse justify-content-center align-items-center">
+        <!-- Botão de voltar -->
+        <button class="mt-3 form-btn" routerLink="/doenca-inicial">VOLTAR</button>
+
+        <!-- Botão de entrar -->
+        <button class="mt-3 form-btn" type="submit" (click)="onSubmit()">CADASTRAR</button>
+      </div>
     </form> <!-- Fim do formulário -->
   </div>
 </div>

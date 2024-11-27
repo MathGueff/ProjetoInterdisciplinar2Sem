@@ -5,8 +5,8 @@ import { IDoenca } from "../models/doencas.model";
 
 export class DoencaService{
   private doencas : IDoenca[] = [
-    {id : 1, nome_doenca : "Matheus", descricao: "teste", transmissao: "Ônibus", tratamento: "Paulada"},
-    {id : 2, nome_doenca : "Davy", descricao: "teste2", transmissao: "Programação", tratamento: "Água"}
+    {id : 1, nome_doenca : "Matheus", descricao: "teste", transmissao: "Ônibus", tratamento: "Paulada", sintomas: ['Febre', 'Dor de cabeça']},
+    {id : 2, nome_doenca : "Davy", descricao: "teste2", transmissao: "Programação", tratamento: "Água", sintomas: ['Febre', 'Dor de barriga']}
   ]
 
   /* Validação de Doença */
