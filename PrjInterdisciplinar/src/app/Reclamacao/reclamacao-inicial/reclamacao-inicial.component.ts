@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ReclamacaoCardComponent } from '../reclamacao-card/reclamacao-card.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { TagSelectComponent } from "../../Common/tag-select/tag-select.component";
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -11,7 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Component({
   selector: 'app-reclamacao-inicial',
   standalone: true,
-  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent, ReactiveFormsModule],
+  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, ReactiveFormsModule],
   templateUrl: './reclamacao-inicial.component.html',
   styleUrl: './reclamacao-inicial.component.css'
 })

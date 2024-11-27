@@ -3,10 +3,10 @@
   <!-- Header do card -->
   <div class="card-header pt-3 d-flex flex-line justify-content-between">
     <h5>
-      {{ cardnoticias.titulo }}
+      {{ cardNoticia.title }}
     </h5>
     <p>
-      {{ cardnoticias.tags }}
+      {{ cardNoticia.tags }}
     </p>
   </div>
   <!-- Body do Card -->
@@ -14,24 +14,24 @@
     class="card-body d-flex justify-content-lg-start justify-content-md-center"
   >
     <!-- Row dos conteúdos do body -->
-    <div class="row justify-content-center">
+    <div class="row d-flex justify-content-center">
       <!-- Imagem do card -->
       <div
         class="card-image-div col-lg-2 col-md-12 d-flex justify-content-lg-center"
       >
-        <img src="{{ cardnoticias.image }}" alt="icone" class="card-icon-large" />
+
+        <img src="{{ cardNoticia.image }}" alt="icone" class="card-icon-large"/>
       </div>
       <!-- Informações do card -->
       <div class="col-lg-10 col-md-12">
         <!-- Organização das informações -->
         <div class="d-flex align-items-start flex-column ps-md-3 ps-lg-0">
-          <h5 class="card-title mt-md-3">{{ cardnoticias.titulo }}</h5>
-          <p class="card-text">{{ cardnoticias.description }}</p>
+          <h5 class="card-title mt-md-3">{{ cardNoticia.title }}</h5>
+          <p class="card-text">{{ cardNoticia.description }}</p>
           <a
-            routerLink="/doenca-detalhada/{{ cardnoticias.id }}"
+            routerLink="/noticia-detalhe/{{ cardNoticia.id }}"
             class="btn btn-primary"
-            >Ver {{ cardnoticias.titulo }}</a
-          >
+            >Ver {{ cardNoticia.title }}</a>
         </div>
       </div>
     </div>

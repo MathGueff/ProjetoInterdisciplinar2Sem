@@ -12,7 +12,7 @@ import { FormCadastroComponent } from './Login/form-cadastro/form-cadastro.compo
 import { ComentarioCentralComponent } from './Comentario/comentario-central/comentario-central.component';
 import { ReclamacaoFormComponent } from './Reclamacao/reclamacao-form/reclamacao-form.component';
 import { FormDoencaComponent } from './Doenca/form-doenca/form-doenca.component';
-import { EdicaoPerfilComponent } from './Usuario/edicao-perfil/edicao-perfil.component';
+import { NoticiasDetalhesComponent } from './Noticias/noticias-detalhes/noticias-detalhes.component';
 
 
 export const routes: Routes = [
@@ -26,6 +26,8 @@ export const routes: Routes = [
   {path: 'sobre-nos', component:SobrenosComponent},
   {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
+  {path: 'noticia-detalhe', component:NoticiasDetalhesComponent},
+  {path: 'noticia-detalhe/:id', component:NoticiasDetalhesComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
