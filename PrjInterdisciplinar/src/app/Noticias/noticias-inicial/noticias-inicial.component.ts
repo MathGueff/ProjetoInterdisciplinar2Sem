@@ -1,10 +1,9 @@
-import { Tag } from './../../models/tag.model';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../models/noticia';
-import { NoticiasCardComponent } from '../noticias-card/noticias-card.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { NoticiasCardComponent } from "../noticias-card/noticias-card.component";
 
 @Component({
   selector: 'app-noticias-inicial',
@@ -13,7 +12,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   templateUrl: './noticias-inicial.component.html',
   styleUrl: './noticias-inicial.component.css'
 })
-export class NoticiasInicialComponent implements OnInit {
+export class NoticiasInicialComponent implements OnInit{
   private NoticiaSubject =new BehaviorSubject<Noticia[]>([] as any);
   data$:Observable<Noticia[]> = this.NoticiaSubject.asObservable();
   TagSelect: FormGroup;
@@ -55,15 +54,15 @@ export class NoticiasInicialComponent implements OnInit {
 
    ngOnInit():void{
     this.TagSelect.valueChanges.subscribe(() => {
-      let lista : Noticia[] = [];
+      let lista : Noticia [] = [];
       //Verifica se nenhuma Tag foi selecionada
-      if(this.TagSelect.value.tagForm === "Todas"){
+      if(this.TagSelect.value.tagForm === "Todos"){
         lista = this.noticias;
       }
       // Filtra o array de Reclamações pela tag selecionada
       else{
         lista = this.noticias.filter((Noticia) =>{
-        return this.noticias.tags === this.TagSelect.value.tagForm
+        return Noticia.tags === this.TagSelect.value.tagForm
       });
       }
       //atualizando o valor do Observabale

@@ -1,40 +1,61 @@
-<!-- banner -->
-<div class="row d-flex justify-content-center">
+<div class="background">
+  <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+    <!-- Banner -->
+    <div
+      class="col-10 segundo-fundo d-flex flex-line justify-content-center align-items-center"
+    >
+      <img
+        id="main-img"
+        src="img/paginas/noticias/noticia.svg"
+        alt="pessoa_doente.svg"
+      />
+      <span id="texto-banner-doencas">
+        O saneamento básico é crucial para a saúde pública, prevenindo doenças
+        e promovendo o bem-estar. O acesso a água potável, esgoto tratado e
+        manejo correto de resíduos sólidos reduz a contaminação ambiental e a
+        exposição a agentes patogênicos. Proteja sua saúde e o meio ambiente com
+        os cuidados necessários!
+      </span>
+    </div>
+    <!-- Banner -->
+    <div class="row d-flex justify-content-center">
+      <!-- Titulo -->
+      <div class="col-12 d-flex flex-line justify-content-center align-items-center text-center">
+        <h2>Noticias relacionas ao saneamento básico:</h2>
+      </div>
+      <!-- Titulo -->
+      <!-- Filtro -->
+      <div class="row mb-5">
+        <div class="col tags">
+          <h2 class="mb-4">Filtre pela Tag</h2>
+          <form class="pesquisa-tag p-4">
+            <div class="tag-reclamacao">
+              <input list="box" type="search" class="form-select text-center borda" formControlName="tagForm">
+              <datalist id="box">
+                <option selected>Todos</option>
+                <option>tag1</option>
+                <option>tag2</option>
+                <option>tag3</option>
+                <option>tag4</option>
+                <option>tag5</option>
+                <option>Nenhum</option>
+              </datalist>
+            </div>
+          </form>
+        </div>
+      </div>
+  <!-- Card -->
   <div
-    class="borda-redonda col-9 d-flex flex-line m-5 p-3 align-items-center justify-content-center"
-    id="banner"
+    class="row my-4 cards-div d-flex justify-content-center align-items-center"
   >
-    <img
-      src="img/paginas/noticias/noticia.svg"
-      alt="noticia.svg"
-      id="banner-img"
-    />
-    <span>
-      Acompanhar notícias sobre água potável e saneamento é essencial para
-      manter-se informado sobre a qualidade e disponibilidade dos recursos
-      hídricos, além de medidas preventivas contra doenças. Conhecer
-      atualizações e políticas públicas nessa área ajuda a promover a saúde
-      pública e a sustentabilidade ambiental.
-    </span>
+    <!-- Row onde ficam os cards -->
+    @if (noticias.length > 0) {
+    <!-- verificando se a lista é vazia -->
+    <div class="col-12 p-4 px-5" *ngFor="let noticia of noticias">
+      <!-- Coluna do card-->
+      <app-noticias-card [cardNoticia]="noticia"></app-noticias-card>
+    </div>
+    <!-- Fim da Coluna do card -->
+    }
   </div>
 </div>
-<!-- banner -->
-<!-- select -->
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <h2>Notícias sobre o saneamento básico:</h2>
-  <div
-    class="borda-redonda col-8 d-flex flex-line justify-content-center p-3 m-3"
-    id="div-select"
-  >
-    <div class="me-5">
-      <label for="noticia-input">Pesquise uma notícia</label>
-      <input class="form-control" type="text" name="noticia-input" />
-    </div>
-    <div>
-      <label for="noticia-input">Selecione uma categoria de notícias</label>
-      <select class="form-select" name="noticia-input"></select>
-    </div>
-  </div>
-</div>
-<!-- select -->
-<!-- Card -->

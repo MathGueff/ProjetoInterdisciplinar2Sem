@@ -10,5 +10,5 @@ import { Noticia } from '../../models/noticia';
   styleUrl: './noticias-card.component.css'
 })
 export class NoticiasCardComponent {
-  @Input () cardNoticias !: Noticia
+  @Input () cardNoticia !: Noticia;
 }
