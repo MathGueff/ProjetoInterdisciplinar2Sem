@@ -1,6 +1,6 @@
-import { Noticia } from './../../models/noticia';
+import { Tag } from './../../models/tag.model';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../models/noticia';
 import { NoticiasCardComponent } from '../noticias-card/noticias-card.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -13,14 +13,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
   templateUrl: './noticias-inicial.component.html',
   styleUrl: './noticias-inicial.component.css'
 })
-export class NoticiasInicialComponent {
+export class NoticiasInicialComponent implements OnInit {
   private NoticiaSubject =new BehaviorSubject<Noticia[]>([] as any);
   data$:Observable<Noticia[]> = this.NoticiaSubject.asObservable();
   TagSelect: FormGroup;
   noticias: Noticia[] = [
     {
       id: 1,
-      tags:['#Prefeitura', '#Decisão'],
+      title: 'lorem',
+      tags:'tag1',
       description:
         'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
       image: 'img/paginas/noticias/noticia1.webp',
@@ -28,14 +29,16 @@ export class NoticiasInicialComponent {
     },
     {
       id: 2,
-      tags:['#Prefeitura', '#Decisão'],
+      title: 'lorem',
+      tags:'tag2',
       description:
         'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
       image: 'img/paginas/noticias/noticia1.webp',
     },
     {
       id: 3,
-      tags:['#Prefeitura', '#Decisão'],
+      title: 'lorem',
+      tags:'tag3',
       description:
         'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
       image: 'img/paginas/noticias/noticia1.webp',
@@ -64,7 +67,7 @@ export class NoticiasInicialComponent {
       });
       }
       //atualizando o valor do Observabale
-      this.doencaSubject.next(lista);
+      this.NoticiaSubject.next(lista);
     })
   }
 }
