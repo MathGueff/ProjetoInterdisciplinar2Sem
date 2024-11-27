@@ -18,6 +18,20 @@ export class NoticiasInicialComponent {
       description:
         'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
       image: 'img/paginas/noticias/noticia1.webp',
+    },
+    {
+      id: 2,
+      tags:['#Prefeitura', '#Decisão'],
+      description:
+        'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
+      image: 'img/paginas/noticias/noticia1.webp',
+    },
+    {
+      id: 3,
+      tags:['#Prefeitura', '#Decisão'],
+      description:
+        'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
+      image: 'img/paginas/noticias/noticia1.webp',
     }
   ]
 }
