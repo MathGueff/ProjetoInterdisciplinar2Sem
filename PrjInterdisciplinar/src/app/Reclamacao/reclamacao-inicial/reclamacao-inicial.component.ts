@@ -11,7 +11,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Component({
   selector: 'app-reclamacao-inicial',
   standalone: true,
-  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent,ReactiveFormsModule],
+  imports: [CommonModule, ReclamacaoCardComponent, RouterLink, TagSelectComponent, ReactiveFormsModule],
   templateUrl: './reclamacao-inicial.component.html',
   styleUrl: './reclamacao-inicial.component.css'
 })

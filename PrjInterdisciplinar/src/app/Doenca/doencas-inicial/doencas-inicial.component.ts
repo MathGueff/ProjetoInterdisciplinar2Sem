@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Doencas } from '../../models/doencas';
 import { DoencaCardComponent } from '../doenca-card/doenca-card.component';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   templateUrl: './doencas-inicial.component.html',
   styleUrl: './doencas-inicial.component.css'
 })
-export class DoencasInicialComponent {
+export class DoencasInicialComponent implements OnInit {
   private doencaSubject =new BehaviorSubject<Doencas[]>([] as any);
   data$:Observable<Doencas[]> = this.doencaSubject.asObservable();
   TagSelect: FormGroup;
@@ -53,7 +53,7 @@ export class DoencasInicialComponent {
       id: 5,
       title: 'Ascaridíase',
       description:
-        'AA ascaridíase é o resultado da infestação do helminto Ascaris lumbricoides no organismo, sendo mais frequentemente encontrado no intestino',
+        'A ascaridíase é o resultado da infestação do helminto Ascaris lumbricoides no organismo, sendo mais frequentemente encontrado no intestino',
       image: 'img/paginas/doencas/ascaridiase.webp',
       tags: 'tag5'
     },
