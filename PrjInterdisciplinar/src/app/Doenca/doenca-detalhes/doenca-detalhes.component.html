@@ -1,5 +1,8 @@
-<div *ngIf="dado$ | async as Detalhes" class="painel m-5 justifica rounded">
-  <div class="header-painel p-3 mb-3 d-flex flex-line gap-5">
+<div
+  *ngIf="dado$ | async as Detalhes"
+  class="painel m-5 details justifica rounded overflow-hidden"
+>
+  <div class="header-painel p-5 d-flex flex-line gap-5">
     <img
       id="imgDoenca"
       class="me-3"
@@ -14,13 +17,13 @@
       </span>
     </div>
   </div>
-  <div class="info pb-3 mb-3">
+  <div class="info p-5">
     <h5>Tratamento:</h5>
     <span>
       {{ Detalhes.treatment }}
     </span>
   </div>
-  <div class="info mb-3">
+  <div class="info p-5">
     <h5>Sintomas:</h5>
     <ul>
       <div *ngFor="let symptoms of Detalhes.symotomsName">
@@ -30,17 +33,12 @@
       </div>
     </ul>
   </div>
-  <a routerLink="{{ Detalhes.source }}">{{ Detalhes.source }}</a>
-  <div class="d-flex justify-content-end">
+  <div class="d-flex p-5 justify-content-between align-items-center">
+    <a class="btn btn-primary" href="{{ Detalhes.source }}">ver fonte</a>
     <a
-      class="d-flex text-decoration-none align-items-center"
-      routerLink="/doenca-inicial">
-      <img
-        id="voltar"
-        class="me-2"
-        src="img/paginas/doencas/voltar.svg"
-        alt="voltar.svg"/>
-      Voltar
+      class="btn btn-primary"
+      routerLink="/doenca-inicial"
+      >Voltar
     </a>
   </div>
 </div>

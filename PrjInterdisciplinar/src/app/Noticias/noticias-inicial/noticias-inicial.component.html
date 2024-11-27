@@ -38,17 +38,3 @@
 </div>
 <!-- select -->
 <!-- Card -->
-<div class="row mt-4 mb-4 cards-div"> <!-- Div da row-->
-  <div class="col-12 p-4 ps-5 pe-5" *ngFor="let noticia of noticias"> <!-- Div da coluna-->
-    <div class="card h-100"> <!-- Div do card-->
-      <h5 class="card-header pt-3 pb-3">{{ noticia.tags }}</h5>
-      <div class="card-body d-flex">
-        <img src="{{noticia.image}}" alt="icone" class="icone-cards img-fluid me-3">
-        <div class="">
-          <p class="card-text">{{ noticia.description }}</p>
-          <a class="btn btn-primary btn-md">Ver notícia </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
