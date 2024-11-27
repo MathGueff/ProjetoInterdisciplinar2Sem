@@ -6,15 +6,27 @@ textarea{
   height: auto !important;
 }
 
-.sintomas{
-  border: 4px solid var(--cor-primaria);
+.preview_valores{
+  border: 3px solid var(--cor-primaria);
 }
 
-.sintoma-adicionado{
+.valor_adicionado{
   cursor: pointer !important;
-  transition: 0.5s all ease;
+  transition: 0.7s all ease;
 }
 
-.sintoma-adicionado:hover{
-  transform: translateX(6px);  
+.valor_adicionado:hover{
+  transform: translateX(6px);
+  opacity: 0.8;
+}
+
+.preview_img{
+  cursor: pointer;
+  transition: 0.8s all ease;
+  width: 100%;
+  height: auto;
+}
+
+.preview_img:hover{
+  opacity: 0.8;
 }
