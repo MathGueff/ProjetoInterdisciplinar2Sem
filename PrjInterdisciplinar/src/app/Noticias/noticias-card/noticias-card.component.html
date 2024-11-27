@@ -3,10 +3,10 @@
   <!-- Header do card -->
   <div class="card-header pt-3 d-flex flex-line justify-content-between">
     <h5>
-      {{ cardDoenca.title }}
+      {{ cardnoticias.titulo }}
     </h5>
     <p>
-      {{ cardDoenca.tags }}
+      {{ cardnoticias.tags }}
     </p>
   </div>
   <!-- Body do Card -->
@@ -19,18 +19,18 @@
       <div
         class="card-image-div col-lg-2 col-md-12 d-flex justify-content-lg-center"
       >
-        <img src="{{ cardDoenca.image }}" alt="icone" class="card-icon-large" />
+        <img src="{{ cardnoticias.image }}" alt="icone" class="card-icon-large" />
       </div>
       <!-- Informações do card -->
       <div class="col-lg-10 col-md-12">
         <!-- Organização das informações -->
         <div class="d-flex align-items-start flex-column ps-md-3 ps-lg-0">
-          <h5 class="card-title mt-md-3">{{ cardDoenca.title }}</h5>
-          <p class="card-text">{{ cardDoenca.description }}</p>
+          <h5 class="card-title mt-md-3">{{ cardnoticias.titulo }}</h5>
+          <p class="card-text">{{ cardnoticias.description }}</p>
           <a
-            routerLink="/doenca-detalhada/{{ cardDoenca.id }}"
+            routerLink="/doenca-detalhada/{{ cardnoticias.id }}"
             class="btn btn-primary"
-            >Ver {{ cardDoenca.title }}</a
+            >Ver {{ cardnoticias.titulo }}</a
           >
         </div>
       </div>
