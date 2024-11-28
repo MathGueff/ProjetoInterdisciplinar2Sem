@@ -44,8 +44,8 @@ export class FormNoticiaComponent {
       {
         controlName:'titulo_noticia', 
         icon:'assets/icones/icon_black_noticia.svg', 
-        label:'Nome da notícia:', 
-        placeholder: 'Digite o nome da Doença', 
+        label:'Título da notícia:', 
+        placeholder: 'Digite o título da notícia', 
         required: true, 
         validators: ['required']
       },
