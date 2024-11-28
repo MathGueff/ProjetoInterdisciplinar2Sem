@@ -9,7 +9,7 @@
       [formGroup]="formNoticia"
       class="form d-flex justify-content-center align-items-center flex-column m-3 p-4 rounded"
     >
-      <h3 class="mb-4">Cadastre uma nova doença</h3>
+      <h3 class="mb-4">Cadastre uma nova notícia</h3>
       <!-- Campos do formulário -->
       <div class="row mt-3" style="width: 100%; max-width: 600px">
         <div class="col-md-12 col-sm-12 mb-3" *ngFor="let input of inputs">
@@ -27,65 +27,12 @@
           </app-form-field>
         </div>
 
-        <!-- Input de adicionar fonte -->
-        <app-form-field
-          [formGroup]="this.formNoticia"
-          formName="form-noticia"
-          controlName="fonte"
-          icon="assets/icones/icon_black_noticia.svg"
-          label="Fonte:"
-          placeholder="Digite a fonte"
-          [required]="true"
-          fieldType="input"
-          (keydown.enter)="onEnter($event, 'fonte')"
-        ></app-form-field>
-
-        <!-- Caso o usuário não tenha digitado a fonte -->
-        <app-check-error
-          [enum]="this.noticiaErrorStatus"
-          error="null-fonte"
-          message="Insira uma fonte primeiro"
-        ></app-check-error>
-
-        <!-- Caso já exista uma fonte -->
-        <app-check-error
-          [enum]="this.noticiaErrorStatus"
-          error="invalid-fonte"
-          message="Já existe uma fonte cadastrada com esse nome"
-        ></app-check-error>
-
-        <div class="col-6 mb-3">
-          <button class="mt-3 form-btn" (click)="addFonte()">
-            Adicionar fonte
-          </button>
-        </div>
-
-        <div class="col-md-12 col-sm-12 mb-3">
-          <div class="preview_valores rounded p-3">
-            <label class="form-label">{{
-              fontes.length > 0 ? "Fontes adicionadas:" : "Adicione fontes:"
-            }}</label>
-            <ul>
-              <li
-                class="valor_adicionado"
-                *ngFor="let fonte of fontes"
-                (click)="removeFonte(fonte)"
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-                title="Remover fonte"
-              >
-                {{ fonte }}
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <!-- Input de adicionar tag -->
         <app-form-field
           [formGroup]="this.formNoticia"
           formName="form-noticia"
           controlName="tag"
-          icon="assets/icones/icon_black_noticia.svg"
+          icon="assets/formularios/tag_icon.svg"
           label="Tag:"
           placeholder="Digite a tag"
           [required]="true"
@@ -115,9 +62,10 @@
 
         <div class="col-md-12 col-sm-12 mb-3">
           <div class="preview_valores rounded p-3">
-            <label class="form-label">{{
-              tags.length > 0 ? "Tags adicionadas:" : "Adicione tags:"
-            }}</label>
+            <label class="form-label">
+                <img src="assets/formularios/tag_icon.svg" class="label-icon">
+                {{ tags.length > 0 ? "Tags adicionadas:" : "Adicione tags:"}}
+            </label>
             <ul>
               <li
                 class="valor_adicionado"
@@ -128,6 +76,60 @@
                 title="Remover fonte"
               >
                 {{ tag }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Input de adicionar fonte -->
+        <app-form-field
+          [formGroup]="this.formNoticia"
+          formName="form-noticia"
+          controlName="fonte"
+          icon="assets/formularios/fonte_icon.svg"
+          label="Fonte:"
+          placeholder="Digite a fonte"
+          [required]="true"
+          fieldType="input"
+          (keydown.enter)="onEnter($event, 'fonte')"
+        ></app-form-field>
+
+        <!-- Caso o usuário não tenha digitado a fonte -->
+        <app-check-error
+          [enum]="this.noticiaErrorStatus"
+          error="null-fonte"
+          message="Insira uma fonte primeiro"
+        ></app-check-error>
+
+        <!-- Caso já exista uma fonte -->
+        <app-check-error
+          [enum]="this.noticiaErrorStatus"
+          error="invalid-fonte"
+          message="Já existe uma fonte cadastrada com esse nome"
+        ></app-check-error>
+
+        <div class="col-6 mb-3">
+          <button class="mt-3 form-btn" (click)="addFonte()">
+            Adicionar fonte
+          </button>
+        </div>
+
+        <div class="col-md-12 col-sm-12 mb-3">
+          <div class="preview_valores rounded p-3">
+            <label class="form-label">
+                <img src="assets/formularios/fonte_icon.svg" class="label-icon">
+                {{fontes.length > 0 ? "Fontes adicionadas:" : "Adicione fontes:" }}
+            </label>
+            <ul>
+              <li
+                class="valor_adicionado"
+                *ngFor="let fonte of fontes"
+                (click)="removeFonte(fonte)"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Remover fonte"
+              >
+                {{ fonte }}
               </li>
             </ul>
           </div>
@@ -161,7 +163,10 @@
             />
           </div>
         </div>
+      </div>
+      <!-- Fim dos campos -->
 
+      <div class="justify-content-center">
         <!-- Caso algum dos controls esteja inválido -->
         <app-check-error
           [enum]="this.noticiaErrorStatus"
@@ -175,20 +180,20 @@
           error="invalid-name"
           message="Uma notícia já foi cadastrada com esse título"
         ></app-check-error>
+      </div>
 
-        <div
-          class="d-flex gap-2 flex-wrap-reverse justify-content-center align-items-center"
-        >
-          <!-- Botão de voltar -->
-          <button class="mt-3 form-btn" routerLink="/doenca-inicial">
-            VOLTAR
-          </button>
+      <div
+        class="d-flex gap-2 flex-wrap-reverse justify-content-center align-items-center"
+      >
+        <!-- Botão de voltar -->
+        <button class="mt-3 form-btn" routerLink="/doenca-inicial">
+          VOLTAR
+        </button>
 
-          <!-- Botão de entrar -->
-          <button class="mt-3 form-btn" type="submit" (click)="onSubmit()">
-            CADASTRAR
-          </button>
-        </div>
+        <!-- Botão de entrar -->
+        <button class="mt-3 form-btn" type="submit" (click)="onSubmit()">
+          CADASTRAR
+        </button>
       </div>
     </form>
     <!-- Fim do formulário -->

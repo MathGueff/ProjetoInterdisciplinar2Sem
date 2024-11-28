@@ -1,23 +1,29 @@
-<div class="background"> <!-- background -->
-  <div class="container-fluid d-flex justify-content-center align-items-center flex-column"> <!-- Div do container-->
+<div class="background">
+  <!-- background -->
+  <div
+    class="container-fluid d-flex justify-content-center align-items-center flex-column"
+  >
+    <!-- Div do container-->
     <!-- Formulário de Cadastro -->
-    <form [formGroup]="formDoenca"
-      class="form d-flex justify-content-center align-items-center flex-column m-3 p-4 rounded">
+    <form
+      [formGroup]="formDoenca"
+      class="form d-flex justify-content-center align-items-center flex-column m-3 p-4 rounded"
+    >
       <h3 class="mb-4">Cadastre uma nova doença</h3>
       <!-- Campos do formulário -->
-      <div class="row mt-3" style="width: 100%; max-width: 600px;">
+      <div class="row mt-3" style="width: 100%; max-width: 600px">
         <div class="col-md-12 col-sm-12 mb-3" *ngFor="let input of inputs">
           <app-form-field
             [formGroup]="this.formDoenca"
             formName="form-doenca"
-            controlName="{{input.controlName}}"
-            icon="{{input.icon}}"
-            label="{{input.label}}"
-            placeholder="{{input.placeholder}}"
+            controlName="{{ input.controlName }}"
+            icon="{{ input.icon }}"
+            label="{{ input.label }}"
+            placeholder="{{ input.placeholder }}"
             [required]="input.required || false"
             [validators]="input.validators || []"
             [fieldType]="input.typeField || ''"
-            >
+          >
           </app-form-field>
         </div>
 
@@ -31,29 +37,48 @@
           placeholder="Digite o sintoma"
           [required]="true"
           fieldType="input"
-          (keydown.enter)="onEnter($event, 'sintoma')" 
+          (keydown.enter)="onEnter($event, 'sintoma')"
         ></app-form-field>
 
         <!-- Caso o usuário não tenha digitado o sintoma -->
-        <app-check-error [enum]="this.doencaErrorStatus" error="null-sintoma" 
-        message="Insira um sintoma primeiro"></app-check-error>
+        <app-check-error
+          [enum]="this.doencaErrorStatus"
+          error="null-sintoma"
+          message="Insira um sintoma primeiro"
+        ></app-check-error>
 
         <!-- Caso já exista um sintoma -->
-        <app-check-error [enum]="this.doencaErrorStatus" error="invalid-sintoma" 
-        message="Já existe um sintoma cadastrado com esse nome"></app-check-error>
+        <app-check-error
+          [enum]="this.doencaErrorStatus"
+          error="invalid-sintoma"
+          message="Já existe um sintoma cadastrado com esse nome"
+        ></app-check-error>
 
         <div class="col-6 mb-3">
-          <button type="button" class="mt-3 form-btn" (click)="addSintoma()">Adicionar sintoma</button>
+          <button type="button" class="mt-3 form-btn" (click)="addSintoma()">
+            Adicionar sintoma
+          </button>
         </div>
 
         <div class="col-md-12 col-sm-12 mb-3">
           <div class="preview_valores rounded p-3">
-            <label class="form-label">{{sintomas.length > 0 ? "Sintomas adicionados:" : "Adicione sintomas:"}}</label>
+            <label class="form-label">
+              <img src="assets/icones/icon_black_doenca.svg" class="label-icon">
+              {{
+              sintomas.length > 0
+                ? "Sintomas adicionados:"
+                : "Adicione sintomas:"
+            }}</label>
             <ul>
-              <li class="valor_adicionado" 
-                *ngFor="let sintoma of sintomas" (click)="removeSintoma(sintoma)" 
-                data-bs-toggle="tooltip" data-bs-placement="top" title="Remover {{sintoma}}">
-                {{sintoma}}
+              <li
+                class="valor_adicionado"
+                *ngFor="let sintoma of sintomas"
+                (click)="removeSintoma(sintoma)"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Remover {{ sintoma }}"
+              >
+                {{ sintoma }}
               </li>
             </ul>
           </div>
@@ -64,34 +89,50 @@
           [formGroup]="this.formDoenca"
           formName="form-doenca"
           controlName="fonte"
-          icon="assets/icones/icon_black_doenca.svg"
+          icon="assets/formularios/fonte_icon.svg"
           label="Fonte:"
           placeholder="Digite a fonte"
           [required]="true"
           fieldType="input"
-          (keydown.enter)="onEnter($event, 'fonte')" 
+          (keydown.enter)="onEnter($event, 'fonte')"
         ></app-form-field>
 
         <!-- Caso o usuário não tenha digitado o sintoma -->
-        <app-check-error [enum]="this.doencaErrorStatus" error="null-fonte" 
-        message="Insira uma fonte primeiro"></app-check-error>
+        <app-check-error
+          [enum]="this.doencaErrorStatus"
+          error="null-fonte"
+          message="Insira uma fonte primeiro"
+        ></app-check-error>
 
         <!-- Caso já exista um sintoma -->
-        <app-check-error [enum]="this.doencaErrorStatus" error="invalid-fonte" 
-        message="Já existe uma fonte cadastrada com esse nome"></app-check-error>
+        <app-check-error
+          [enum]="this.doencaErrorStatus"
+          error="invalid-fonte"
+          message="Já existe uma fonte cadastrada com esse nome"
+        ></app-check-error>
 
         <div class="col-6 mb-3">
-          <button class="mt-3 form-btn" (click)="addFonte()">Adicionar fonte</button>
+          <button class="mt-3 form-btn" (click)="addFonte()">
+            Adicionar fonte
+          </button>
         </div>
 
         <div class="col-md-12 col-sm-12 mb-3">
           <div class="preview_valores rounded p-3">
-            <label class="form-label">{{fontes.length > 0 ? "Fontes adicionadas:" : "Adicione fontes:"}}</label>
+            <label class="form-label">
+              <img src="assets/formularios/fonte_icon.svg" class="label-icon">
+              {{fontes.length > 0 ? "Fontes adicionadas:" : "Adicione fontes:"}}
+            </label>
             <ul>
-              <li class="valor_adicionado" 
-                *ngFor="let fonte of fontes" (click)="removeFonte(fonte)" 
-                data-bs-toggle="tooltip" data-bs-placement="top" title="Remover fonte">
-                {{fonte}}
+              <li
+                class="valor_adicionado"
+                *ngFor="let fonte of fontes"
+                (click)="removeFonte(fonte)"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Remover fonte"
+              >
+                {{ fonte }}
               </li>
             </ul>
           </div>
@@ -108,40 +149,56 @@
             type="file"
             class="form-control"
             id="imagem-doenca"
-            name ="imagem-doenca"
+            name="imagem-doenca"
             (change)="setPreview($event)"
           />
         </div>
-  
+
         <div class="col-md-12 col-sm-12 mb-3">
           <div class="preview d-flex flex-column align-items-center">
             <label class="form-label">Pré-visualização</label>
             <img
               class="preview_img img-fluid"
-              (click) = "removePreview()"
+              (click)="removePreview()"
               [src]="src"
               id="imgPreview"
-              *ngIf="src;"
+              *ngIf="src"
             />
           </div>
         </div>
-      </div> <!-- Fim dos campos -->
+      </div>
+      <!-- Fim dos campos -->
 
-      <!-- Caso algum dos controls esteja inválido -->
-      <app-check-error [enum]="this.doencaErrorStatus" error="invalid-control" 
-      message="Campos não preenchidos corretamente"></app-check-error>
+      <div class="justify-content-center">
+        <!-- Caso algum dos controls esteja inválido -->
+        <app-check-error
+          [enum]="this.doencaErrorStatus"
+          error="invalid-control"
+          message="Campos não preenchidos corretamente"
+        ></app-check-error>
 
-      <!-- Caso já exista um usuário -->
-        <app-check-error [enum]="this.doencaErrorStatus" error="invalid-name" 
-        message="Uma doença com esse nome já foi cadastrada"></app-check-error>
+        <!-- Caso já exista um usuário -->
+        <app-check-error
+          [enum]="this.doencaErrorStatus"
+          error="invalid-name"
+          message="Uma doença com esse nome já foi cadastrada"
+        ></app-check-error>
+      </div>
 
-      <div class="d-flex gap-2 flex-wrap-reverse justify-content-center align-items-center">
+      <div
+        class="d-flex gap-2 flex-wrap-reverse justify-content-center align-items-center"
+      >
         <!-- Botão de voltar -->
-        <button class="mt-3 form-btn" routerLink="/doenca-inicial">VOLTAR</button>
+        <button class="mt-3 form-btn" routerLink="/doenca-inicial">
+          VOLTAR
+        </button>
 
         <!-- Botão de entrar -->
-        <button class="mt-3 form-btn" type="submit" (click)="onSubmit()">CADASTRAR</button>
+        <button class="mt-3 form-btn" type="submit" (click)="onSubmit()">
+          CADASTRAR
+        </button>
       </div>
-    </form> <!-- Fim do formulário -->
+    </form>
+    <!-- Fim do formulário -->
   </div>
 </div>
