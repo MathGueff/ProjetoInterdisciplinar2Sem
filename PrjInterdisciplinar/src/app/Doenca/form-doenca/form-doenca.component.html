@@ -1,7 +1,7 @@
 <div class="background"> <!-- background -->
   <div class="container-fluid d-flex justify-content-center align-items-center flex-column"> <!-- Div do container-->
     <!-- Formulário de Cadastro -->
-    <form [formGroup]="formDoenca" (ngSubmit)="onSubmit()"
+    <form [formGroup]="formDoenca"
       class="form d-flex justify-content-center align-items-center flex-column m-3 p-4 rounded">
       <h3 class="mb-4">Cadastre uma nova doença</h3>
       <!-- Campos do formulário -->
@@ -20,21 +20,128 @@
             >
           </app-form-field>
         </div>
-      </div>
+
+        <!-- Input de adicionar sintoma -->
+        <app-form-field
+          [formGroup]="this.formDoenca"
+          formName="form-doenca"
+          controlName="sintoma"
+          icon="assets/icones/icon_black_doenca.svg"
+          label="Sintoma:"
+          placeholder="Digite o sintoma"
+          [required]="true"
+          fieldType="input"
+          (keydown.enter)="onEnter($event, 'sintoma')" 
+        ></app-form-field>
+
+        <!-- Caso o usuário não tenha digitado o sintoma -->
+        <app-check-error [enum]="this.doencaErrorStatus" error="null-sintoma" 
+        message="Insira um sintoma primeiro"></app-check-error>
+
+        <!-- Caso já exista um sintoma -->
+        <app-check-error [enum]="this.doencaErrorStatus" error="invalid-sintoma" 
+        message="Já existe um sintoma cadastrado com esse nome"></app-check-error>
+
+        <div class="col-6 mb-3">
+          <button type="button" class="mt-3 form-btn" (click)="addSintoma()">Adicionar sintoma</button>
+        </div>
+
+        <div class="col-md-12 col-sm-12 mb-3">
+          <div class="preview_valores rounded p-3">
+            <label class="form-label">{{sintomas.length > 0 ? "Sintomas adicionados:" : "Adicione sintomas:"}}</label>
+            <ul>
+              <li class="valor_adicionado" 
+                *ngFor="let sintoma of sintomas" (click)="removeSintoma(sintoma)" 
+                data-bs-toggle="tooltip" data-bs-placement="top" title="Remover {{sintoma}}">
+                {{sintoma}}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Input de adicionar fonte -->
+        <app-form-field
+          [formGroup]="this.formDoenca"
+          formName="form-doenca"
+          controlName="fonte"
+          icon="assets/icones/icon_black_doenca.svg"
+          label="Fonte:"
+          placeholder="Digite a fonte"
+          [required]="true"
+          fieldType="input"
+          (keydown.enter)="onEnter($event, 'fonte')" 
+        ></app-form-field>
+
+        <!-- Caso o usuário não tenha digitado o sintoma -->
+        <app-check-error [enum]="this.doencaErrorStatus" error="null-fonte" 
+        message="Insira uma fonte primeiro"></app-check-error>
+
+        <!-- Caso já exista um sintoma -->
+        <app-check-error [enum]="this.doencaErrorStatus" error="invalid-fonte" 
+        message="Já existe uma fonte cadastrada com esse nome"></app-check-error>
+
+        <div class="col-6 mb-3">
+          <button class="mt-3 form-btn" (click)="addFonte()">Adicionar fonte</button>
+        </div>
+
+        <div class="col-md-12 col-sm-12 mb-3">
+          <div class="preview_valores rounded p-3">
+            <label class="form-label">{{fontes.length > 0 ? "Fontes adicionadas:" : "Adicione fontes:"}}</label>
+            <ul>
+              <li class="valor_adicionado" 
+                *ngFor="let fonte of fontes" (click)="removeFonte(fonte)" 
+                data-bs-toggle="tooltip" data-bs-placement="top" title="Remover fonte">
+                {{fonte}}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 mb-3">
+          <img
+            class="form-icon me-1"
+            src="img/paginas/reclamacoes/image-icon.svg"
+          />
+          <label for="imagem-doenca" class="form-label">Imagem:</label>
+          <input
+            formControlName="imagem"
+            type="file"
+            class="form-control"
+            id="imagem-doenca"
+            name ="imagem-doenca"
+            (change)="setPreview($event)"
+          />
+        </div>
+  
+        <div class="col-md-12 col-sm-12 mb-3">
+          <div class="preview d-flex flex-column align-items-center">
+            <label class="form-label">Pré-visualização</label>
+            <img
+              class="preview_img img-fluid"
+              (click) = "removePreview()"
+              [src]="src"
+              id="imgPreview"
+              *ngIf="src;"
+            />
+          </div>
+        </div>
+      </div> <!-- Fim dos campos -->
 
       <!-- Caso algum dos controls esteja inválido -->
-      <span *ngIf="checkIfFormError('invalid-control')" class="texto-validacao-erro-form mb-1">
-        <img src="assets/login/erro_icon.svg" alt=""> Campos obrigatórios não preenchidos ou inválidos
-      </span>
-      <!-- Método checkIfFormError retorna true caso o erro específico esteja ocorrendo (parametro é o valor de string do enum)-->
+      <app-check-error [enum]="this.doencaErrorStatus" error="invalid-control" 
+      message="Campos não preenchidos corretamente"></app-check-error>
 
       <!-- Caso já exista um usuário -->
-      <span *ngIf="checkIfFormError('invalid-name')" class="texto-validacao-erro-form mb-1">
-        <img src="assets/login/erro_icon.svg" alt=""> Uma doença com esse nome já foi cadastrada
-      </span>
+        <app-check-error [enum]="this.doencaErrorStatus" error="invalid-name" 
+        message="Uma doença com esse nome já foi cadastrada"></app-check-error>
 
-      <!-- Botão de entrar -->
-      <button class="mt-3 form-btn" type="submit">CADASTRAR</button>
+      <div class="d-flex gap-2 flex-wrap-reverse justify-content-center align-items-center">
+        <!-- Botão de voltar -->
+        <button class="mt-3 form-btn" routerLink="/doenca-inicial">VOLTAR</button>
+
+        <!-- Botão de entrar -->
+        <button class="mt-3 form-btn" type="submit" (click)="onSubmit()">CADASTRAR</button>
+      </div>
     </form> <!-- Fim do formulário -->
   </div>
 </div>

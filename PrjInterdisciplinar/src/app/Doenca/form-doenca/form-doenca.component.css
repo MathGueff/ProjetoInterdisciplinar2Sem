@@ -1,3 +1,32 @@
 .form{
   width: 600px;
 }
+
+textarea{
+  height: auto !important;
+}
+
+.preview_valores{
+  border: 3px solid var(--cor-primaria);
+}
+
+.valor_adicionado{
+  cursor: pointer !important;
+  transition: 0.7s all ease;
+}
+
+.valor_adicionado:hover{
+  transform: translateX(6px);
+  opacity: 0.8;
+}
+
+.preview_img{
+  cursor: pointer;
+  transition: 0.8s all ease;
+  width: 100%;
+  height: auto;
+}
+
+.preview_img:hover{
+  opacity: 0.8;
+}

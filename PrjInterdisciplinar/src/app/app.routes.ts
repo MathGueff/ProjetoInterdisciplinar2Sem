@@ -32,6 +32,7 @@ export const routes: Routes = [
   {path: 'cadastro', component:FormCadastroComponent},
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
   {path: 'reclamacao-form', component: ReclamacaoFormComponent},
-  {path: 'doenca-form', component: FormDoencaComponent}
+  {path: 'doenca-form', component: FormDoencaComponent},
+  {path: 'editar-perfil', component: EdicaoPerfilComponent}
 
 ];
