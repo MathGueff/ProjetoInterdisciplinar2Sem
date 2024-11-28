@@ -16,6 +16,7 @@ import { FormDoencaComponent } from './Doenca/form-doenca/form-doenca.component'
 import { NoticiasDetalhesComponent } from './Noticias/noticias-detalhes/noticias-detalhes.component';
 import { EdicaoPerfilComponent } from './Usuario/edicao-perfil/edicao-perfil.component';
 import { ResponsaveisComponent } from './responsaveis/responsaveis/responsaveis.component';
+import { FormNoticiaComponent } from './Noticias/form-noticia/form-noticia.component';
 
 
 export const routes: Routes = [
@@ -37,6 +38,7 @@ export const routes: Routes = [
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
   {path: 'reclamacao-form', component: ReclamacaoFormComponent},
   {path: 'doenca-form', component: FormDoencaComponent},
+  {path: 'noticia-form', component: FormNoticiaComponent},
   {path: 'editar-perfil', component: EdicaoPerfilComponent},
 
 ];
