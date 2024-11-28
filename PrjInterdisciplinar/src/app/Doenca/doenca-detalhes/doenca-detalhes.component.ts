@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Detalhe } from '../../models/detalhe';
+import { DetalheDoenca } from '../../models/detalhe';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -13,7 +13,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './doenca-detalhes.component.css'
 })
 export class DoencaDetalhesComponent {
-  Detalhes: Detalhe[] = [
+  Detalhes: DetalheDoenca[] = [
     {
       id: 1,
       title: 'Amebíase',
@@ -26,10 +26,10 @@ export class DoencaDetalhesComponent {
     {
       id: 2,
       title: 'Cólera',
-      transmission: 'a amebíase é transmitida pela contaminação fecal da água de consumo humano e alimentos com cistos da ameba, os quais são relativamente resistente à cloração. Também é transmitida pelo contato direto de mãos contaminadas ou objetos sujos, bem como, sexualmente pelo contato oral-anal.',
-      treatment: 'Metronidazol, tinidazol, secnidazol ou ornidazol e nitazoxanida não matam todos os cistos que estão no intestino grosso. Um segundo medicamento (como paromomicina, diiodohidroxiquina ou furoato de diloxanida) é usado para matar esses cistos e, assim, prevenir uma recaída.',
+      transmission: 'A transmissão da cólera ocorre por via fecal-oral, ou seja, pela ingestão de água ou alimentos contaminados, ou pela contaminação pessoa a pessoa. Os alimentos, de forma geral, podem ser contaminados durante a cadeia produtiva e durante sua manipulação. Além disso, como o agente causador da cólera faz parte do ambiente aquático, pode se associar a mariscos (crustáceos e moluscos), peixes e algas, entre outros, possibilitando a transmissão da cólera se esses alimentos forem consumidos crus ou mal cozidos.',
+      treatment: 'O tratamento eficiente da cólera se fundamenta na rápida reidratação dos pacientes, por meio da administração oral de líquidos e solução de sais de reidratação oral (SRO) ou fluidos endovenosos, dependendo da gravidade do caso. Em aproximadamente 80% dos casos, os sintomas da cólera são leves ou moderados e devem ser tratados somente por meio da administração oral de líquidos e SRO (planos A e B), ou seja, soro. Os pacientes que apresentarem desidratação grave devem ser tratados por meio da administração de fluidos endovenosos (plano C), podendo ser administrados, adicionalmente, antibióticos apropriados para diminuir a duração da diarreia, reduzir o volume de fluidos de reidratação necessário e encurtar a duração da excreção da bactéria.',
       imgDoenca: 'img/paginas/doencas/colera.webp',
-      symotomsName: ['Dor ou cólica abdominal', 'Febre', 'Diarreia, podendo ser forte e com sangue ou muco', 'Perda de peso', 'Náuseas e vômitos', 'Gases', 'Fadiga', 'Abdômen sensível ao toque'],
+      symotomsName: ['Diarreia.', 'Náuseas e vômitos.', 'Cãibras musculares.', 'Choque.', 'Irritabilidade.', 'Letargia.', 'Olhos encovados.', 'Boca seca.', 'Sede excessiva.', 'Pele seca e enrugada.', 'Pouca ou nenhuma produção de urina.', 'Pressão arterial baixa.', 'Arritmia cardíaca.', 'Desequilíbrio eletrolítico (perda de minerais do sangue)'],
       source:'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/colera'
     },
     {
@@ -60,8 +60,8 @@ export class DoencaDetalhesComponent {
       source:'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose',
     },
   ]
-  private DetalheSubject = new BehaviorSubject<Detalhe | undefined>(undefined);
-  dado$: Observable<Detalhe | undefined> = this.DetalheSubject.asObservable();
+  private DetalheSubject = new BehaviorSubject<DetalheDoenca | undefined>(undefined);
+  dado$: Observable<DetalheDoenca | undefined> = this.DetalheSubject.asObservable();
   constructor(private activedrouter : ActivatedRoute){}
   ngOnInit(): void {
 
