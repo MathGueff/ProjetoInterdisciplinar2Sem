@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Detalhe } from '../../models/detalhe';
+import { DetalheDoenca } from '../../models/detalhe';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -13,7 +13,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './doenca-detalhes.component.css'
 })
 export class DoencaDetalhesComponent {
-  Detalhes: Detalhe[] = [
+  Detalhes: DetalheDoenca[] = [
     {
       id: 1,
       title: 'Amebíase',
@@ -60,8 +60,8 @@ export class DoencaDetalhesComponent {
       source:'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esquistossomose',
     },
   ]
-  private DetalheSubject = new BehaviorSubject<Detalhe | undefined>(undefined);
-  dado$: Observable<Detalhe | undefined> = this.DetalheSubject.asObservable();
+  private DetalheSubject = new BehaviorSubject<DetalheDoenca | undefined>(undefined);
+  dado$: Observable<DetalheDoenca | undefined> = this.DetalheSubject.asObservable();
   constructor(private activedrouter : ActivatedRoute){}
   ngOnInit(): void {
 

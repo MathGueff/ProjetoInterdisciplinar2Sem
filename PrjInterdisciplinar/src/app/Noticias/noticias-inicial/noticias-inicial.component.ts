@@ -19,7 +19,7 @@ export class NoticiasInicialComponent implements OnInit{
   noticias: Noticia[] = [
     {
       id: 1,
-      title: 'lorem',
+      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
       tags:'tag1',
       description:
         'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
