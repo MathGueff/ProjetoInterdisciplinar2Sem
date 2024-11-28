@@ -20,8 +20,9 @@
 #voltar{
   width: 2em;
 }
-#imgDoenca{
-  width: 300px;
+#imgResponsaveis{
+  width: 200px;
+  height: 200px;
   border: 2px solid #ffffff;
   border-radius: 5px;
 }
@@ -37,7 +38,12 @@
   -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
   box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
 }
-#imgDoenca{
-  width: 200px;
-  height: 200px;
+
+.icone{
+  width: 1.5em;
+}
+
+.contato{
+  text-decoration: none;
+  color:var(--cor-texto);
 }

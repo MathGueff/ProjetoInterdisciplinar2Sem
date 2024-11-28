@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { MenuUsuarioComponent } from './Usuario/menu-usuario/menu-usuario.component';
 import { Routes } from '@angular/router';
 import { ReclamacaoDescricaoComponent } from './Reclamacao/reclamacao-descricao/reclamacao-descricao.component';
@@ -14,11 +15,12 @@ import { ReclamacaoFormComponent } from './Reclamacao/reclamacao-form/reclamacao
 import { FormDoencaComponent } from './Doenca/form-doenca/form-doenca.component';
 import { NoticiasDetalhesComponent } from './Noticias/noticias-detalhes/noticias-detalhes.component';
 import { EdicaoPerfilComponent } from './Usuario/edicao-perfil/edicao-perfil.component';
-import { FormNoticiaComponent } from './Noticias/form-noticia/form-noticia.component';
+import { ResponsaveisComponent } from './responsaveis/responsaveis/responsaveis.component';
 
 
 export const routes: Routes = [
   {path: '', component:MenuUsuarioComponent},
+  {path: 'responsaveis', component: ResponsaveisComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path: 'reclamacao-inicial', component:ReclamacaoInicialComponent},
@@ -26,6 +28,7 @@ export const routes: Routes = [
   {path: 'doenca-detalhada/:id', component:DoencaDetalhesComponent},
   {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
   {path: 'sobre-nos', component:SobrenosComponent},
+  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'noticia-detalhe', component:NoticiasDetalhesComponent},
   {path: 'noticia-detalhe/:id', component:NoticiasDetalhesComponent},
@@ -34,7 +37,6 @@ export const routes: Routes = [
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
   {path: 'reclamacao-form', component: ReclamacaoFormComponent},
   {path: 'doenca-form', component: FormDoencaComponent},
-  {path: 'noticia-form', component: FormNoticiaComponent},
-  {path: 'editar-perfil', component: EdicaoPerfilComponent}
+  {path: 'editar-perfil', component: EdicaoPerfilComponent},
 
 ];
