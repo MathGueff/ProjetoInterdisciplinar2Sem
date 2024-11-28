@@ -8,7 +8,7 @@ import { NoticiasCardComponent } from "../noticias-card/noticias-card.component"
 @Component({
   selector: 'app-noticias-inicial',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NoticiasCardComponent],
   templateUrl: './noticias-inicial.component.html',
   styleUrl: './noticias-inicial.component.css'
 })

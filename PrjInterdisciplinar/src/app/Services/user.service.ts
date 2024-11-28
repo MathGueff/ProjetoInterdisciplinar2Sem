@@ -19,8 +19,8 @@ export class UserService {
     private loadUsers(): void {
         this.userMockService.getUsersList().subscribe({
             next: (response: any) => {
-                this.users = response.usuarios || []; // Garante que "usuarios" exista
-                console.log(this.users);
+                this.users = response.usuarios || [];
+                //console.log(this.users);
             },
             error: (err: any) => {
                 console.error('Erro ao buscar usuários:', err);
