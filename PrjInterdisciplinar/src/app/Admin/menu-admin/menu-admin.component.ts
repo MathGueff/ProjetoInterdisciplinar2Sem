@@ -18,6 +18,6 @@ export class MenuAdminComponent {
     {path: '/noticia-form', nome : 'Cadastre uma nova notícia', img : 'assets/icones/icon_white_noticia.svg'},
     {path: '/doenca-inicial', nome : 'Gerenciar doenças do site', img : 'assets/icones/icon_white_doenca.svg'},
     {path: '/doenca-form', nome : 'Cadastre uma nova doença', img : 'assets/icones/icon_white_doenca.svg'},
-    {path: '/pagina-inicial', nome : 'Ver página sobre o responsável', img : 'assets/icones/icon_white_responsavel.svg'},
+    {path: '/responsaveis', nome : 'Ver página sobre o responsável', img : 'assets/icones/icon_white_responsavel.svg'},
   ]
 }
