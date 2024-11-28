@@ -5,3 +5,4 @@ export class Noticia {
   tags: string = '';
   description: String = '';
   image: String = '';
+}

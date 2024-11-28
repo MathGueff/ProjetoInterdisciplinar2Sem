@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { MenuUsuarioComponent } from './Usuario/menu-usuario/menu-usuario.component';
 import { Routes } from '@angular/router';
 import { ReclamacaoDescricaoComponent } from './Reclamacao/reclamacao-descricao/reclamacao-descricao.component';
@@ -13,10 +14,13 @@ import { ComentarioCentralComponent } from './Comentario/comentario-central/come
 import { ReclamacaoFormComponent } from './Reclamacao/reclamacao-form/reclamacao-form.component';
 import { FormDoencaComponent } from './Doenca/form-doenca/form-doenca.component';
 import { NoticiasDetalhesComponent } from './Noticias/noticias-detalhes/noticias-detalhes.component';
+import { EdicaoPerfilComponent } from './Usuario/edicao-perfil/edicao-perfil.component';
+import { ResponsaveisComponent } from './responsaveis/responsaveis/responsaveis.component';
 
 
 export const routes: Routes = [
   {path: '', component:MenuUsuarioComponent},
+  {path: 'responsaveis', component: ResponsaveisComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},
   {path: 'doenca-inicial',component:DoencasInicialComponent},
   {path: 'reclamacao-inicial', component:ReclamacaoInicialComponent},
@@ -33,6 +37,6 @@ export const routes: Routes = [
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
   {path: 'reclamacao-form', component: ReclamacaoFormComponent},
   {path: 'doenca-form', component: FormDoencaComponent},
-  {path: 'editar-perfil', component: EdicaoPerfilComponent}
+  {path: 'editar-perfil', component: EdicaoPerfilComponent},
 
 ];

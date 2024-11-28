@@ -21,25 +21,25 @@ export class NoticiasDetalhesComponent {
       imgNoticia:'img/paginas/responsaveis/trash.jpg'
     },
     {
-      id: 1,
-      title: 'lorem',
-      abstract:'lorem ipsum',
-      source:'https://www.msdmanuals.com/pt/casa/infec%C3%A7%C3%B5es/infec%C3%A7%C3%B5es-parasit%C3%A1rias-protozo%C3%A1rios-intestinais-e-microspor%C3%ADdios/ameb%C3%ADase',
-      imgNoticia:''
+      id: 2,
+      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
+      abstract:'O lançamento de esgoto sem tratamento compromete o trabalho de décadas dedicado à despoluição no Rio Sorocaba. A opinião é de especialistas ouvidos pelo G1, que expõe os problemas e também apresentam possíveis soluções para reverter o cenário. Um relatório da Companhia Ambiental do Estado de São Paulo (Cetesb), divulgado em 2024, com referência a dados coleatados em 2023, aponta que qualidade da água é boa em Votorantim, mas fica apenas regular quando chega em Sorocaba (SP).',
+      source:'https://g1.globo.com/sp/sorocaba-jundiai/noticia/2024/04/29/despejo-de-esgoto-sem-tratamento-no-rio-sorocaba-afeta-processo-de-despoluicao-alertam-especialistas.ghtml',
+      imgNoticia:'img/paginas/responsaveis/trash.jpg'
     },
     {
-      id: 1,
-      title: 'lorem',
-      abstract:'lorem ipsum',
-      source:'https://www.msdmanuals.com/pt/casa/infec%C3%A7%C3%B5es/infec%C3%A7%C3%B5es-parasit%C3%A1rias-protozo%C3%A1rios-intestinais-e-microspor%C3%ADdios/ameb%C3%ADase',
-      imgNoticia:''
+      id: 3,
+      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
+      abstract:'O lançamento de esgoto sem tratamento compromete o trabalho de décadas dedicado à despoluição no Rio Sorocaba. A opinião é de especialistas ouvidos pelo G1, que expõe os problemas e também apresentam possíveis soluções para reverter o cenário. Um relatório da Companhia Ambiental do Estado de São Paulo (Cetesb), divulgado em 2024, com referência a dados coleatados em 2023, aponta que qualidade da água é boa em Votorantim, mas fica apenas regular quando chega em Sorocaba (SP).',
+      source:'https://g1.globo.com/sp/sorocaba-jundiai/noticia/2024/04/29/despejo-de-esgoto-sem-tratamento-no-rio-sorocaba-afeta-processo-de-despoluicao-alertam-especialistas.ghtml',
+      imgNoticia:'img/paginas/responsaveis/trash.jpg'
     },
     {
-      id: 1,
-      title: 'lorem',
-      abstract:'lorem ipsum',
-      source:'https://www.msdmanuals.com/pt/casa/infec%C3%A7%C3%B5es/infec%C3%A7%C3%B5es-parasit%C3%A1rias-protozo%C3%A1rios-intestinais-e-microspor%C3%ADdios/ameb%C3%ADase',
-      imgNoticia:''
+      id: 4,
+      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
+      abstract:'O lançamento de esgoto sem tratamento compromete o trabalho de décadas dedicado à despoluição no Rio Sorocaba. A opinião é de especialistas ouvidos pelo G1, que expõe os problemas e também apresentam possíveis soluções para reverter o cenário. Um relatório da Companhia Ambiental do Estado de São Paulo (Cetesb), divulgado em 2024, com referência a dados coleatados em 2023, aponta que qualidade da água é boa em Votorantim, mas fica apenas regular quando chega em Sorocaba (SP).',
+      source:'https://g1.globo.com/sp/sorocaba-jundiai/noticia/2024/04/29/despejo-de-esgoto-sem-tratamento-no-rio-sorocaba-afeta-processo-de-despoluicao-alertam-especialistas.ghtml',
+      imgNoticia:'img/paginas/responsaveis/trash.jpg'
     },
   ]
   private DetalheSubject = new BehaviorSubject<DetalheNoticia | undefined>(undefined);
