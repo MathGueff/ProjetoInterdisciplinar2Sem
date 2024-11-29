@@ -5,13 +5,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ViacepService } from '../../Services/viacep.service';
 
 @Component({
   selector: 'app-reclamacao-form',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './reclamacao-form.component.html',
   styleUrl: './reclamacao-form.component.css',
 })
@@ -117,8 +117,5 @@ export class ReclamacaoFormComponent implements OnInit {
       };
       reader.readAsDataURL(file);
     }
-  }
-  Voltar(){
-    this.router.navigate(['reclamacao-inicial']);
   }
 }
