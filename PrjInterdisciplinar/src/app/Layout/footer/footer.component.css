@@ -1,10 +1,12 @@
+.borda{
+  border: 5px solid #999898;
+  border-top: none;
+  border-bottom: none;
+}
 .footer{
   height: auto;
   background-color: var(--cor-primaria);
   font-size: 1.1em;
-}
-.row .border-secondary{
-  border-color: #999898 !important;
 }
 h5{
   padding-top: 12px;
@@ -27,5 +29,14 @@ h5{
 .links-footer-img a img{
   width: 40px;
   padding-right: 20px;
+}
+
+
+@media (max-width:1000px) {
+  .borda{
+    border: 5px solid #999898;
+    border-right: none;
+    border-left: none;
+  }
 }
 

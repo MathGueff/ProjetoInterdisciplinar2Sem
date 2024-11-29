@@ -20,25 +20,33 @@ import { FormNoticiaComponent } from './Noticias/form-noticia/form-noticia.compo
 
 
 export const routes: Routes = [
+  //Home
   {path: '', component:MenuUsuarioComponent},
-  {path: 'responsaveis', component: ResponsaveisComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},
+
+  //Reclamações
+  {path: 'reclamacao', component: ReclamacaoInicialComponent},
+  {path: 'reclamacao/reclamacao-form', component: ReclamacaoFormComponent},
+  {path: 'reclamacao/reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
+
+  //Doenças
   {path: 'doenca-inicial',component:DoencasInicialComponent},
-  {path: 'reclamacao-inicial', component:ReclamacaoInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'doenca-detalhada/:id', component:DoencaDetalhesComponent},
-  {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
-  {path: 'sobre-nos', component:SobrenosComponent},
-  {path: 'reclamacao-descricao',component:ReclamacaoDescricaoComponent},
+  {path: 'doenca-form', component: FormDoencaComponent},
+  {path: 'responsaveis', component: ResponsaveisComponent},
+
+  //Noticia
   {path: 'noticia-inicial', component:NoticiasInicialComponent},
   {path: 'noticia-detalhe', component:NoticiasDetalhesComponent},
   {path: 'noticia-detalhe/:id', component:NoticiasDetalhesComponent},
+  {path: 'noticia-form', component: FormNoticiaComponent},
+
+  //Outros
+  {path: 'sobre-nos', component:SobrenosComponent},
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
-  {path: 'reclamacao-form', component: ReclamacaoFormComponent},
-  {path: 'doenca-form', component: FormDoencaComponent},
-  {path: 'noticia-form', component: FormNoticiaComponent},
   {path: 'editar-perfil', component: EdicaoPerfilComponent},
 
 ];
