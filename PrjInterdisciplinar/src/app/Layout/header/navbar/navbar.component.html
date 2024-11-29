@@ -41,5 +41,13 @@
           </a>
         </li>
       }
+      @if(this.adminInfo$ | async){
+        <li>
+          <a routerLink="pagina-admin" routerLinkActive="link-navbar-ativo" class="navbar-header-link d-flex justify-content-center align-items-center text-center">
+            <img src="assets/icones/icon_white_responsavel.svg" alt="Ícone do link para página de Admin">
+            <span>Admin</span>
+          </a>
+        </li>
+      }
   </ul>
 </nav>

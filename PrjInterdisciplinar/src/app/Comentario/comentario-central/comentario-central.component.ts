@@ -25,7 +25,7 @@ import { UserService } from '../../Services/user.service';
 export class ComentarioCentralComponent implements OnInit {
   private userService = inject(UserService);
 
-  private usuarios = this.userService.getUsers();
+  private usuarios = this.userService.getAllUsers();
 
   //Observable Comentário
   private comentarioSubject: BehaviorSubject<Comentario[]> =
