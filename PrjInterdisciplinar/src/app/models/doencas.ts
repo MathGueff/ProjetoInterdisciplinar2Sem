@@ -3,5 +3,4 @@ export class Doencas {
   title: String = "";
   description: String = "";
   image: String = "";
-  tags: string = "";
 }

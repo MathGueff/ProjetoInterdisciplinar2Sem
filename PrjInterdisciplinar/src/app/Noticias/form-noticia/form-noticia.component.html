@@ -35,7 +35,7 @@
           icon="assets/formularios/tag_icon.svg"
           label="Tag:"
           placeholder="Digite a tag"
-          [required]="true"
+          [required]="false"
           fieldType="input"
           (keydown.enter)="onEnter($event, 'tag')"
         ></app-form-field>
@@ -73,7 +73,7 @@
                 (click)="removeFonte(tag)"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
-                title="Remover fonte"
+                title="Remover tag"
               >
                 {{ tag }}
               </li>
@@ -89,7 +89,7 @@
           icon="assets/formularios/fonte_icon.svg"
           label="Fonte:"
           placeholder="Digite a fonte"
-          [required]="true"
+          [required]="false"
           fieldType="input"
           (keydown.enter)="onEnter($event, 'fonte')"
         ></app-form-field>

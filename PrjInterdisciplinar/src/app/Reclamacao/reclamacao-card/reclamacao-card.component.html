@@ -1,8 +1,13 @@
 <div class="card h-100"> <!-- Div do card-->
   <!-- Header do card -->
-  <h5 class="card-header pt-3 pb-3">
-    {{ card.tituloReclamao }}
-  </h5>
+  <div class="card-header pt-3 d-flex flex-line justify-content-between">
+    <h5>
+      {{ card.tituloReclamao }}
+    </h5>
+    <p class="tag d-flex align-items-center">
+      {{ card.objTag }}
+    </p>
+  </div>
   <!-- Body do Card -->
   <div class="card-body d-flex justify-content-lg-start justify-content-md-center">
     <!-- Row dos conteúdos do body -->

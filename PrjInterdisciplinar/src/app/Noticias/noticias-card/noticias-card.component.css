@@ -1,7 +1,8 @@
 .tag{
   border-radius: 30px;
-  color:black;
-  padding: 0px 15px;
+  color:rgb(34, 34, 34);
+  padding: 2px 15px;
   background-color: white;
-  font-size: medium;
+  font-size: 0.9rem;
+  height: 30px;
 }

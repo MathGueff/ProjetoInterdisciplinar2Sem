@@ -12,7 +12,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   templateUrl: './doencas-inicial.component.html',
   styleUrl: './doencas-inicial.component.css'
 })
-export class DoencasInicialComponent implements OnInit {
+export class DoencasInicialComponent{
   private doencaSubject =new BehaviorSubject<Doencas[]>([] as any);
   data$:Observable<Doencas[]> = this.doencaSubject.asObservable();
   TagSelect: FormGroup;
@@ -23,7 +23,6 @@ export class DoencasInicialComponent implements OnInit {
       description:
         'A amebíase é mais comum em regiões onde as condições de saneamento básico são precárias, uma vez que a forma de contaminação se dá via ingestão de seus cistos',
       image: 'img/paginas/doencas/amebiase.jpg',
-      tags: 'tag1'
     },
     {
       id: 2,
@@ -31,7 +30,6 @@ export class DoencasInicialComponent implements OnInit {
       description:
         'De acordo com relatos bem antigos, a cólera estava presente desde os primeiros séculos da humanidade, causando diarreias agudas de aspecto semelhante à água de arroz, vômitos e, em casos mais acentuados, câimbras, perda de peso intensa e olhos turvos',
       image: 'img/paginas/doencas/colera.webp',
-      tags: 'tag2'
     },
     {
       id: 3,
@@ -39,7 +37,6 @@ export class DoencasInicialComponent implements OnInit {
       description:
         'Esquistossomose é uma doença parasitária causada por um platelminto. A doença é também conhecida como doença do caramujo, xistose e barriga d’água.',
       image: 'img/paginas/doencas/esquistossomose.jpg',
-      tags: 'tag3'
     },
     {
       id: 4,
@@ -47,7 +44,6 @@ export class DoencasInicialComponent implements OnInit {
       description:
         'Leptospirose é uma doença transmitida principalmente pela urina de animais infectados, como roedores, e pode ser contraída pelo contato com água ou com solo contaminados.',
       image: 'img/paginas/doencas/leptospirose.webp',
-      tags: 'tag4'
     },
     {
       id: 5,
@@ -55,7 +51,6 @@ export class DoencasInicialComponent implements OnInit {
       description:
         'A ascaridíase é o resultado da infestação do helminto Ascaris lumbricoides no organismo, sendo mais frequentemente encontrado no intestino',
       image: 'img/paginas/doencas/ascaridiase.webp',
-      tags: 'tag5'
     },
   ];
 
@@ -67,21 +62,21 @@ export class DoencasInicialComponent implements OnInit {
     );
    }
 
-   ngOnInit():void{
-    this.TagSelect.valueChanges.subscribe(() => {
-      let lista : Doencas [] = [];
-      //Verifica se nenhuma Tag foi selecionada
-      if(this.TagSelect.value.tagForm === "Todas"){
-        lista = this.doencas;
-      }
-      // Filtra o array de Reclamações pela tag selecionada
-      else{
-        lista = this.doencas.filter((doencas) =>{
-        return doencas.tags === this.TagSelect.value.tagForm
-      });
-      }
-      //atualizando o valor do Observabale
-      this.doencaSubject.next(lista);
-    })
-  }
+  //  ngOnInit():void{
+  //   this.TagSelect.valueChanges.subscribe(() => {
+  //     let lista : Doencas [] = [];
+  //     //Verifica se nenhuma Tag foi selecionada
+  //     if(this.TagSelect.value.tagForm === "Todas"){
+  //       lista = this.doencas;
+  //     }
+  //     // Filtra o array de Reclamações pela tag selecionada
+  //     else{
+  //       lista = this.doencas.filter((doencas) =>{
+  //       return doencas.tags === this.TagSelect.value.tagForm
+  //     });
+  //     }
+  //     //atualizando o valor do Observabale
+  //     this.doencaSubject.next(lista);
+  //   })
+  // }
 }
