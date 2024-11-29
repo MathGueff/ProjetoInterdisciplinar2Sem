@@ -19,37 +19,44 @@ export class NoticiasInicialComponent implements OnInit{
   noticias: Noticia[] = [
     {
       id: 1,
-      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
-      tags:'tag1',
+      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas',
+      tags: 'Poluição',
       description:
-        'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
+        'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas',
       image: 'img/paginas/noticias/noticia1.webp',
-
     },
     {
       id: 2,
-      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
-      tags:'tag1',
+      title: 'Projeto visa recuperação ambiental do Rio Sorocaba em parceria com ONGs.',
+      tags: 'Saneamento',
       description:
-        'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
-      image: 'img/paginas/noticias/noticia1.webp',
+        'Iniciativa pretende reduzir o despejo irregular de resíduos e conscientizar a população.',
+      image: 'img/paginas/reclamacoes/user1.jpg',
     },
     {
       id: 3,
-      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
-      tags:'tag1',
+      title: 'Municípios se unem para investir em saneamento básico.',
+      tags: 'Infraestrutura',
       description:
-        'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
+        'Regiões próximas ao Rio Sorocaba estão adotando planos para melhorar o tratamento de esgoto.',
       image: 'img/paginas/noticias/noticia1.webp',
     },
     {
       id: 4,
-      title: 'Despejo de esgoto sem tratamento no Rio Sorocaba afeta processo de despoluição, alertam especialistas.',
-      tags:'tag1',
+      title: 'Nova tecnologia promete eficiência no tratamento de águas residuais.',
+      tags: 'Inovação',
       description:
-        'Prefeitos eleitos vão governar em ciclo decisivo para metas do saneamento',
+        'Soluções modernas podem acelerar o processo de despoluição e beneficiar comunidades locais.',
       image: 'img/paginas/noticias/noticia1.webp',
     },
+    {
+      id: 5,
+      title: 'População denuncia aumento de poluição no Rio Sorocaba.',
+      tags: 'Denúncia',
+      description:
+        'Moradores relatam impactos negativos na qualidade de vida devido ao esgoto não tratado.',
+      image: 'img/paginas/noticias/noticia1.webp',
+    },    
   ];
 
   constructor(private fb:FormBuilder){
