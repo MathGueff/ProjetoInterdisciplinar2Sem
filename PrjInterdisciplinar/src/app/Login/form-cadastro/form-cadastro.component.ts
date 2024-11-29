@@ -186,7 +186,7 @@ export class FormCadastroComponent implements OnInit{
         }
 
         //Chamando função para verificar se usuário já existe com base no email
-        if(!this.userService.checkIfUserExists(newUser)){
+        if(!this.userService.checkEmailExists(newUser)){
           //Caso não haja usuário, cadastra um novo com os dados preenchidos
           this.userService.newUser(newUser);
           //Retorna à pagina de login para que o usuário possa logar

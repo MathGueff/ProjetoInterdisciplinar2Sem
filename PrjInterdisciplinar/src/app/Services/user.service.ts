@@ -1,89 +1,137 @@
 import { IUser } from './../models/user.model';
 import { inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { UserMockService } from './user-mock.service';
 import { AdminService } from './admin.service';
 import { IAdmin } from '../models/admin.model';
 
-@Injectable({providedIn: 'root'})
-
+@Injectable({ providedIn: 'root' })
 export class UserService {
-    private userMockService = inject(UserMockService);
-    private users : IUser[] = []
-    
-    admins : IAdmin[] = [
-        {id: 1, userId : 1, nivel : 3},
-        {id: 2, userId : 3, nivel : 2},
-        {id: 3, userId : 5, nivel : 1}
-    ]
+  private userMockService = inject(UserMockService);
+  private users: IUser[] = [];
+  private adminService = inject(AdminService);
 
-    constructor() {
-        // Carrega os usuários ao inicializar o serviço
-        this.loadUsers();
-    }
+  //#region Carregando Usuários
+  constructor() {
+    // Carrega os usuários ao inicializar o serviço
+    this.loadUsers();
 
-    // Método para carregar usuários da API
-    private loadUsers(): void {
-        this.userMockService.getUsersList().subscribe({
-            next: (response: any) => {
-                this.users = response.usuarios || [];
-                //console.log(this.users);
-            },
-            error: (err: any) => {
-                console.error('Erro ao buscar usuários:', err);
-            }
-        });
-    }
-
-    /* Observable para avisar quando um novo usuário é logado */
-    private userAtivoSubject = new BehaviorSubject<IUser | null>(null);
-    userAtivo$: Observable<IUser | null> = this.userAtivoSubject.asObservable();
-
-    /* Validação de Usuário */
-    validateUser(email : string, senha : string) : boolean{
-        const findUser = this.users.find(
-            (user) => user.email === email && user.senha === senha
-        );
-        if(findUser){
-            this.userAtivoSubject.next(findUser);
-
-            return true;
+    // Inscrevendo-se para verificar se o usuário logado é um admin
+    this.userAtivo$.subscribe((user) => {
+        if (user) {
+          this.checkIfAdmin(user);
+        } else {
+          this.adminSubject.next(null); // Nenhum usuário ativo implica não é admin
         }
-        /* Caso não tenha achado um usuário com email e senha fornecidos */
-        return false;
-    }
+      });
+  }
 
-    /* Adquire Usuário atual logado */
-    getCurrentUser() : IUser | null{
-        return this.userAtivoSubject.value;
-    }
+  // Método para carregar usuários da API
+  private loadUsers(): void {
+    this.userMockService.getUsersList().subscribe({
+      next: (response: any) => {
+        this.users = response.usuarios || [];
+        //console.log(this.users);
+      },
+      error: (err: any) => {
+        console.error('Erro ao buscar usuários:', err);
+      },
+    });
+  }
+  //#endregion
 
-    /* Criação de um novo usuário */
-    newUser(newUser : IUser){
-        this.userMockService.addUserToList(newUser); //Método POST
-        this.users.push(newUser);
-        console.log(this.users);
-    }
+  /* Observable para avisar quando um novo usuário é logado */
+  private userAtivoSubject = new BehaviorSubject<IUser | null>(null);
+  userAtivo$: Observable<IUser | null> = this.userAtivoSubject.asObservable();
 
-    /* Verificação de usuário existente */
-    checkIfUserExists(newUser : IUser) : boolean{
-        return this.users.some(user => user.email === newUser.email);
-    }
+   // Observable para rastrear se o usuário atual é admin
+   private adminSubject = new BehaviorSubject<IAdmin | null>(null);
+   admin$: Observable<IAdmin | null> = this.adminSubject.asObservable();
 
-    getCurrentID() : number{
-        return this.users.length + 1
-    }
-    
-    // Procura o usuário de acordo com o ID
-    getUserId(id:number) : IUser | undefined{
-      return this.users.find((user) => id === user.id);
-    }
+  //#region Login e Cadastro
+  
+  public fazerLogin(user: IUser) {
+    this.userAtivoSubject.next(user);
+  }
 
-    getUsers() : IUser[]{
-        return this.users;
-    }
+  public logout() {
+    this.userAtivoSubject.next(null);
+  }
+  
+  /* Criação de um novo usuário */
+  public newUser(newUser: IUser) {
+    this.userMockService.addUserToList(newUser); //Método POST
+    this.users.push(newUser);
+    console.log(this.users);
+  }
 
-    logout(){
-        this.userAtivoSubject.next(null);
+  //#endregion
+
+  //#region Validação
+
+  /* Verifica se o usuário com o email e senha passados existe */
+  public validateUser(email: string, senha: string): boolean {
+    const findUser = this.users.find(
+      (user) => user.email === email && user.senha === senha
+    );
+    if (findUser) {
+      this.fazerLogin(findUser);
+      return true;
     }
+    /* Caso não tenha achado um usuário com email e senha fornecidos */
+    return false;
+  }
+
+  //* Verifica se já existe um usuário com esse email*/
+  public checkEmailExists(newUser: IUser): boolean {
+    return this.users.some((user) => user.email === newUser.email);
+  }
+
+  //#endregion
+
+  //#region Getters
+
+  /* Pega todos os usuários existentes */
+  public getAllUsers(): IUser[] {
+    return this.users;
+  }
+
+  /* Pega a contagem atual do ID */
+  public getCurrentID(): number {
+    return this.users.length + 1;
+  }
+
+  /* Adquire o IUser atual logado */
+  public getCurrentUser(): IUser | null {
+    return this.userAtivoSubject.value;
+  }
+
+  // Procura um usuário de acordo com o ID
+  public findUserById(id: number): Observable<IUser> {
+    const user = this.users.find((user) => id === user.id);
+    if (user) {
+      return of(user); // Retorna um Observable com o usuário
+    } else {
+      // Caso o usuário não seja encontrado, você pode lançar um erro
+      throw new Error('Usuário não encontrado');
+    } 
+  }
+
+  //#endregion
+
+  //#region Verificação de Admin
+
+  private checkIfAdmin(user: IUser): void {
+    this.adminService.isAdmin(user.id).subscribe({
+      next: (admin: IAdmin | null) => {
+        this.adminSubject.next(admin);
+      },
+      error: (err: any) => {
+        console.error('Erro ao verificar se é admin:', err);
+        this.adminSubject.next(null); // Em caso de erro, presume-se que não é admin
+      },
+    });
+  }
+
+  //#endregion
 }
