@@ -21,10 +21,8 @@ import { FormNoticiaComponent } from './Noticias/form-noticia/form-noticia.compo
 
 export const routes: Routes = [
   {path: '', component:MenuUsuarioComponent},
-  {path: 'responsaveis', component: ResponsaveisComponent},
   {path: 'pagina-admin', component:MenuAdminComponent},
   {path: 'doenca-inicial',component:DoencasInicialComponent},
-  {path: 'reclamacao-inicial', component:ReclamacaoInicialComponent},
   {path: 'doenca-detalhada', component:DoencaDetalhesComponent},
   {path: 'doenca-detalhada/:id', component:DoencaDetalhesComponent},
   {path: 'reclamacao-descricao/:id',component:ReclamacaoDescricaoComponent},
@@ -36,9 +34,6 @@ export const routes: Routes = [
   {path: 'login', component:FormLoginComponent},
   {path: 'cadastro', component:FormCadastroComponent},
   {path: 'comentario/:idReclamamacao',component:ComentarioCentralComponent},
-  {path: 'reclamacao-form', component: ReclamacaoFormComponent},
-  {path: 'doenca-form', component: FormDoencaComponent},
-  {path: 'noticia-form', component: FormNoticiaComponent},
   {path: 'editar-perfil', component: EdicaoPerfilComponent},
 
 ];

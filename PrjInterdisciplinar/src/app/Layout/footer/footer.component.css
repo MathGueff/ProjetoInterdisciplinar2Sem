@@ -3,9 +3,6 @@
   background-color: var(--cor-primaria);
   font-size: 1.1em;
 }
-.row .border-secondary{
-  border-color: #999898 !important;
-}
 h5{
   padding-top: 12px;
   color: var(--cor-fonte-branca);
