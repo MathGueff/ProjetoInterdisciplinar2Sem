@@ -7,11 +7,12 @@ import { IAdmin } from '../models/admin.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+
+  //Injeção de Dependências
   private userMockService = inject(UserMockService);
   private users: IUser[] = [];
   private adminService = inject(AdminService);
-
-  //#region Carregando Usuários
+  
   constructor() {
     // Carrega os usuários ao inicializar o serviço
     this.loadUsers();
@@ -20,7 +21,7 @@ export class UserService {
     //   { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
     // ];
 
-    // Inscrevendo-se para verificar se o usuário logado é um admin
+    // Verificando se o usuário ativo é admin
     this.userAtivo$.subscribe((user) => {
         if (user) {
           this.checkIfAdmin(user);
@@ -55,8 +56,7 @@ export class UserService {
     ];
     console.warn('Usando dados de fallback.');
   }
-  
-  //#endregion
+
 
   /* Observable para avisar quando um novo usuário é logado */
   private userAtivoSubject = new BehaviorSubject<IUser | null>(null);
@@ -78,7 +78,7 @@ export class UserService {
   
   /* Criação de um novo usuário */
   public newUser(newUser: IUser) {
-    this.userMockService.addUserToList(newUser); //Método POST
+    //this.userMockService.addUserToList(newUser); //Método POST
     this.users.push(newUser);
     console.log(this.users);
   }
@@ -128,9 +128,8 @@ export class UserService {
   public findUserById(id: number): Observable<IUser> {
     const user = this.users.find((user) => id === user.id);
     if (user) {
-      return of(user); // Retorna um Observable com o usuário
+      return of(user);
     } else {
-      // Caso o usuário não seja encontrado, você pode lançar um erro
       throw new Error('Usuário não encontrado');
     } 
   }
