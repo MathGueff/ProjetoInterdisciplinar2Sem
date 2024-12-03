@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { Observable, catchError, of } from "rxjs";
+import { Observable, catchError, of, timeout } from "rxjs";
 import { IUser } from "../models/user.model";
 
 @Injectable({ providedIn: "root" })
@@ -10,21 +10,20 @@ export class UserMockService {
 
   public getUsersList(): Observable<IUser[]> {
     return this.http.get<IUser[]>(this.apiUrl).pipe(
+      timeout(2000),
       catchError((error) => {
         console.error("Erro ao buscar usuários:", error);
-        // Retorna uma lista vazia como fallback
-        return of([]);
+        return of([]); //Retorna a lista vazia
       })
     );
   }
 
-  public addUserToList(newUser: IUser): Observable<IUser> {
-    return this.http.post<IUser>(this.apiUrl, newUser).pipe(
-      catchError((error) => {
-        console.error("Erro ao adicionar usuário:", error);
-        // Retorna um observable vazio para continuar a execução
-        return of(newUser);
-      })
-    );
-  }
+  // public addUserToList(newUser: IUser): Observable<IUser> {
+  //   return this.http.post<IUser>(this.apiUrl, newUser).pipe(
+  //     catchError((error) => {
+  //       console.error("Erro ao adicionar usuário:", error);
+  //       return of(newUser);
+  //     })
+  //   );
+  // }
 }
