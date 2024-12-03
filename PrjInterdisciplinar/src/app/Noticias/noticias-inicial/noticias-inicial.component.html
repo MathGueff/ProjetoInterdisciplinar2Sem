@@ -28,16 +28,17 @@
       <div class="row mb-5">
         <div class="col tags">
           <h2 class="mb-4">Filtre pela Tag</h2>
-          <form class="pesquisa-tag p-4">
+          <form class="pesquisa-tag p-4" [formGroup]="TagSelect">
             <div class="tag-reclamacao">
-              <input list="box" type="search" class="form-select text-center borda" formControlName="tagForm">
+              <input list="box" type="search" class="form-select text-center borda" 
+              formControlName="tagForm">
               <datalist id="box">
                 <option selected>Todos</option>
-                <option>tag1</option>
-                <option>tag2</option>
-                <option>tag3</option>
-                <option>tag4</option>
-                <option>tag5</option>
+                <option>Poluição</option>
+                <option>Saneamento</option>
+                <option>Infraestrutura</option>
+                <option>Inovação</option>
+                <option>Denúncia</option>
                 <option>Nenhum</option>
               </datalist>
             </div>
@@ -51,7 +52,7 @@
     <!-- Row onde ficam os cards -->
     @if (noticias.length > 0) {
     <!-- verificando se a lista é vazia -->
-    <div class="col-12 p-4 px-5" *ngFor="let noticia of noticias">
+    <div class="col-12 p-4 px-5" *ngFor="let noticia of data$ | async">
       <!-- Coluna do card-->
       <app-noticias-card [cardNoticia]="noticia"></app-noticias-card>
     </div>

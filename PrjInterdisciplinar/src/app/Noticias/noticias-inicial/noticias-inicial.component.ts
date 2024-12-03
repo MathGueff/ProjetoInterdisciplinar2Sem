@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../../models/noticia';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { NoticiasCardComponent } from "../noticias-card/noticias-card.component";
 
 @Component({
   selector: 'app-noticias-inicial',
   standalone: true,
-  imports: [CommonModule, NoticiasCardComponent],
+  imports: [CommonModule, NoticiasCardComponent, ReactiveFormsModule],
   templateUrl: './noticias-inicial.component.html',
   styleUrl: './noticias-inicial.component.css'
 })
@@ -71,7 +71,7 @@ export class NoticiasInicialComponent implements OnInit{
     this.TagSelect.valueChanges.subscribe(() => {
       let lista : Noticia [] = [];
       //Verifica se nenhuma Tag foi selecionada
-      if(this.TagSelect.value.tagForm === "Todos"){
+      if(this.TagSelect.value.tagForm === "Todos" || this.TagSelect.value.tagForm == ""){
         lista = this.noticias;
       }
       // Filtra o array de Reclamações pela tag selecionada

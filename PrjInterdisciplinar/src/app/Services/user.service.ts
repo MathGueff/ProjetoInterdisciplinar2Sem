@@ -16,6 +16,10 @@ export class UserService {
     // Carrega os usuários ao inicializar o serviço
     this.loadUsers();
 
+    // this.users = [
+    //   { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
+    // ];
+
     // Inscrevendo-se para verificar se o usuário logado é um admin
     this.userAtivo$.subscribe((user) => {
         if (user) {
@@ -29,15 +33,29 @@ export class UserService {
   // Método para carregar usuários da API
   private loadUsers(): void {
     this.userMockService.getUsersList().subscribe({
-      next: (response: any) => {
-        this.users = response.usuarios || [];
-        //console.log(this.users);
+      next: (response: IUser[]) => {
+        if (response.length > 0) {
+          this.users = response;
+        } else {
+          console.warn('Nenhum usuário encontrado, carregando fallback.');
+          this.loadFallbackUsers(); // Para caso da API dar problema
+        }
       },
-      error: (err: any) => {
-        console.error('Erro ao buscar usuários:', err);
+      error: (err: unknown) => {
+        console.error('Erro ao buscar usuários da API:', err);
+        this.loadFallbackUsers(); 
       },
     });
   }
+  
+  /* Método para carregar usuários padrão caso a API falhe */
+  private loadFallbackUsers(): void {
+    this.users = [
+      { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
+    ];
+    console.warn('Usando dados de fallback.');
+  }
+  
   //#endregion
 
   /* Observable para avisar quando um novo usuário é logado */

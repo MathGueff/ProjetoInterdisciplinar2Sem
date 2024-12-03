@@ -72,7 +72,7 @@ export class ReclamacaoInicialComponent implements OnInit {
     this.TagSelect.valueChanges.subscribe(() => {
       let lista : Reclamacao [] = [];
       //Verifica se nenhuma Tag foi selecionada
-      if(this.TagSelect.value.tagForm === "Todas"){
+      if(this.TagSelect.value.tagForm === "Todos" || this.TagSelect.value.tagForm == ""){
         lista = this.reclamacoes;
       }
       // Filtra o array de Reclamações pela tag selecionada
