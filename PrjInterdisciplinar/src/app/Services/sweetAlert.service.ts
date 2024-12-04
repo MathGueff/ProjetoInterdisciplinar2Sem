@@ -8,8 +8,8 @@ export class SweetAlertService {
       title: message,
       icon: 'success',
       confirmButtonText: 'Ok',
-      color: '#e8e3e3',
       background: '#295A80',
+      color: '#e8e3e3',
       customClass: {
         confirmButton: 'sweet_btn_success',
         title : 'sweet_title',

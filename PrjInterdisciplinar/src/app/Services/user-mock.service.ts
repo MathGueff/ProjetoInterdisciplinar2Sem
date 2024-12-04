@@ -6,11 +6,10 @@ import { IUser } from "../models/user.model";
 @Injectable({ providedIn: "root" })
 export class UserMockService {
   private http = inject(HttpClient);
-  private apiUrl = `https://apimocha.com/sanea-sp/usuarios`;
+  private apiUrl = `https://apimocha.com/sanea-sp2/users`;
 
   public getUsersList(): Observable<IUser[]> {
     return this.http.get<IUser[]>(this.apiUrl).pipe(
-      timeout(2000),
       catchError((error) => {
         console.error("Erro ao buscar usuários:", error);
         return of([]); //Retorna a lista vazia

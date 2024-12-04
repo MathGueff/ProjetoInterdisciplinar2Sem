@@ -1,11 +1,13 @@
 import { Reclamacao } from './../../models/reclamacao';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ReclamacaoCardComponent } from '../reclamacao-card/reclamacao-card.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { NotFoundComponent } from '../../Common/not-found/not-found.component';
+import { UserService } from '../../Services/user.service';
+
 
 
 @Component({
@@ -16,6 +18,9 @@ import { NotFoundComponent } from '../../Common/not-found/not-found.component';
   styleUrl: './reclamacao-inicial.component.css'
 })
 export class ReclamacaoInicialComponent implements OnInit {
+  protected userService = inject(UserService);
+  usuarioAtivo$ = this.userService.userAtivo$; // Observable com as informações do admin
+  
   private reclamacaoSubject =new BehaviorSubject<Reclamacao[]>([] as any);
   data$:Observable<Reclamacao[]> = this.reclamacaoSubject.asObservable();
   protected vazio: boolean = false;

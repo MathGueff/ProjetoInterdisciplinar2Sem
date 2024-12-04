@@ -44,17 +44,20 @@
         <!-- <app-tag-select></app-tag-select> -->
       </div>
     </div>
-    <!-- row tag  -->
-    <div class="row mb-5">
-      <div class="col text-center adicionar">
-        <h2 class="mb-4">Adicione sua reclamação</h2>
-        <div class="adicionar-btn py-3">
-          <a routerLink="reclamacao-form" class="btn btn-secondary"
-            >Adicionar</a
-          >
+    @if(this.usuarioAtivo$ | async){
+      <!-- row tag  -->
+      <div class="row mb-5">
+        <div class="col text-center adicionar">
+          <h2 class="mb-4">Adicione sua reclamação</h2>
+          <div class="adicionar-btn py-3">
+            <a routerLink="reclamacao-form" class="btn btn-secondary"
+              >Adicionar</a
+            >
+          </div>
         </div>
       </div>
-    </div>
+    }
+    
     <!-- row adicionar reclamação -->
     <div class="row mt-4 mb-4 cards-div">
       <!-- Row onde ficam os cards -->
