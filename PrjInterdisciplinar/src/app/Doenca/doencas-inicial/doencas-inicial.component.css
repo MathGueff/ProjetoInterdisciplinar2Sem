@@ -47,6 +47,7 @@ h2 {
   text-align: center;
   width: 50%;
 }
+
 /* Código antigo do card */
 /* .card{
   background-color: var(--cor-secundaria);
@@ -68,3 +69,14 @@ h2 {
   margin-top: 20px;
   max-height: 100px;
 } */
+
+.banner{
+  margin: 50px 50px;
+  padding: 0 50px;
+  background-color: #F0F0F0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

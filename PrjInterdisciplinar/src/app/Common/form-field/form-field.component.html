@@ -6,7 +6,7 @@
         <span *ngIf="required" class="required-control">*</span>
     </label>
     <!-- Baseado no tipo especificado ele mostra um input, textarea ou select -->
-    <div [ngSwitch]="fieldType" class="d-flex">
+    <div [ngSwitch]="fieldType" >
         <input
             *ngSwitchDefault
             [formControlName] = "controlName"
@@ -24,12 +24,18 @@
         [placeholder]="placeholder"
         rows="3"
         class="form-control"
-      ></textarea>
-      @if (type == 'password' || this.showPassword == true) 
-      {
-        <img (click)="changeType()" class="icon show-password-icon" src="assets/login/view_icon.svg"> 
-      }
+        ></textarea>
+        
+    @if (type == 'password' || this.showPassword == true) 
+    {
+        <div class="show_password ms-1" (click)="changeType()" >
+            <img class="icon show_password_icon me-1" src="assets/login/{{!showPassword ? 'show_password_icon' : 'hide_password_icon'}}.svg"> 
+            <span class="form-text">{{!showPassword ? 'Mostrar senha' : 'Esconder senha'}}</span>
+        </div>
+    }
     </div>
+    
+   
     <!-- Exibição de erros no formulário -->
 
     <!--

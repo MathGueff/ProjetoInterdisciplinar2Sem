@@ -1,21 +1,23 @@
 <div class="background">
   <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
     <!-- Banner -->
-    <div
-      class="col-10 segundo-fundo d-flex flex-line justify-content-center align-items-center"
-    >
-      <img
-        id="main-img"
-        src="img/paginas/doencas/pessoa_doente.svg"
-        alt="pessoa_doente.svg"
-      />
-      <span id="texto-banner-doencas">
-        O saneamento básico é crucial para a saúde pública, prevenindo doenças
-        e promovendo o bem-estar. O acesso a água potável, esgoto tratado e
-        manejo correto de resíduos sólidos reduz a contaminação ambiental e a
-        exposição a agentes patogênicos. Proteja sua saúde e o meio ambiente com
-        os cuidados necessários!
-      </span>
+    <div class="row banner">
+      <div class="col">
+        <img
+          class="img-fluid"
+          src="img/paginas/doencas/pessoa_doente.svg"
+          alt="banner reclamacao"
+        />
+      </div>
+      <div class="col-8">
+        <p>
+          O saneamento básico é crucial para a saúde pública, prevenindo doenças
+          e promovendo o bem-estar. O acesso a água potável, esgoto tratado e
+          manejo correto de resíduos sólidos reduz a contaminação ambiental e a
+          exposição a agentes patogênicos. Proteja sua saúde e o meio ambiente com
+          os cuidados necessários!
+        </p>
+      </div>
     </div>
     <!-- Banner -->
     <div class="row d-flex justify-content-center">
@@ -52,7 +54,7 @@
           <app-doenca-card [cardDoenca]="doenca"></app-doenca-card>
         </div> <!-- Fim da Coluna do card -->
       }
-
+      
     </div>
     <!-- Card antigo de doença -->
     <!-- <div class="row gap-5" *ngFor="let doenca of doencas">

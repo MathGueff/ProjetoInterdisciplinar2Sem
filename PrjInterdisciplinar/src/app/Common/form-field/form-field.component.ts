@@ -10,7 +10,6 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './form-field.component.css'
 })
 export class FormFieldComponent{
-  protected showPassword : boolean = false;
   @Input() formGroup !: FormGroup; //Form gruop utilizado no componente pai
   @Input() formName : string = 'form'; //Usado para concatenar ao nome do campo para gerar names e ids diferentes (controlName + '-' + formName)
   @Input() controlName!: string; //Nome do campo
@@ -48,6 +47,9 @@ export class FormFieldComponent{
         return 'Tipo de validação não especificada'
     }
   }
+  
+  protected showPassword : boolean = false;
+  protected passwordIcon : string = 'show_password_icon'
 
   changeType(){
     this.showPassword = !this.showPassword;

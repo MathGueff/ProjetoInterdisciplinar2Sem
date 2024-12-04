@@ -57,6 +57,32 @@
     --comentario-reclamacao: 1.25rem;
 }
 
+/* Estilos do SweetAlert */
+.sweet_popup{
+  width: 400px; /* Largura personalizada */
+  height: auto; /* Altura automática */
+  padding: 10px; /* Ajuste do padding */
+}
+
+.sweet_title{
+  font-size: 1.2rem;
+}
+
+.sweet_btn_success {
+  background-color: var(--cor-background);  
+  color: var(--cor-primaria);              
+  border: none;               
+  padding: 10px 20px;        
+  font-size: 16px;            
+  border-radius: 5px;         
+}
+
+.sweet_btn_success:focus {
+  outline: 2px solid var(--cor-secundaria); 
+  box-shadow: 0 0 5px var(--cor-secundaria); 
+}
+/* Fim dos estilos do SweetAlert */
+
 .rounded{
   border-radius: 20px;
 }
@@ -123,11 +149,6 @@
   -webkit-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
   -moz-box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
   box-shadow: 3px 10px 17px -11px rgba(0,0,0,0.75);
-}
-
-.card-image-div{
-  margin-bottom: 20px;
-  max-width: 250px !important;
 }
 
 @media(max-width: 992px){

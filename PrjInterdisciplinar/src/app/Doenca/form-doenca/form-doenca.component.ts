@@ -8,6 +8,7 @@ import { Router, RouterModule } from '@angular/router';
 import { IFieldForm } from '../../models/fieldForm.model';
 import { FormFieldComponent } from "../../Common/form-field/form-field.component";
 import { CheckErrorComponent } from "../../Common/check-error/check-error.component";
+import { SweetAlertService } from '../../Services/sweetAlert.service';
 
 @Component({
   selector: 'app-form-doenca',
@@ -20,7 +21,8 @@ export class FormDoencaComponent {
   //Injeção de Dependências
   private fb = inject(NonNullableFormBuilder);
   private doencaService = inject(DoencaService);
-  private router = inject(Router)
+  private router = inject(Router);
+  private sweetAlert = inject(SweetAlertService);
 
   protected doencaErrorStatus : DoencaErrorStatus = DoencaErrorStatus.None; //Var de erros
   protected sintomas : string[] = []; //Sintomas adicionados
@@ -121,6 +123,7 @@ export class FormDoencaComponent {
     }
     console.log(newDoenca);
     this.doencaService.newDoenca(newDoenca);
+    this.sweetAlert.showMessage("Doença cadastrada com sucesso");
   }
 
   private isFormValid(): boolean {
