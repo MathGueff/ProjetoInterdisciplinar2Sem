@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Noticia } from '../../models/noticia';
+import { INoticia } from '../../models/noticias.model';
 
 @Component({
   selector: 'app-noticias-card',
@@ -10,5 +11,5 @@ import { Noticia } from '../../models/noticia';
   styleUrl: './noticias-card.component.css'
 })
 export class NoticiasCardComponent {
-  @Input () cardNoticia !: Noticia;
+  @Input () cardNoticia !: INoticia;
 }

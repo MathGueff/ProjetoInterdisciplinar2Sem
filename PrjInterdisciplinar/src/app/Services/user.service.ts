@@ -16,12 +16,8 @@ export class UserService {
   
   constructor(private sweetAlert : SweetAlertService) {
     // Carrega os usuários ao inicializar o serviço
-    //this.loadUsers();
-
-    this.users = [
-      { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
-    ];
-
+    this.loadUsers();
+    //this.loadFallbackUsers();
     // Verificando se o usuário ativo é admin
     this.userAtivo$.subscribe((user) => {
         if (user) {
@@ -35,9 +31,10 @@ export class UserService {
   // Método para carregar usuários da API
   private loadUsers(): void {
     this.userMockService.getUsersList().subscribe({
-      next: (response: IUser[]) => {
-        if (response.length > 0) {
-          this.users = response;
+      next: (response: any) => {
+        if (response.usuarios.length > 0) {
+          this.users = response.usuarios;
+          console.log(this.users);
         } else {
           console.warn('Nenhum usuário encontrado, carregando fallback.');
           this.loadFallbackUsers(); // Para caso da API dar problema
@@ -53,7 +50,42 @@ export class UserService {
   /* Método para carregar usuários padrão caso a API falhe */
   private loadFallbackUsers(): void {
     this.users = [
-      { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
+      { 
+        id: 1,
+        nome: 'Matheus', 
+        email: 'gueff@gmail.com', 
+        senha: 'matheus',
+        endereco:{
+          cep: '18075718',
+          bairro : 'Jardim Brasilândia',
+          logradouro : 'Rua Alonco Muchon',
+          cidade : 'Sorocaba'
+        } 
+      },
+      { 
+        id: 2,
+        nome: 'Davy', 
+        email: 'davy@gmail.com', 
+        senha: '123456',
+        endereco:{
+          cep: '17571802',
+          bairro : 'Jardim Europa',
+          logradouro : 'Rua Rock',
+          cidade : 'Votorantim'
+        } 
+      },
+      { 
+        id: 3,
+        nome: 'Adryann', 
+        email: 'adryann@gmail.com', 
+        senha: '123456',
+        endereco:{
+          cep: '11111111',
+          bairro : 'Bairro tal',
+          logradouro : 'Rua tal',
+          cidade : 'Sorocaba'
+        } 
+      },
     ];
     console.warn('Usando dados de fallback.');
   }
