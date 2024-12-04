@@ -59,9 +59,7 @@
 
 /* Estilos do SweetAlert */
 .sweet_popup{
-  width: 400px; /* Largura personalizada */
-  height: auto; /* Altura automática */
-  padding: 10px; /* Ajuste do padding */
+  padding: 10px; 
 }
 
 .sweet_title{
@@ -69,7 +67,7 @@
 }
 
 .sweet_btn_success {
-  background-color: var(--cor-background);  
+  background-color: var(--cor-terciaria);  
   color: var(--cor-primaria);              
   border: none;               
   padding: 10px 20px;        
