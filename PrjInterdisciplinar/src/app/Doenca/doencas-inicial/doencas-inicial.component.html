@@ -49,12 +49,17 @@
       <!-- Filtro -->
     </div>
     <div class="row my-4 cards-div d-flex justify-content-center align-items-center"> <!-- Row onde ficam os cards -->
-      @if (doencas.length > 0) { <!-- verificando se a lista é vazia -->
+      @if(!vazio) { <!-- verificando se a lista é vazia -->
         <div class="col-12 p-4 px-5" *ngFor="let doenca of doencas"> <!-- Coluna do card-->
           <app-doenca-card [cardDoenca]="doenca"></app-doenca-card>
         </div> <!-- Fim da Coluna do card -->
       }
-      
+      @else {
+        <div class="erro m-auto my-3">
+          <app-not-found [mensageError]="erro"></app-not-found>
+        </div>
+      }
+
     </div>
     <!-- Card antigo de doença -->
     <!-- <div class="row gap-5" *ngFor="let doenca of doencas">

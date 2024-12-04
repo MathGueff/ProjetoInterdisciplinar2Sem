@@ -4,17 +4,28 @@ import { Doencas } from '../../models/doencas';
 import { DoencaCardComponent } from '../doenca-card/doenca-card.component';
 import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { NotFoundComponent } from '../../Common/not-found/not-found.component';
 
 @Component({
   selector: 'app-doencas-inicial',
   standalone: true,
-  imports: [CommonModule, DoencaCardComponent, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    DoencaCardComponent,
+    ReactiveFormsModule,
+    NotFoundComponent,
+  ],
   templateUrl: './doencas-inicial.component.html',
-  styleUrl: './doencas-inicial.component.css'
+  styleUrl: './doencas-inicial.component.css',
 })
-export class DoencasInicialComponent{
-  private doencaSubject =new BehaviorSubject<Doencas[]>([] as any);
-  data$:Observable<Doencas[]> = this.doencaSubject.asObservable();
+export class DoencasInicialComponent implements OnInit {
+  //variaveis para poder controlar o componente NotFound
+  //variaveis para poder controlar o componente NotFound
+  protected vazio: boolean = true;
+  erro: string = "doenças";
+  //Observable Doenças
+  private doencaSubject = new BehaviorSubject<Doencas[]>([] as any);
+  data$: Observable<Doencas[]> = this.doencaSubject.asObservable();
   TagSelect: FormGroup;
   doencas: Doencas[] = [
     {
@@ -54,29 +65,37 @@ export class DoencasInicialComponent{
     },
   ];
 
-  constructor(private fb:FormBuilder){
+  constructor(private fb: FormBuilder) {
     this.doencaSubject.next(this.doencas);
     this.TagSelect = this.fb.group({
-        tagForm: ['Todos']
-      }
-    );
-   }
+      tagForm: ['Todos'],
+    });
+  }
 
-  //  ngOnInit():void{
-  //   this.TagSelect.valueChanges.subscribe(() => {
-  //     let lista : Doencas [] = [];
-  //     //Verifica se nenhuma Tag foi selecionada
-  //     if(this.TagSelect.value.tagForm === "Todas"){
-  //       lista = this.doencas;
-  //     }
-  //     // Filtra o array de Reclamações pela tag selecionada
-  //     else{
-  //       lista = this.doencas.filter((doencas) =>{
-  //       return doencas.tags === this.TagSelect.value.tagForm
-  //     });
-  //     }
-  //     //atualizando o valor do Observabale
-  //     this.doencaSubject.next(lista);
-  //   })
-  // }
+  ngOnInit(): void {
+    /*
+    this.TagSelect.valueChanges.subscribe(() => {
+      let lista: Doencas[] = [];
+      //Verifica se nenhuma Tag foi selecionada
+      if (this.TagSelect.value.tagForm === 'Todas') {
+        lista = this.doencas;
+      }
+      // Filtra o array de Reclamações pela tag selecionada
+      else {
+        lista = this.doencas.filter((doencas) => {
+          return doencas.tags === this.TagSelect.value.tagForm;
+        });
+      }
+      //atualizando o valor do Observabale
+      this.doencaSubject.next(lista);
+    });
+    */
+    //verifica se lista de doenças é vazia
+    if(this.doencas.length > 0){
+      this.vazio = false;
+    }
+    else{
+      this.vazio = true;
+    }
+  }
 }
