@@ -9,6 +9,7 @@ import { FormFieldComponent } from '../../Common/form-field/form-field.component
 import { NoticiaErrorStatus } from '../NoticiaErrorStatus.enum';
 import { INoticia } from '../../models/noticias.model';
 import { NoticiaService } from '../../Services/noticia.service';
+import { SweetAlertService } from '../../Services/sweetAlert.service';
 
 @Component({
   selector: 'app-form-noticia',
@@ -21,7 +22,8 @@ export class FormNoticiaComponent {
     //Injeção de Dependências
     private fb = inject(NonNullableFormBuilder);
     private noticiaService = inject(NoticiaService);
-    private router = inject(Router)
+    private router = inject(Router);
+    private sweetAlert = inject(SweetAlertService);
 
     protected noticiaErrorStatus : NoticiaErrorStatus = NoticiaErrorStatus.None; //Var de erros
     protected tags : string[] = []; //Tags adicionadas
@@ -102,6 +104,7 @@ export class FormNoticiaComponent {
       }
       console.log(newNoticia);
       this.noticiaService.newNoticia(newNoticia);
+      this.sweetAlert.showMessage("Notícia cadastrada com sucesso")
     }
 
     private isFormValid(): boolean {

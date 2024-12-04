@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { UserMockService } from './user-mock.service';
 import { AdminService } from './admin.service';
 import { IAdmin } from '../models/admin.model';
+import { SweetAlertService } from './sweetAlert.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -13,13 +14,13 @@ export class UserService {
   private users: IUser[] = [];
   private adminService = inject(AdminService);
   
-  constructor() {
+  constructor(private sweetAlert : SweetAlertService) {
     // Carrega os usuários ao inicializar o serviço
-    this.loadUsers();
+    //this.loadUsers();
 
-    // this.users = [
-    //   { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
-    // ];
+    this.users = [
+      { nome: 'Matheus', email: 'gueff@gmail.com', id: 1, senha: 'matheus' },
+    ];
 
     // Verificando se o usuário ativo é admin
     this.userAtivo$.subscribe((user) => {
@@ -69,6 +70,7 @@ export class UserService {
   //#region Login e Cadastro
   
   public fazerLogin(user: IUser) {
+    this.sweetAlert.showMessage("Login realizado com sucesso");
     this.userAtivoSubject.next(user);
   }
 
@@ -80,6 +82,7 @@ export class UserService {
   public newUser(newUser: IUser) {
     //this.userMockService.addUserToList(newUser); //Método POST
     this.users.push(newUser);
+    this.sweetAlert.showMessage("Cadastrado com sucesso");
     console.log(this.users);
   }
 

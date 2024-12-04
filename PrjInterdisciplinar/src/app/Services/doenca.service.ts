@@ -17,7 +17,6 @@ export class DoencaService{
   /* Criação de uma nova Doença */
   newDoenca(newDoenca : IDoenca){
     this.doencas.push(newDoenca);
-    console.log(this.doencas);
   }
 
   getCurrentID() : number{
