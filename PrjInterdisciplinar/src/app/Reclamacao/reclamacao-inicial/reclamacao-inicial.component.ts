@@ -60,7 +60,7 @@ export class ReclamacaoInicialComponent implements OnInit {
       dataReclamacao: "2024-11-24",
       objTag: "Drenagem",
       objImagem : "img/paginas/reclamacoes/user5.jpg"
-    }
+    },
   ];
   constructor(private fb:FormBuilder){
     this.reclamacaoSubject.next(this.reclamacoes);
