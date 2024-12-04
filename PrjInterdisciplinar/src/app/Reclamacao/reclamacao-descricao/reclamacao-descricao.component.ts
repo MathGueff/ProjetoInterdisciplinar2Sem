@@ -3,17 +3,25 @@ import { Reclamacao } from '../../models/reclamacao';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { NotFoundComponent } from '../../Common/not-found/not-found.component';
 
 @Component({
   selector: 'app-reclamacao-descricao',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,NotFoundComponent],
   templateUrl: './reclamacao-descricao.component.html',
   styleUrl: './reclamacao-descricao.component.css'
 })
 export class ReclamacaoDescricaoComponent implements OnInit {
+  //Observable de reclamacao
   private reclacaoSubject = new BehaviorSubject<Reclamacao | undefined>(undefined);
   dado$: Observable<Reclamacao | undefined> = this.reclacaoSubject.asObservable();
+
+  //variaveis para poder controlar o componente NotFound
+  protected vazio: boolean = true;
+  erro: string = ""
+  caminhoVoltar : string = "../../"; //caminho para voltar para reclamação inicial
+
   constructor(private activedrouter : ActivatedRoute){}
   ngOnInit(): void {
     this.activedrouter.params.subscribe( (parametros) =>{
@@ -22,11 +30,12 @@ export class ReclamacaoDescricaoComponent implements OnInit {
       // procura a reclamação que tenha o ID da URL
       const reclamacao = this.reclamacoes.find((reclamacao) => reclamacao.idReclamacao  === idParametro );
 
-      if(reclamacao){
+      if(reclamacao !== undefined){
         this.reclacaoSubject.next(reclamacao);
-        console.log(this.dado$);
+        this.vazio = false;
       }else{
-        console.log("Erro --> O método find esta retornando 'undefield'");
+        this.erro = "reclamação";
+        this.vazio = true;
       }
 
     }

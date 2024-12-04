@@ -28,7 +28,7 @@
           <h2 class="mb-4">Filtre pela Tag</h2>
           <form class="pesquisa-tag p-4" [formGroup]="TagSelect">
             <div class="tag-reclamacao">
-              <input list="box" type="search" class="form-select text-center borda" 
+              <input list="box" type="search" class="form-select text-center borda"
               formControlName="tagForm">
               <datalist id="box">
                 <option selected>Todos</option>
@@ -48,13 +48,18 @@
     class="row my-4 cards-div d-flex justify-content-center align-items-center"
   >
     <!-- Row onde ficam os cards -->
-    @if (noticias.length > 0) {
+    @if (!vazio) {
     <!-- verificando se a lista é vazia -->
     <div class="col-12 p-4 px-5" *ngFor="let noticia of data$ | async">
       <!-- Coluna do card-->
       <app-noticias-card [cardNoticia]="noticia"></app-noticias-card>
     </div>
     <!-- Fim da Coluna do card -->
+    }
+    @else {
+      <div class="erro m-auto my-3">
+        <app-not-found [mensageError]="erro"></app-not-found>
+      </div>
     }
   </div>
 </div>

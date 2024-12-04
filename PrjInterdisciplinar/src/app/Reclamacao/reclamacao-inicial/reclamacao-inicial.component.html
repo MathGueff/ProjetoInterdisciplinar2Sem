@@ -38,7 +38,6 @@
               <option>Esgoto</option>
               <option>Lixo</option>
               <option>Qualidade da Água</option>
-              <option>Nenhum</option>
             </datalist>
           </div>
         </form>
@@ -60,22 +59,27 @@
     }
     
     <!-- row adicionar reclamação -->
-    <div class="row"></div>
     <div class="row mt-4 mb-4 cards-div">
       <!-- Row onde ficam os cards -->
-      @if (data$ | async) {
-      <!-- verificando se houve atualização da lista -->
-      <div
-        class="col-12 p-4 ps-5 pe-5"
-        *ngFor="let reclamacao of data$ | async"
-      >
-        <!-- Coluna do card-->
-        <app-reclamacao-card [card]="reclamacao"></app-reclamacao-card>
-      </div>
-      <!-- Fim da Coluna do card -->
+      @if (!vazio) { <!-- Verifica se tem valor na lista -->
+        @if (data$ | async) {
+          <!-- verificando se houve atualização da lista -->
+          <div class="col-12 p-4 ps-5 pe-5" *ngFor="let reclamacao of data$ | async">
+            <!-- Coluna do card-->
+            <app-reclamacao-card [card]="reclamacao"></app-reclamacao-card>
+          </div>
+          <!-- Fim da Coluna do card -->
+        }
       }
+      @else {
+        <div class="col m-5">
+          <app-not-found [mensageError] = "erro"></app-not-found>
+        </div>
+      }
+
     </div>
     <!-- Fim do row dos cards -->
   </div>
   <!-- Fim container-fluid -->
 </div>
+

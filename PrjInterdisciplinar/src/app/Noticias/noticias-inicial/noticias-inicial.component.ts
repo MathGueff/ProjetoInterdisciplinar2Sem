@@ -6,17 +6,23 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { NoticiasCardComponent } from "../noticias-card/noticias-card.component";
 import { NoticiaService } from '../../Services/noticia.service';
 import { INoticia } from '../../models/noticias.model';
+import { NotFoundComponent } from '../../Common/not-found/not-found.component';
 
 @Component({
   selector: 'app-noticias-inicial',
   standalone: true,
-  imports: [CommonModule, NoticiasCardComponent, ReactiveFormsModule],
+  imports: [CommonModule, NoticiasCardComponent, ReactiveFormsModule, NotFoundComponent],
   templateUrl: './noticias-inicial.component.html',
   styleUrl: './noticias-inicial.component.css'
 })
 export class NoticiasInicialComponent implements OnInit{
   private noticiaService = inject(NoticiaService);
   private NoticiaSubject =new BehaviorSubject<INoticia[]>([] as any);
+
+  //variaveis para poder controlar o componente NotFound
+  protected vazio: boolean = false;
+  erro: string = "notícia"
+
   data$:Observable<INoticia[]> = this.NoticiaSubject.asObservable();
   TagSelect: FormGroup;
   noticias: INoticia[] = this.noticiaService.getNoticias();
@@ -39,10 +45,16 @@ export class NoticiasInicialComponent implements OnInit{
       // Filtra o array de Reclamações pela tag selecionada
       else{
         lista = this.noticias.filter((Noticia) =>{
-        return Noticia.tags_noticia === this.TagSelect.value.tagForm
+        return Noticia.tags_noticia[0] === this.TagSelect.value.tagForm
       });
       }
       //atualizando o valor do Observabale
+      if(lista.length > 0){
+        this.vazio = false;
+      }
+      else{
+        this.vazio = true;
+      }
       this.NoticiaSubject.next(lista);
     })
   }

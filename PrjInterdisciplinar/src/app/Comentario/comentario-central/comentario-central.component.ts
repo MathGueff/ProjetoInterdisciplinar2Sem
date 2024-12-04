@@ -8,6 +8,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Reclamacao } from '../../models/reclamacao';
 import { UserService } from '../../Services/user.service';
+import { NotFoundComponent } from '../../Common/not-found/not-found.component';
 
 @Component({
   selector: 'app-comentario-central',
@@ -18,6 +19,7 @@ import { UserService } from '../../Services/user.service';
     ComentarioBaixoComponent,
     ComentarioInputComponent,
     RouterModule,
+    NotFoundComponent
   ],
   templateUrl: './comentario-central.component.html',
   styleUrl: './comentario-central.component.css',
@@ -26,6 +28,12 @@ export class ComentarioCentralComponent implements OnInit {
   private userService = inject(UserService);
 
   private usuarios = this.userService.getAllUsers();
+
+   //variaveis para poder controlar o componente NotFound
+   protected vazio: boolean = true;
+   erro: string = "" // mensaagem de erro
+   caminhoVoltar : string = ""; //caminho para voltar para reclamação descricao
+
 
   //Observable Comentário
   private comentarioSubject: BehaviorSubject<Comentario[]> =
@@ -170,7 +178,7 @@ export class ComentarioCentralComponent implements OnInit {
         (reclamacao) => reclamacao.idReclamacao === IdParametro
       );
 
-      //Verifica se o reclamacao está fazia
+      //Verifica se a existe reclamacao
       if (reclamacao !== undefined) {
         //Filtra todos os comentários de acordo com o ID da objReclamação e retorna uma Array
         const comentario = this.comentarios.filter(
@@ -182,11 +190,16 @@ export class ComentarioCentralComponent implements OnInit {
           //atualiza os observables
           this.comentarioSubject.next(comentario);
           this.reclamacaoSubject.next(reclamacao);
+          this.vazio = false;
         } else {
-          console.log('Não foi encontrado nenhum comentário dessa reclamação');
+          this.erro = "um comentário para esta reclamação";
+          this.caminhoVoltar = "../../reclamacao/reclamacao-descricao/" + IdParametro;
+          this.vazio = true;
         }
       } else {
-        console.log('Id de Reclamação Inválido');
+        this.erro = "reclamação";
+        this.caminhoVoltar = "../../reclamacao";
+        this.vazio = true;
       }
     });
   }

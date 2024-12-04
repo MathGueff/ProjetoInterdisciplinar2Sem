@@ -3,16 +3,22 @@ import { DetalheDoenca } from '../../models/detalhe';
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { NotFoundComponent } from '../../Common/not-found/not-found.component';
 
 
 @Component({
   selector: 'app-doenca-detalhes',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NotFoundComponent],
   templateUrl: './doenca-detalhes.component.html',
   styleUrl: './doenca-detalhes.component.css'
 })
 export class DoencaDetalhesComponent {
+  //variaveis para poder controlar o componente NotFound
+  protected vazio: boolean = true;
+  erro: string = "doença"
+  caminhoVoltar : string = "/doenca-inicial"; //caminho para voltar para doenca inicial
+
   Detalhes: DetalheDoenca[] = [
     {
       id: 1,
@@ -70,11 +76,11 @@ export class DoencaDetalhesComponent {
 
     const detalhes = this.Detalhes.find((Detalhes) => Detalhes.id  === idParametro );
 
-    if(detalhes){
-      this.DetalheSubject.next(detalhes);
-      console.log(this.dado$);
-    }else{
-      console.log("Erro --> O método find esta retornando 'undefield'");
+    if(detalhes !== undefined){
+        this.DetalheSubject.next(detalhes);
+        this.vazio = false;
+      }else{
+        this.vazio = true;
     }
   }
   )
