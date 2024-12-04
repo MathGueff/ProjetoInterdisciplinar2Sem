@@ -38,7 +38,6 @@
               <option>Esgoto</option>
               <option>Lixo</option>
               <option>Qualidade da Água</option>
-              <option>Nenhum</option>
             </datalist>
           </div>
         </form>
@@ -57,7 +56,6 @@
       </div>
     </div>
     <!-- row adicionar reclamação -->
-    <div class="row"></div>
     <div class="row mt-4 mb-4 cards-div">
       <!-- Row onde ficam os cards -->
       @if (!vazio) { <!-- Verifica se tem valor na lista -->
@@ -72,7 +70,7 @@
       }
       @else {
         <div class="col m-5">
-          <app-not-found></app-not-found>
+          <app-not-found [mensageError] = "erro"></app-not-found>
         </div>
       }
 

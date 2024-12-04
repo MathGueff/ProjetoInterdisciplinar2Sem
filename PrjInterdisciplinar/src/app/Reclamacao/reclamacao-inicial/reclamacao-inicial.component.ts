@@ -18,7 +18,8 @@ import { NotFoundComponent } from '../../Common/not-found/not-found.component';
 export class ReclamacaoInicialComponent implements OnInit {
   private reclamacaoSubject =new BehaviorSubject<Reclamacao[]>([] as any);
   data$:Observable<Reclamacao[]> = this.reclamacaoSubject.asObservable();
-  protected vazio: boolean = true;
+  protected vazio: boolean = false;
+  erro : string = "";
   TagSelect: FormGroup;
   reclamacoes: Reclamacao [] = [
     {
@@ -86,9 +87,12 @@ export class ReclamacaoInicialComponent implements OnInit {
 
       // Verifica se a lista é vazia
       if(lista.length === 0 ){
+        // lista vazia
         this.vazio = true;
+        this.erro = "reclamação"
       }
       else{
+        // lista com conteudo
         this.vazio = false;
       }
 
